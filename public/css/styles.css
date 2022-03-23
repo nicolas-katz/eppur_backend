@@ -7,6 +7,12 @@
     font-family: 'Fredoka', sans-serif;
 }
 
+/* color links */
+
+.color-links.active {
+    color: rebeccapurpl !important;
+}
+
 /* navbar */
 
 .banner {
@@ -57,7 +63,7 @@ nav {
 }
 
 .navlinks a:hover {
-    color: wheat;
+    color: gray;
 }
 
 .brand {
@@ -92,10 +98,62 @@ nav {
 }
 
 .usernav svg:hover {
-    color: wheat;
+    color: gray;
 }
 
 /* Cart Widget OffCanvas */
+
+.offcanvas-header {
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+    padding: 24px !important;
+    border-bottom: 1px solid gainsboro;
+}
+
+.offcanvas-header h5 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 300;
+}
+
+.offcanvas-header button:focus {
+    box-shadow: none;
+    color: black;
+}
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px !important;
+}
+
+.offcanvas-body h6 {
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    visibility: hidden;
+}
+
+.offcanvas-body button {
+    width: 100%;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    background: black;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.offcanvas-body button:hover {
+    background: white;
+    color: black;
+}
 
 /* index */
 
@@ -140,16 +198,21 @@ nav {
 /* details */
 
 .details {
-    padding: 100px;
+    padding: 100px 160px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.details img {
+.details .carousel {
+    height: 580px;
+}
+
+.details .carousel img {
     object-fit: cover;
-    height: 600px;
-    min-width: 45%;
+    height: 580px;
+    min-height: 580px;
+    min-width: 100%;
+    width: 100%;
 }
 
 .details .details-content {
@@ -207,7 +270,7 @@ nav {
     border: 1px solid black;
 }
 
-.details .details-content button {
+.details .details-content .add-to-cart {
     background: black;
     color: white;
     font-size: 18px;
@@ -221,7 +284,7 @@ nav {
     cursor: pointer;
 }
 
-.details .details-content button:hover {
+.details .details-content .add-to-cart:hover {
     background: transparent;
     border: 1px solid black;
     color: black;
@@ -230,6 +293,20 @@ nav {
 .details .details-content .description {
     margin-top: 30px;
     width: 400px;
+}
+
+.details .details-content .description .accordion-button {
+    box-shadow: none !important;
+    background: none !important;
+    color: black !important;
+}
+
+.details .details-content .description .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+}
+
+.details .details-content .description .accordion-body {
+    color: gray !important;
 }
 
 .details .details-content .description p {
@@ -327,7 +404,7 @@ nav {
 /* account */
 
 .my-account {
-    padding: 120px 160px;
+    padding: 100px 120px;
     display: flex;
     flex-direction: column;
 }
@@ -355,8 +432,43 @@ nav {
     font-weight: 300;
 }
 
+.my-account-nav {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-account-nav button {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 300;
+    color: black;
+    border: none;
+    background: none;
+    width: max-content;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: 1s;
+    outline: none;
+}
+
+.my-account-nav button:last-child {
+    margin-bottom: 0;
+}
+
+.my-account-nav button:hover {
+    color: gray;
+}
+
+.my-account-nav button span {
+    margin-top: -2px;
+    margin-right: 6px;
+    transition: 1s;
+}
+
 .my-account .orders {
-    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .my-account .orders h3 {
@@ -372,6 +484,11 @@ nav {
 .my-account .orders h3 svg {
     color: gray;
     cursor: pointer;
+    transition: 1s;
+}
+
+.my-account .orders h3 svg:hover {
+    color: black;
 }
 
 .my-account .orders p {
