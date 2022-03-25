@@ -2,17 +2,9 @@
 const express = require('express')
 const { Router } = express
 const router = Router()
-const {
-    createProduct,
-    updateProductById,
-    deleteProductById
-} = require('../controllers/products.controllers')
-const {
-    createUser,
-    updateUserById,
-    deleteUserById
+const { 
+    signUp, logIn
 } = require('../controllers/auth.controllers')
-const Auth = require('../models/Auth')
 
 // GET routes
 router.get('/login', (req, res) => {
@@ -25,16 +17,21 @@ router.get('/signup', (req, res) => {
         banner: false
     })
 })
-router.get('/account', (req, res) => {
+router.get('/', (req, res) => {
     res.render('account/account', {
         banner: false
     })
 })
+router.get('/admin', (req, res) => {
+    res.render('account/admin', {
+        banner: false,
+        query: req.query.show
+    })
+})
 
 // POST routes
-// PUT routes
-// DELETE routes
-
+router.post('/signup', signUp)
+router.post('/login', logIn)
 
 // Exports
 module.exports = router

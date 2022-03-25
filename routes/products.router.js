@@ -5,33 +5,19 @@ const router = Router()
 const { 
     getProducts, 
     getProductsById, 
-    getProductsByCategory,
-    createProduct
+    getProductsByCategory
 } = require('../controllers/products.controllers')
 
 // GET routes
-router.get('/collections', (req, res) => {
+router.get('/', (req, res) => {
     res.render('collections/collections', {
         banner: true
     })
 })
-router.get('/all-products', (req, res) => {
-    res.render('collections/all-products', {
-        banner: true
-    })
-})
-router.get('/products', (req, res) => {
-    res.render('collections/products', {
-        banner: true
-    })
-})
-router.get('/outfits', (req, res) => {
-    res.render('collections/outfits', {
-        banner: true
-    })
-})
-router.get('/details', (req, res) => {
-    res.render('collections/details', {
+router.get('/products', getProducts)
+router.get('/products/categories', getProductsByCategory)
+router.get('/products/product/details', (req, res) => {
+    res.render("collections/details", {
         banner: false
     })
 })

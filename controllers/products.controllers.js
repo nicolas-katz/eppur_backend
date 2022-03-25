@@ -5,7 +5,12 @@ const Product = require('../models/Product')
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find({})
-        return res.json(products)
+        const boolean = products.length >= 1
+        return res.render('collections/all-products', {
+            products: products,
+            banner: true,
+            boolean: boolean
+        })
     } catch (e) {
         return res.json(e)   
     }
@@ -15,10 +20,15 @@ const getProducts = async (req, res) => {
 const getProductsById = async (req, res) => {
     try {
         const id = req.params.id
-        if(id === undefined) return res.json("No hemos podido encontrar tu producto")
+        const category = req.query.category
         const productById = await Product.findById({_id: id})
-        if(productById === undefined) return res.json("No hemos podido encontrar tu producto")
-        return res.json(productById) 
+        const boolean = productById.length >= 1
+        return res.render("collections/details", {
+            products: productById,
+            boolean: boolean,
+            category: category,
+            banner: false
+        }) 
     } catch (e) {
         return res.json(e)
     }
@@ -26,21 +36,39 @@ const getProductsById = async (req, res) => {
 
 // Get products by category functions
 const getProductsByCategory = async (req, res) => {
-    const productByCategory = await Product.find({}).where('category', '===', req.query.category)
-    res.json(productByCategory)
+    try {
+        const category = req.query.category
+        const productByCategory = await Product.find({"category": category})
+        const boolean = productByCategory.length >= 1
+        res.render("collections/products", {
+            products: productByCategory,
+            category: category,
+            boolean: boolean,
+            banner: true
+        })
+    } catch (e) {
+        res.json(e)
+    }
 }
 
 // Get popular products functions
 const getPopularProducts = async (req, res) => {
-    const popularProduct = await Product.find({}).where('isPopular', '===', true)
-    res.json(popularProduct)
+    try {
+        const popularProduct = await Product.find({"isPopular": true})
+        res.render("/", {
+            products: popularProduct,
+            banner: true
+        })
+    } catch (e) {
+        res.json(e)
+    }
 }
 
 // Create products functions
 const createProduct = async (req, res) => {
     try {
-        const newProduct = await Product.create(req.body)
-        res.json(newProduct)
+        const newProduct = await new Product(req.body)
+        return await newProduct.save()
     } catch (e) {
         res.json(e)
     }
@@ -48,29 +76,24 @@ const createProduct = async (req, res) => {
 
 // Update products functions
 const updateProductById = async (req, res) => {
-    const updatedProduct = await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
-        new: true,
-        runValidators: true
-    })
-    res.json(updatedProduct)
+    try {
+        return await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
+            new: true,
+            runValidators: true
+        })
+    } catch (e) {
+        res.json(e)
+    }
 }
 
 // Delete products by id functions
 const deleteProductById = async (req, res) => {
-    const deletedProduct = await Product.findByIdAndDelete({_id: req.params.id})
-    res.json(deletedProduct)
-}
-
-// Delete products functions
-const deleteProducts = async (req, res) => {
     try {
-        const deletedProduct = await Product.deleteMany({})
-        if(!deletedProduct) return res.json("Hubo un error eliminando todos los productos")
-        return res.json(deletedProduct)
+        return await Product.findByIdAndDelete({_id: req.params.id})
     } catch (e) {
-        return res.json(e)
+        res.json(e)
     }
-} 
+}
 
 // Exports
 module.exports = {
@@ -80,6 +103,5 @@ module.exports = {
     getPopularProducts,
     createProduct,
     updateProductById,
-    deleteProductById,
-    deleteProducts
+    deleteProductById
 }

@@ -1,14 +1,14 @@
 // Imports
-const {Schema, model} = require('mongoose')
+const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 
 // Model
-const AuthSchema = new Schema({
-    name: {
+const AuthSchema = new mongoose.Schema({
+    firstname: {
         type: String,
         required: true
     },
-    lastName: {
+    lastname: {
         type: String,
         required: true
     },
@@ -25,20 +25,22 @@ const AuthSchema = new Schema({
         type: String,
         required: true
     },
-    isAdmin: false
+    isAdmin: {
+        type: Boolean
+    }
 }, {
     timestamps: true,
     versionKey: false
 })
 
 // Encryping password
-AuthSchema.statics.encryptPassword = async (password) => {
+AuthSchema.methods.encryptPassword = async (password) => {
     const salt = await bcrypt.genSalt(10)
     return await bcrypt.hash(password, salt)
 }
-AuthSchema.statics.comparePassword = async (password, receivedPassword) => {
+AuthSchema.methods.comparePassword = async (password, receivedPassword) => {
     return await bcrypt.compare(password, receivedPassword)
 }
 
 // Exports
-module.exports = model('Auth', AuthSchema)
+module.exports = mongoose.model('Auth', AuthSchema)

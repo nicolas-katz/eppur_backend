@@ -1,27 +1,33 @@
 <div class="my-account">
     <div class="my-account-title">
         <h5>CERRAR SESIÓN</h5>
-        <h1>ADMINISTRADOR DE CUENTA</h1>
+        <h1>MI CUENTA</h1>
         <h2>Bienvenido de nuevo, Julian!</h2>
     </div>
-    <div class="my-account-nav">
-        <button>
-            <span>></span> ADMINISTRAR ORDENES
-        </button>
-        <button>
-            <span>></span> ADMINISTRAR USUARIOS
-        </button>
-        <button>
-            <span>></span> ADMINISTRAR CATALOGO
-        </button>
-    </div>
-    <div class="orders">
-        <h3>
-            MIS ORDENES 
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+    <div class="my-account-admin">
+        <a href="/account/admin?show=orders">
+            VER ORDENES
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
             </svg>
+        </a>
+        <a href="/account/admin?show=products">
+            VER PRODUCTOS
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+            </svg>
+        </a>
+        <a href="/account/admin?show=users">
+            VER USUARIO
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+            </svg>
+        </a>
+    </div>
+    <div class="my-account-orders">
+        <h3>
+            MIS PEDIDOS 
         </h3>        
-        <p>No has vendido nada aún.</p>
+        <p>No has pedido nada aún.</p>
     </div>
 </div>

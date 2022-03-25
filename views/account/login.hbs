@@ -1,10 +1,10 @@
 <div class="account">
     <h1>INICIAR SESIÓN</h1>
     <h2>Por favor introduce tu dirección de correo</h2>
-    <form method="post" action="/login">
+    <form method="POST" action="/account/login">
         <input type="email" name="email" id="email" placeholder="Correo" required>
-        <input type="password" name="password" id="password" placeholder="Contraseña" required>
+        <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" maxlength="20" required>
         <input type="submit" value="INICIAR SESIÓN">
     </form>
-    <p>¿No tienes cuenta? <a href="/signup">Crear cuenta</a></p>
+    <p>¿No tienes cuenta? <a href="/account/signup">Crear cuenta</a></p>
 </div>

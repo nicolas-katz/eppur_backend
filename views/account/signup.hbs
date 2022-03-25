@@ -1,14 +1,14 @@
 <div class="account">
     <h1>CREAR CUENTA</h1>
     <h2>Por favor rellena la información de debajo</h2>
-    <form method="post" action="/signup">
-        <input type="text" name="firstname" id="firstname" placeholder="Nombre/s" required>
-        <input type="text" name="lastname" id="lastname" placeholder="Apellido/s" required>
-        <input type="tel" name="phone" id="phone" placeholder="Telefono" required>
-        <input type="email" name="email" id="email" placeholder="Correo" required>
-        <input type="password" name="password" id="password" placeholder="Contraseña" required>
-        <input type="password" name="r-password" id="r-password" placeholder="Repeti tu contraseña" required>
+    <form method="POST" action="/account/signup">
+        <input type="text" name="firstname" id="firstname" placeholder="Nombre/s" value="{{firstname}}" required>
+        <input type="text" name="lastname" id="lastname" placeholder="Apellido/s" value="{{lastname}}" required>
+        <input type="tel" name="phone" id="phone" placeholder="Telefono" value="{{phone}}" required>
+        <input type="email" name="email" id="email" placeholder="Correo" value="{{email}}" required>
+        <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" maxlength="20" value="{{password}}" required>
+        <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Repeti tu contraseña" minlength="8" maxlength="20" value="{{confirmpassword}}" required>
         <input type="submit" value="CREAR CUENTA">
     </form>
-    <p>¿Ya tienes una cuenta? <a href="/login">Iniciar sesión</a></p>
+    <p>¿Ya tienes una cuenta? <a href="/account/login">Iniciar sesión</a></p>
 </div>

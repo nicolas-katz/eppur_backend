@@ -1,10 +1,11 @@
 // Imports
 const mongoose = require('mongoose');
+const config = require('../config')
 
 // Connecting to database
 const database = ()=>{
     mongoose
-        .connect('mongodb+srv://eppur_db:eppur_db@cluster0.abwda.mongodb.net/eppur?retryWrites=true&w=majority', {
+        .connect(config.MONGODB_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })

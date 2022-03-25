@@ -24,11 +24,6 @@ router.get('/about', (req, res) => {
         banner: false
     })
 })
-router.get('/gallery', (req, res) => {
-    res.render('information/gallery', {
-        banner: false
-    })
-})
 
 // Exports
 module.exports = router

@@ -7,12 +7,6 @@
     font-family: 'Fredoka', sans-serif;
 }
 
-/* color links */
-
-.color-links.active {
-    color: rebeccapurpl !important;
-}
-
 /* navbar */
 
 .banner {
@@ -20,7 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: wheat;
+    background: rgb(228, 227, 227);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,12 +43,12 @@ nav {
 }
 
 .navlinks a {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     letter-spacing: 1px;
     color: white;
     text-decoration: none;
-    margin-right: 24px;
+    margin-right: 32px;
     transition: 1s;
 }
 
@@ -67,11 +61,11 @@ nav {
 }
 
 .brand {
-    margin-left: -300px;
+    margin-left: -240px;
 }
 
 .brand a {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 400;
     letter-spacing: 2px;
     color: white;
@@ -185,20 +179,56 @@ nav {
 .products h1 {
     font-size: 24px;
     font-weight: 300;
+    text-transform: uppercase;
 }
 
 .products-container {
-    margin-top: 60px;
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
-    align-items: center;
+    width: 100%;
+}
+
+.products-container .product-box {
+    width: 16%;
+    height: max-content;
+    position: relative;
+    margin: 20px 40px;
+}
+
+.products-container .product-box img {
+    width: 100%;
+    height: 280px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.products-container .product-box .product-content {
+    margin-top: 20px;
+}
+
+.products-container .product-box .product-content h4 {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.products-container .product-box .product-content h5 {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.products-container p {
+    font-size: 20px;
+    font-weight: 300;
+    color: gray;
 }
 
 /* details */
 
 .details {
-    padding: 100px 160px;
+    padding: 120px 160px;
     display: flex;
     justify-content: center;
 }
@@ -299,6 +329,14 @@ nav {
     box-shadow: none !important;
     background: none !important;
     color: black !important;
+}
+
+.details .details-content .description .accordion-button.collapsed {
+    border-bottom: 1px solid white;
+}
+
+.details .details-content .description .accordion-button:not(.collapsed) {
+    border-bottom: 1px solid gainsboro;
 }
 
 .details .details-content .description .accordion-button:not(.collapsed)::after {
@@ -409,7 +447,7 @@ nav {
     flex-direction: column;
 }
 
-.my-account h5 {
+.my-account-title h5 {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 24px;
@@ -417,81 +455,53 @@ nav {
     transition: 1s;
 }
 
-.my-account h5:hover {
+.my-account-title h5:hover {
     color: gray;
 }
 
-.my-account h1 {
+.my-account-title h1 {
     font-size: 24px;
     font-weight: 300;
     margin-bottom: 10px;
 }
 
-.my-account h2 {
+.my-account-title h2 {
     font-size: 20px;
     font-weight: 300;
 }
 
-.my-account-nav {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
+.my-account-admin {
+    margin-top: 20px;
 }
 
-.my-account-nav button {
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 300;
+.my-account-admin a {
     color: black;
-    border: none;
-    background: none;
-    width: max-content;
-    margin-bottom: 20px;
-    cursor: pointer;
     transition: 1s;
-    outline: none;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 4px 0;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
-.my-account-nav button:last-child {
-    margin-bottom: 0;
-}
-
-.my-account-nav button:hover {
+.my-account-admin a:hover {
     color: gray;
 }
 
-.my-account-nav button span {
-    margin-top: -2px;
-    margin-right: 6px;
-    transition: 1s;
-}
-
-.my-account .orders {
+.my-account-orders {
     margin-top: 60px;
 }
 
-.my-account .orders h3 {
+.my-account-orders h3 {
     font-size: 22px;
     font-weight: 300;
     border-bottom: 1px solid gainsboro;
     padding-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
-.my-account .orders h3 svg {
-    color: gray;
-    cursor: pointer;
-    transition: 1s;
-}
-
-.my-account .orders h3 svg:hover {
-    color: black;
-}
-
-.my-account .orders p {
+.my-account-orders p {
     font-size: 18px;
     font-weight: 300;
     color: gray;
@@ -660,21 +670,6 @@ nav {
     text-align: center;
     margin-top: 40px;
     color: grey;
-}
-
-/* gallery */
-
-.gallery {
-    padding: 80px 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.gallery h1 {
-    font-size: 24px;
-    font-weight: 300;
 }
 
 /* about */

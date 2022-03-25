@@ -1,6 +1,18 @@
 <div class="products">
-    <h1>PRODUCTOS</h1>
+    <h1>{{category}}</h1>
     <div class="products-container">
-
+        {{#if boolean}}
+            {{#each products as |product index|}}
+                <div class="product-box">
+                    <img src={{this.imageURL}} >
+                    <div class="product-content">
+                        <h4>{{this.title}}</h4>
+                        <h5>{{this.price}}</h5>
+                    </div>
+                </div>     
+            {{/each}}
+        {{else}}
+            <p>No hay productos cargados en la web.</p>
+        {{/if}}
     </div>
 </div>
