@@ -15,7 +15,6 @@ const productsRouter = require('./routes/products.router')
 const authRouter = require('./routes/auth.router') 
 const infoRouter = require('./routes/info.router') 
 const cartRouter = require('./routes/cart.router') 
-const indexRouter = require('./routes/index.router')
 const createAdminUser = require('./libs/createAdminUser') 
 const config = require('./config')
 
