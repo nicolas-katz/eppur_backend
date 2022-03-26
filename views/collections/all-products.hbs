@@ -1,77 +1,16 @@
 <div class="products">
     <h1>TODOS LOS PRODUCTOS</h1>
-    <div class="products-container">
+    <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
         {{#if boolean}}
+            {{#each products as |product|}}
                 <div class="product-box">
-                    <img src="../../images/background.jpeg" >
+                    <img src={{this.imageURL}} >
                     <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
+                        <h4>{{this.title}}</h4>
+                        <h5>{{this.price}}</h5>
                     </div>
-                </div>         
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>                
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>                
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>                
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>                
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>    
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>  
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>  
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>  
-                <div class="product-box">
-                    <img src="../../images/background.jpeg" >
-                    <div class="product-content">
-                        <h4>Remera B&W</h4>
-                        <h5>$17</h5>
-                    </div>
-                </div>                     
+                </div> 
+            {{/each}}     
         {{else}}
             <p>No hay productos cargados en la web.</p>
         {{/if}}

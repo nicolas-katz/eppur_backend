@@ -1,6 +1,6 @@
 <div class="products">
     <h1>{{category}}</h1>
-    <div class="products-container">
+    <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
         {{#if boolean}}
             {{#each products as |product index|}}
                 <div class="product-box">

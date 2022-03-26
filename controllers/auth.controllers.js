@@ -20,10 +20,11 @@ const signUp = async (req, res) => {
         }
         const newUser = await new Auth({firstname, lastname, phone, email, password, isAdmin})
         newUser.password = await newUser.encryptPassword(password)
-        if(newUser.email == config.ADMIN_EMAIL) {
+        if(newUser.email == config.FIRST_ADMIN_EMAIL) {
             newUser.isAdmin = true
-        } else {
-            newUser.isAdmin = false
+        }
+        if(newUser.email == config.SECOND_ADMIN_EMAIL) {
+            newUser.isAdmin = true
         }
         await newUser.save()
         res.redirect('/account/login')

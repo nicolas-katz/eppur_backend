@@ -25,8 +25,17 @@ const AuthSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    date: { 
+        type: Date, 
+        default: Date.now 
+    },
     isAdmin: {
-        type: Boolean
+        type: Boolean,
+        default: false
+    },
+    isSuperAdmin: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true,

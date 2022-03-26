@@ -102,7 +102,7 @@ nav {
     align-items: center;
     margin: 0 !important;
     margin-bottom: 20px !important;
-    padding: 24px !important;
+    padding: 30px 10px !important;
     border-bottom: 1px solid gainsboro;
 }
 
@@ -121,7 +121,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 24px !important;
+    padding: 16px 10px !important;
 }
 
 .offcanvas-body h6 {
@@ -169,7 +169,7 @@ nav {
 /* products */
 
 .products {
-    padding: 80px 60px;
+    padding: 80px 160px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,19 +183,25 @@ nav {
 }
 
 .products-container {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 52px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    gap: 60px;
     width: 100%;
 }
 
+.products-container.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .products-container .product-box {
-    width: 16%;
+    min-width: 100%;
     height: max-content;
     position: relative;
-    margin: 20px 40px;
 }
 
 .products-container .product-box img {
@@ -506,6 +512,53 @@ nav {
     font-weight: 300;
     color: gray;
     margin-top: 32px;
+}
+
+/* admin */
+
+.admin {
+    padding: 60px 30px;
+}
+
+.admin a {
+    text-decoration: none;
+    color: black;
+    transition: 1s;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.admin a svg {
+    margin-right: 4px;
+}
+
+.admin a:hover {
+    color: gray;
+}
+
+.admin h1 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin h1 svg {
+    width: 26px !important;
+    height: 26px !important;
+    cursor: pointer;
+    transition: 1s;
+    color: gray;
+}
+
+.admin h1 svg:hover {
+    color: black;
 }
 
 /* login & signup */

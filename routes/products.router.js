@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
 })
 router.get('/products', getProducts)
 router.get('/products/categories', getProductsByCategory)
-router.get('/products/product/details', (req, res) => {
+router.get('/products/product/details/:id', (req, res) => {
     res.render("collections/details", {
         banner: false
     })
