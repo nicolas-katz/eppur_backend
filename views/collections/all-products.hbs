@@ -3,13 +3,13 @@
     <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
         {{#if boolean}}
             {{#each products as |product|}}
-                <div class="product-box">
+                <a class="product-box" href="/collections/products/product/details/{{this._id}}">
                     <img src={{this.imageURL}} >
                     <div class="product-content">
                         <h4>{{this.title}}</h4>
-                        <h5>{{this.price}}</h5>
+                        <h5>${{this.price}}</h5>
                     </div>
-                </div> 
+                </a> 
             {{/each}}     
         {{else}}
             <p>No hay productos cargados en la web.</p>

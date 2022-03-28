@@ -3,29 +3,31 @@ const express = require('express')
 const { Router } = express
 const router = Router()
 const { 
-    signUp, logIn
+    signUp, logIn, logOut
 } = require('../controllers/auth.controllers')
+const { isAuthenticated, fadeLogs, isAdmin, isSuperAdmin } = require('../middlewares/middlewares')
 
 // GET routes
-router.get('/login', (req, res) => {
+router.get('/login', fadeLogs, (req, res) => {
     res.render('account/login', {
-        banner: false
+        user: req.session.user
     })
 })
-router.get('/signup', (req, res) => {
+router.get('/signup', fadeLogs, (req, res) => {
     res.render('account/signup', {
-        banner: false
+        user: req.session.user
     })
 })
-router.get('/', (req, res) => {
+router.get("/logout", logOut)
+router.get('/', isAuthenticated, (req, res) => {
     res.render('account/account', {
-        banner: false
+        user: req.session.user
     })
 })
-router.get('/admin', (req, res) => {
+router.get('/admin', isAuthenticated ,(req, res) => {
     res.render('account/admin', {
-        banner: false,
-        query: req.query.show
+        query: req.query.show,
+        user: req.session.user
     })
 })
 

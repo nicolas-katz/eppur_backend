@@ -5,6 +5,7 @@ require('dotenv').config();
 const Configurations = {
   PORT: process.env.PORT || 3001,
   SESSION_SECRET: process.env.SESSION_SECRET || "eppurapp",
+  SESSION_EXPIRATION: process.env.SESSION_EXPIRATION || 600,
   SUPER_ADMIN_EMAIL: process.env.ADMIN_EMAIL || "eppur@gmail.com",
   SUPER_ADMIN_PASSWORD: process.env.ADMIN_PASSWORD || "eppuradmin",
   FIRST_ADMIN_EMAIL: process.env.FIRST_ADMIN_EMAIL || "juliankellmer@gmail.com",

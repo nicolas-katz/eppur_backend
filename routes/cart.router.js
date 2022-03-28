@@ -1,12 +1,15 @@
 // Imports
 const express = require('express')
+const { 
+    isAuthenticated
+} = require('../middlewares/middlewares')
 const { Router } = express
 const router = Router()
 
 // GET routes
-router.get('/checkout', (req, res) => {
+router.get('/checkout', isAuthenticated, (req, res) => {
     res.render('cart/checkout', {
-        banner: false
+        user: req.session.user
     })
 })
 

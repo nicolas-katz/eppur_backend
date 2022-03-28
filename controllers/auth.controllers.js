@@ -15,7 +15,7 @@ const signUp = async (req, res) => {
     } else {
         const emailUser = await Auth.findOne({email: email})
         if(emailUser) {
-            errors.push({message: "Email is already exists."})
+            errors.push({message: "Email is already in use. Try again."})
             res.render('account/signup', {errors, firstname, lastname, phone, email, password, confirmpassword})
         }
         const newUser = await new Auth({firstname, lastname, phone, email, password, isAdmin})
@@ -27,6 +27,7 @@ const signUp = async (req, res) => {
             newUser.isAdmin = true
         }
         await newUser.save()
+        req.flash("success_msg", "You are registered.");
         res.redirect('/account/login')
     }
 }
@@ -38,12 +39,19 @@ const logIn = async (req, res) => {
         failureRedirect: '/account/login',
         failureFlash: true
     })
+    req.session.user = req.body.email;
 }
 
 // Logout function
 const logOut = (req, res) => {
-    req.logout();
-    res.redirect("/users/login");
+    req.session.destroy((err) => {
+        if (!err) {
+            req.logout();
+            res.redirect("/");
+        } else {
+            res.redirect("/account")
+        }
+    })
 }
 
 // Create user function

@@ -7,6 +7,53 @@
     font-family: 'Fredoka', sans-serif;
 }
 
+/* error page */
+
+.error-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 200px;
+}
+
+.error-page h1 {
+    font-size: 40px;
+    font-weight: 300;
+}
+
+.error-page h2 {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.error-page a {
+    text-decoration: none;
+    width: max-content;
+    padding: 0 24px;
+    height: 54px;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    background: black;
+    border: 1px solid black;
+    outline: none;
+    margin-top: 24px;
+    transition: 1s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-page a:hover {
+    color: black;
+    background: white;
+}
+
 /* navbar */
 
 .banner {
@@ -169,7 +216,7 @@ nav {
 /* products */
 
 .products {
-    padding: 80px 160px;
+    padding: 80px 120px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,7 +234,7 @@ nav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     place-items: center;
-    gap: 60px;
+    gap: 60px 100px;
     width: 100%;
 }
 
@@ -202,11 +249,13 @@ nav {
     min-width: 100%;
     height: max-content;
     position: relative;
+    text-decoration: none;
+    color: black;
 }
 
 .products-container .product-box img {
     width: 100%;
-    height: 280px;
+    height: 320px;
     cursor: pointer;
     object-fit: cover;
 }
@@ -216,12 +265,13 @@ nav {
 }
 
 .products-container .product-box .product-content h4 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 300;
+    text-transform: uppercase;
 }
 
 .products-container .product-box .product-content h5 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 300;
 }
 
@@ -241,6 +291,8 @@ nav {
 
 .details .carousel {
     height: 580px;
+    width: 50%;
+    min-width: 50%;
 }
 
 .details .carousel img {
@@ -453,15 +505,16 @@ nav {
     flex-direction: column;
 }
 
-.my-account-title h5 {
+.my-account-title a {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 24px;
     cursor: pointer;
     transition: 1s;
+    text-decoration: none;
 }
 
-.my-account-title h5:hover {
+.my-account-title a:hover {
     color: gray;
 }
 

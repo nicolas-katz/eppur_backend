@@ -4,12 +4,12 @@ const Product = require('../models/Product')
 // Get products functions
 const getProducts = async (req, res) => {
     try {
-        const products = await Product.find({})
+        const products = await Product.find({}).lean()
         const boolean = products.length >= 1
         return res.render('collections/all-products', {
             products: products,
-            banner: true,
-            boolean: boolean
+            boolean: boolean,
+            user: req.session.user
         })
     } catch (e) {
         return res.json(e)   
@@ -20,32 +20,41 @@ const getProducts = async (req, res) => {
 const getProductsById = async (req, res) => {
     try {
         const id = req.params.id
-        const category = req.query.category
-        const productById = await Product.findById({_id: id})
-        const boolean = productById.length >= 1
+        const productById = await Product.findById({_id: id}).lean()
+        const products = await Product.find({_id: productById}).lean()  
         return res.render("collections/details", {
-            products: productById,
-            boolean: boolean,
-            category: category,
-            banner: false
+            products: products,
+            user: req.session.user
         }) 
     } catch (e) {
-        return res.json(e)
+        res.render('404', {
+            message: "El producto",
+            path: "/collections/products",
+            button_text: "PRODUCTOS"
+        })
     }
 }
 
 // Get products by category functions
 const getProductsByCategory = async (req, res) => {
     try {
-        const category = req.query.category
-        const productByCategory = await Product.find({"category": category})
+        const category = req.params.category
+        const productByCategory = await Product.find({"category": category}).lean()
         const boolean = productByCategory.length >= 1
-        res.render("collections/products", {
-            products: productByCategory,
-            category: category,
-            boolean: boolean,
-            banner: true
-        })
+        if(category == "productos" || category == "outfits") {
+            res.render("collections/products", {
+                products: productByCategory,
+                category: category,
+                boolean: boolean,
+                user: req.session.user
+            })
+        } else {
+            res.render('404', {
+                message: "La categoría",
+                path: "/collections",
+                button_text: "CATEGORÍAS"
+            })
+        }
     } catch (e) {
         res.json(e)
     }
@@ -54,10 +63,10 @@ const getProductsByCategory = async (req, res) => {
 // Get popular products functions
 const getPopularProducts = async (req, res) => {
     try {
-        const popularProduct = await Product.find({"isPopular": true})
+        const popularProduct = await Product.find({"isPopular": true}).lean()
         res.render("/", {
             products: popularProduct,
-            banner: true
+            user: req.session.user
         })
     } catch (e) {
         res.json(e)
@@ -68,7 +77,8 @@ const getPopularProducts = async (req, res) => {
 const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
-        return await newProduct.save()
+        const savedProduct = await newProduct.save()
+        res.json("Ok")
     } catch (e) {
         res.json(e)
     }

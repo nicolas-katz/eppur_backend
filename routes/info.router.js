@@ -6,22 +6,17 @@ const router = Router()
 // GET routes
 router.get('/faqs', (req, res) => {
     res.render('information/faqs', {
-        banner: false
+        user: req.session.user
     })
 })
 router.get('/contact', (req, res) => {
     res.render('information/contact', {
-        banner: false
+        user: req.session.user
     })
 })
 router.get('/returns', (req, res) => {
     res.render('information/returns', {
-        banner: false
-    })
-})
-router.get('/about', (req, res) => {
-    res.render('information/about', {
-        banner: false
+        user: req.session.user
     })
 })
 

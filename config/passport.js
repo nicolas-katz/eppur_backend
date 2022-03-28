@@ -1,10 +1,26 @@
-const passport = require('passport')
-const localStrategy = require('passport-local')
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy
 const Auth = require('../models/Auth')
 
-passport.use(
-  new localStrategy(
-    { usernameField: "email" },
+function getByUsername(username) {
+  try {
+    const users = users_contenedor.getAll();
+    const match = users.find((user) => user.username === username);
+    return match ? match : null;
+  } catch (error) {
+    throw new Error(
+      `Error al obtener el usuario con username:'${username}': ${error}`
+    );
+  }
+}
+
+passport.use('login',
+  new LocalStrategy(
+    { 
+      emailField: "email", 
+      passwordField: "password",
+      passReqToCallback: true
+    },
     async (email, password, done) => {
       const user = await Auth.findOne({ email: email });
       if (!user) {
@@ -22,11 +38,11 @@ passport.use(
 );
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
+  done(null, user.id)
+})
 
 passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
+    done(err, user)
+  })
+})
