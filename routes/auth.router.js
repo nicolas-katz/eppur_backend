@@ -5,15 +5,15 @@ const router = Router()
 const { 
     signUp, logIn, logOut
 } = require('../controllers/auth.controllers')
-const { isAuthenticated, fadeLogs, isAdmin, isSuperAdmin } = require('../middlewares/middlewares')
+const { isAuthenticated, isUnauthenticated, isAdmin, isSuperAdmin } = require('../middlewares/middlewares')
 
 // GET routes
-router.get('/login', fadeLogs, (req, res) => {
+router.get('/login', isUnauthenticated, (req, res) => {
     res.render('account/login', {
         user: req.session.user
     })
 })
-router.get('/signup', fadeLogs, (req, res) => {
+router.get('/signup', isUnauthenticated, (req, res) => {
     res.render('account/signup', {
         user: req.session.user
     })
@@ -21,7 +21,8 @@ router.get('/signup', fadeLogs, (req, res) => {
 router.get("/logout", logOut)
 router.get('/', isAuthenticated, (req, res) => {
     res.render('account/account', {
-        user: req.session.user
+        user: req.session.user,
+        username: req.session.username
     })
 })
 router.get('/admin', isAuthenticated ,(req, res) => {

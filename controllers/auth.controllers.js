@@ -40,6 +40,9 @@ const logIn = async (req, res) => {
         failureFlash: true
     })
     req.session.user = req.body.email;
+    const user = await Auth.findOne({email: req.body.email})
+    const username = user.firstname
+    req.session.username = username;
 }
 
 // Logout function

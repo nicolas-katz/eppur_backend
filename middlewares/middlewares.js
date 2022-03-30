@@ -25,7 +25,7 @@ const isAuthenticated = (req, res, next) => {
     res.redirect("/account/login");
 };
 
-const fadeLogs = (req, res, next) => {
+const isUnauthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     res.redirect("/account");
   }
@@ -43,5 +43,5 @@ module.exports = {
     isAdmin,
     isSuperAdmin,
     isAuthenticated,
-    fadeLogs
+    isUnauthenticated
 }
