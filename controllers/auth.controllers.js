@@ -43,6 +43,7 @@ const logIn = async (req, res) => {
     const user = await Auth.findOne({email: req.body.email})
     const username = user.firstname
     req.session.username = username;
+    res.redirect("/collections/products")
 }
 
 // Logout function

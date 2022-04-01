@@ -17,7 +17,6 @@ const productsRouter = require('./routes/products.router')
 const authRouter = require('./routes/auth.router') 
 const infoRouter = require('./routes/info.router') 
 const cartRouter = require('./routes/cart.router') 
-const createAdminUser = require('./libs/createAdminUser') 
 const config = require('./config')
 
 // CORS Configuration
@@ -61,9 +60,6 @@ app.use((req, res, next) => {
     next()
 })
 
-// Global functions
-createAdminUser()
-
 // Routes
 app.use('/collections', productsRouter)
 app.use('/account', authRouter)
@@ -79,6 +75,11 @@ app.get('/', (req, res) => {
 })
 app.get('/about', (req, res) => {
     res.render('about', {
+        user: req.session.user
+    })
+})
+app.get('/gallery', (req, res) => {
+    res.render('gallery', {
         user: req.session.user
     })
 })

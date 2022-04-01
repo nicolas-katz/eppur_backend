@@ -1,12 +1,26 @@
 // Imports
 const Product = require('../models/Product')
 
-// Get products functions
+// Get products by collection functions
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find({}).lean()
         const boolean = products.length >= 1
-        return res.render('collections/all-products', {
+        return res.render('collections/products', {
+            products: products,
+            boolean: boolean,
+            user: req.session.user,
+            title: "TODOS LOS PRODUCTOS"
+        })
+    } catch (e) {
+        return res.json(e)   
+    }
+}
+const getOutfits = async (req, res) => {
+    try {
+        const products = await Product.find({}).lean()
+        const boolean = products.length >= 1
+        return res.render('collections/outfits', {
             products: products,
             boolean: boolean,
             user: req.session.user
@@ -39,20 +53,20 @@ const getProductsById = async (req, res) => {
 const getProductsByCategory = async (req, res) => {
     try {
         const category = req.params.category
-        const productByCategory = await Product.find({"category": category}).lean()
-        const boolean = productByCategory.length >= 1
-        if(category == "productos" || category == "outfits") {
+        const productsByCategory = await Product.find({category: category}).lean()
+        const boolean = productsByCategory.length >= 1
+        if(category == "remeras" || category == "pantalones" || category == "accesorios") {
             res.render("collections/products", {
-                products: productByCategory,
-                category: category,
+                products: productsByCategory,
                 boolean: boolean,
-                user: req.session.user
+                user: req.session.user,
+                title: category.toUpperCase()
             })
         } else {
             res.render('404', {
                 message: "La categoría",
                 path: "/collections",
-                button_text: "CATEGORÍAS"
+                button_text: "COLECCIONES"
             })
         }
     } catch (e) {
@@ -108,6 +122,7 @@ const deleteProductById = async (req, res) => {
 // Exports
 module.exports = {
     getProducts,
+    getOutfits,
     getProductsById,
     getProductsByCategory,
     getPopularProducts,

@@ -4,6 +4,7 @@ const { Router } = express
 const router = Router()
 const { 
     getProducts, 
+    getOutfits,
     getProductsById, 
     getProductsByCategory,
     createProduct
@@ -15,9 +16,10 @@ router.get('/', (req, res) => {
         user: req.session.user
     })
 })
-router.get('/products', getProducts)
-router.get('/products/categories/:category', getProductsByCategory)
-router.get('/products/product/details/:id', getProductsById)
+router.get('/outfits', getOutfits)
+router.get('/products/all-products', getProducts)
+router.get('/products/:category', getProductsByCategory)
+router.get('/products/details/:id', getProductsById)
 router.post('/create', createProduct)
 
 // Exports

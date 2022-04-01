@@ -19,6 +19,16 @@ router.get('/returns', (req, res) => {
         user: req.session.user
     })
 })
+router.get('/private', (req, res) => {
+    res.render('information/private', {
+        user: req.session.user
+    })
+})
+router.get('/terms', (req, res) => {
+    res.render('information/terms', {
+        user: req.session.user
+    })
+})
 
 // Exports
 module.exports = router

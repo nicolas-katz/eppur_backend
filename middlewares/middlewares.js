@@ -21,15 +21,17 @@ const isSuperAdmin = (req, res, next) => {
 const isAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
       return next();
+    } else {
+      res.redirect("/account/login");
     }
-    res.redirect("/account/login");
 };
 
 const isUnauthenticated = (req, res, next) => {
   if (req.isAuthenticated()) {
     res.redirect("/account");
+  } else {
+    return next();
   }
-  return next();
 };
 
 // const areProductsInCart = (req, res, next) => {

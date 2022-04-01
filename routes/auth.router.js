@@ -19,13 +19,13 @@ router.get('/signup', isUnauthenticated, (req, res) => {
     })
 })
 router.get("/logout", logOut)
-router.get('/', isAuthenticated, (req, res) => {
+router.get('/', (req, res) => {
     res.render('account/account', {
         user: req.session.user,
         username: req.session.username
     })
 })
-router.get('/admin', isAuthenticated ,(req, res) => {
+router.get('/admin', (req, res) => {
     res.render('account/admin', {
         query: req.query.show,
         user: req.session.user
