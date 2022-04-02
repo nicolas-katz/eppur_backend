@@ -16,8 +16,10 @@ const { engine } = require('express-handlebars')
 const productsRouter = require('./routes/products.router') 
 const authRouter = require('./routes/auth.router') 
 const infoRouter = require('./routes/info.router') 
+const galleryRouter = require('./routes/gallery.router') 
 const cartRouter = require('./routes/cart.router') 
 const config = require('./config')
+const { showAllPhotos_withLimit } = require('./controllers/gallery.controllers')
 
 // CORS Configuration
 const corsOptions = {
@@ -64,22 +66,13 @@ app.use((req, res, next) => {
 app.use('/collections', productsRouter)
 app.use('/account', authRouter)
 app.use('/information', infoRouter)
+app.use('/gallery', galleryRouter)
 app.use('/cart', cartRouter)
 
 // Index routes
-app.get('/', (req, res) => {
-    res.render('index', {
-        banner: true,
-        user: req.session.user
-    })
-})
+app.get('/', showAllPhotos_withLimit)
 app.get('/about', (req, res) => {
     res.render('about', {
-        user: req.session.user
-    })
-})
-app.get('/gallery', (req, res) => {
-    res.render('gallery', {
         user: req.session.user
     })
 })
@@ -99,7 +92,8 @@ app.use((req, res) => {
     res.status(404).render("404", {
         message: "La página",
         path: "/",
-        button_text: "INICIO"
+        button_text: "INICIO",
+        user: req.session.user
     });
 })
 

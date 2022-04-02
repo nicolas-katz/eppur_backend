@@ -16,7 +16,7 @@
                 <a class="product-box" href="/collections/products/details/{{this._id}}">
                     <img src="../../images/productos.jpg" >
                     <div class="product-content">
-                        <h4>{{this.title}}</h4>
+                        <h4>{{this.title}} - {{this.color}}</h4>
                         <h5>${{this.price}}</h5>
                     </div>
                 </a>     
@@ -24,6 +24,6 @@
     </div>
     </div>
     {{else}}
-    <p class="notfound">No hay productos cargados en la web.</p>
+    <p class="notfound">No hay productos cargados en la web. <a href="/collections">VOLVER ATRÁS</a></p>
     {{/if}}
 </div>

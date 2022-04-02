@@ -3,8 +3,10 @@ const express = require('express')
 const { Router } = express
 const router = Router()
 const { 
-    signUp, logIn, logOut
+    signUp, logIn, logOut, getAllUsers
 } = require('../controllers/auth.controllers')
+const { getAllPhotos } = require('../controllers/gallery.controllers')
+const { getAllProducts } = require('../controllers/products.controllers')
 const { isAuthenticated, isUnauthenticated, isAdmin, isSuperAdmin } = require('../middlewares/middlewares')
 
 // GET routes
@@ -25,12 +27,9 @@ router.get('/', (req, res) => {
         username: req.session.username
     })
 })
-router.get('/admin', (req, res) => {
-    res.render('account/admin', {
-        query: req.query.show,
-        user: req.session.user
-    })
-})
+router.get('/administrator/usuarios', getAllUsers)
+router.get('/administrator/productos', getAllProducts)
+router.get('/administrator/galeria', getAllPhotos)
 
 // POST routes
 router.post('/signup', signUp)

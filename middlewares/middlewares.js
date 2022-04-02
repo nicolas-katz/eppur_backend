@@ -34,13 +34,6 @@ const isUnauthenticated = (req, res, next) => {
   }
 };
 
-// const areProductsInCart = (req, res, next) => {
-//   if () {
-//     res.redirect("/cart");
-//   }
-//   return next();
-// };
-
 module.exports = {
     isAdmin,
     isSuperAdmin,

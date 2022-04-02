@@ -16,6 +16,19 @@ const getProducts = async (req, res) => {
         return res.json(e)   
     }
 }
+
+const getAllProducts = async (req, res) => {
+    try {
+        const products = await Product.find({}).lean()
+        return res.render('account/admin/products', {
+            products: products,
+            user: req.session.user,
+        })
+    } catch (e) {
+        return res.json(e)   
+    }
+}
+
 const getOutfits = async (req, res) => {
     try {
         const products = await Product.find({}).lean()
@@ -23,7 +36,8 @@ const getOutfits = async (req, res) => {
         return res.render('collections/outfits', {
             products: products,
             boolean: boolean,
-            user: req.session.user
+            user: req.session.user,
+            title: "TODOS LOS OUTFITS"
         })
     } catch (e) {
         return res.json(e)   
@@ -74,25 +88,11 @@ const getProductsByCategory = async (req, res) => {
     }
 }
 
-// Get popular products functions
-const getPopularProducts = async (req, res) => {
-    try {
-        const popularProduct = await Product.find({"isPopular": true}).lean()
-        res.render("/", {
-            products: popularProduct,
-            user: req.session.user
-        })
-    } catch (e) {
-        res.json(e)
-    }
-}
-
 // Create products functions
 const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
-        const savedProduct = await newProduct.save()
-        res.json("Ok")
+        await newProduct.save()
     } catch (e) {
         res.json(e)
     }
@@ -101,7 +101,7 @@ const createProduct = async (req, res) => {
 // Update products functions
 const updateProductById = async (req, res) => {
     try {
-        return await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
             new: true,
             runValidators: true
         })
@@ -113,7 +113,7 @@ const updateProductById = async (req, res) => {
 // Delete products by id functions
 const deleteProductById = async (req, res) => {
     try {
-        return await Product.findByIdAndDelete({_id: req.params.id})
+        await Product.findByIdAndDelete({_id: req.params.id})
     } catch (e) {
         res.json(e)
     }
@@ -122,10 +122,10 @@ const deleteProductById = async (req, res) => {
 // Exports
 module.exports = {
     getProducts,
+    getAllProducts,
     getOutfits,
     getProductsById,
     getProductsByCategory,
-    getPopularProducts,
     createProduct,
     updateProductById,
     deleteProductById

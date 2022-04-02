@@ -3,10 +3,10 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
-        GO BACK
+        VOLVER ATRÁS
     </a>
     <h1>
-        ADMINISTRAR {{query}}
+        ADMINISTRAR PRODUCTOS
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
         </svg>
@@ -14,36 +14,29 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">N° Orden</th>
-      <th scope="col">Productos</th>
+      <th scope="col">ID</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Categoría</th>
       <th scope="col">Precio</th>
-      <th scope="col">Envio</th>
-      <th scope="col">Dirección</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Precio Total</th>      
-      <th scope="col">Medio de Pago</th>
-      <th scope="col">Pago</th>
-      <th scope="col">Entrega</th>
+      <th scope="col">Color</th>
+      <th scope="col">Talles y Stock</th>
+      <th scope="col">Descripción</th>
+      <th scope="col">URL</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {{#each products as |product|}}
+      <tr>
+        <td>{{this._id}}</td>
+        <td>{{this.title}}</td>
+        <td>{{this.category}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.color}}</td>
+        <td>{{this.sizes}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.imageURL}}</td>
+      </tr>
+    {{/each}}
   </tbody>
 </table>
 </div>

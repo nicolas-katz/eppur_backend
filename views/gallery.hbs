@@ -1,25 +1,12 @@
 <div class="gallery">
     <h1>GALERÍA DE FOTOS</h1>
-    <div class="gallery-box">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-        <img src="../images/productos.jpg">
-    </div>
+    {{#if boolean}}
+        <div class="gallery-box">
+          {{#each photos as |photo|}}
+            <img src="{{this.image}}">
+          {{/each}}  
+        </div>
+    {{else}}
+        <p>No hay fotos cargadas.</p>
+    {{/if}}
 </div>

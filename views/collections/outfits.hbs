@@ -1,18 +1,46 @@
-<div class="products">
+<div class="outfits">
     <h1>TODOS LOS OUTFITS</h1>
-    <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
-        {{#if boolean}}
-            {{#each products as |product|}}
-                <a class="product-box" href="/collections/products/product/details/{{this._id}}">
-                    <img src={{this.imageURL}} >
-                    <div class="product-content">
-                        <h4>{{this.title}}</h4>
-                        <h5>${{this.price}}</h5>
-                    </div>
-                </a> 
-            {{/each}}     
-        {{else}}
-            <p>No hay productos cargados en la web.</p>
-        {{/if}}
+    {{#if boolean}}
+    <div class="{{#if boolean}}outfits-container {{else}}outfits-container active {{/if}}">  
+        <div class="outfit-box">
+            <img src="../../images/productos.jpg">
+            <div class="outfit-data">
+                <h2>COMBO "JACK LONDON"</h2>
+                <h3>REMERON + PANTALON + BOINA</h3>
+                <div class="sizes">
+                    <label>
+                        ELEGÍ TU TALLE PARA TU REMERA
+                        <p>S M L</p>
+                    </label>
+                    <label>
+                        ELEGÍ TU TALLE PARA TU PANTALON
+                        <p>S M L</p>
+                    </label>
+                </div>
+                <button type="button" class="btn btn-sizes" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    CONSULTAR MI TALLE
+                </button>
+            <!-- Guia de talles -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">GUÍA DE TALLES</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    ...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="add-to-cart">AÑADIR AL CARRITO - $7999</button>
+            <h4>DESCRIPCIÓN</h4>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae iste expedita voluptatem omnis, necessitatibus id explicabo quasi ducimus quis, soluta cumque doloribus, alias aliquam. Sapiente non iste assumenda. Natus, aperiam!</p>
+            </div>
+        </div>
     </div>
+    {{else}}
+        <p class="notfound">No hay outfits cargados en la web. <a href="/collections">VOLVER ATRÁS</a></p>
+    {{/if}}
 </div>

@@ -8,12 +8,49 @@
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: black;
     border: 2px solid white;
+}
+
+/* chat widget */
+
+.chat-widget {
+    position: fixed;
+    z-index: 10;
+    bottom: 70px;
+    right: 40px;
+    background: rgba(0, 0, 0, 0.329);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: max-content;
+    padding: 14px 26px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.chat-widget:hover {
+    background: black;
+}
+
+.chat-widget svg {
+    color: white;
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 10px;
+}
+
+.chat-widget h4 {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin-top: 8px;
 }
 
 /* error page */
@@ -309,21 +346,31 @@ nav {
     margin: 10px 0;
 }
 
-.categories-index .categories-box .category-box a {
+.categories-index .categories-box .category-box h3 {
     position: absolute;
-    bottom: calc(50% - 20px);
-    left: calc(50% - 80px);
-    font-size: 28px;
+    bottom: calc(50% - 40px);
+    left: calc(50% - 100px);
+    font-size: 32px;
     font-weight: 400;
     color: white;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: 1s;
-    text-decoration: none;
+    letter-spacing: 3px;
 }
 
-.categories-index .categories-box .category-box h3:hover {
+.categories-index .categories-box .category-box h3 a {
+    font-size: 16px;
+    font-weight: 400;
+    transition: 1s;
+    color: white;
+    letter-spacing: 0;
+    margin-top: 6px;
+}
+
+.categories-index .categories-box .category-box h3 a:hover {
     color: gray;
 }
 
@@ -344,11 +391,12 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0 160px;
+    font-weight: 400;
 }
 
 .clients-index h2 a {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 400;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -475,7 +523,7 @@ nav {
 
 .gallery h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .gallery-box {
@@ -503,15 +551,29 @@ nav {
 
 .products h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
 }
 
 .products .notfound {
     font-size: 18px;
     font-weight: 300;
-    margin-top: 40px;
+    margin-top: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.products .notfound a {
+    color: black;
+    transition: 1s;
+    margin-top: 6px;
+}
+
+.products .notfound a:hover {
+    color: gray;
 }
 
 .products-flex {
@@ -579,7 +641,7 @@ nav {
 
 .products-container .product-box img {
     width: 100%;
-    min-width: 100%;
+    min-width: 300px;
     height: 320px;
     cursor: pointer;
     object-fit: cover;
@@ -590,7 +652,7 @@ nav {
 }
 
 .products-container .product-box .product-content h4 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
 }
@@ -599,6 +661,152 @@ nav {
     font-size: 18px;
     font-weight: 300;
     margin-top: -6px;
+}
+
+/* outfits */
+
+.outfits {
+    padding: 100px 40px;
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.outfits h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.outfits .notfound {
+    font-size: 18px;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outfits .notfound a {
+    color: black;
+    transition: 1s;
+    margin-top: 6px;
+}
+
+.outfits .notfound a:hover {
+    color: gray;
+}
+
+.outfits-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: max-content;
+    margin-top: 54px;
+}
+
+.outfit-box {
+    width: 100%;
+    height: 500px;
+    border: 2px solid rgba(220, 220, 220, 0.247);
+    display: flex;
+    transition: 1s;
+    margin-bottom: 80px;
+}
+
+.outfit-box:hover {
+    border-color: black;
+}
+
+.outfit-box:last-child {
+    margin-bottom: 0;
+}
+
+.outfit-box img {
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.outfit-box .outfit-data {
+    padding: 40px;
+}
+
+.outfit-box .outfit-data h2 {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+.outfit-box .outfit-data h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 28px;
+}
+
+.outfit-box .outfit-data .sizes {
+    display: flex;
+}
+
+.outfit-box .outfit-data .sizes label {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+
+.outfit-box .outfit-data .sizes label:last-child {
+    margin-right: 0;
+}
+
+.outfit-box .outfit-data .sizes label p {
+    font-size: 16px;
+    font-weight: 300;
+    word-spacing: 8px;
+    margin-top: 6px;
+}
+
+.outfit-box .outfit-data .btn-sizes {
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400;
+    text-decoration: underline;   
+    outline: none;
+    box-shadow: none; 
+}
+
+.outfit-box .outfit-data .add-to-cart {
+    display: block;
+    width: 400px;
+    height: 56px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    outline: none;
+    border: 1px solid black;
+    color: black;
+    background: transparent;
+    border-radius: 0;
+    transition: 1s;
+    cursor: pointer;
+    margin: 30px 0;
+}
+
+.outfit-box .outfit-data .add-to-cart:hover {
+    color: white;
+    background: black;
+}
+
+.outfit-box .outfit-data h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 6px;
 }
 
 /* details */
@@ -693,9 +901,16 @@ nav {
     cursor: pointer;
 }
 
-.details .details-content a {
+.details .details-content .btn-sizes {
+    background: none;
+    outline: none;
+    box-shadow: none;
+    width: max-content;
+    height: max-content;
     margin-top: 10px;
     color: black;
+    padding: 0;
+    text-decoration: underline;
 }
 
 .details .details-content .add-to-cart {
@@ -767,7 +982,7 @@ nav {
 
 .collections h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .collections .collections-box {
@@ -825,7 +1040,8 @@ nav {
 /* account */
 
 .my-account {
-    padding: 100px 120px;
+    padding: 100px 40px;
+    padding-top: 180px;
     display: flex;
     flex-direction: column;
 }
@@ -833,10 +1049,10 @@ nav {
 .my-account-title a {
     font-size: 16px;
     font-weight: 300;
-    margin-bottom: 24px;
     cursor: pointer;
     transition: 1s;
     text-decoration: none;
+    color: black;
 }
 
 .my-account-title a:hover {
@@ -844,9 +1060,9 @@ nav {
 }
 
 .my-account-title h1 {
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: 400;
+    margin: 16px 0 10px 0;
 }
 
 .my-account-title h2 {
@@ -854,28 +1070,47 @@ nav {
     font-weight: 300;
 }
 
+.my-account-box {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .my-account-admin {
+    width: 25%;
+}
+
+.my-account-admin h3 {
+    font-size: 22px;
+    font-weight: 300;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 16px;
+}
+
+.my-account-admin ul {
     margin-top: 20px;
 }
 
-.my-account-admin a {
-    color: black;
-    transition: 1s;
-    font-size: 18px;
-    font-weight: 300;
-    margin: 4px 0;
-    text-decoration: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.my-account-admin ul li {
+    margin: 6px 0;
+    list-style: circle;
 }
 
-.my-account-admin a:hover {
+.my-account-admin ul li a {
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    transition: 1s;
+    text-decoration: none;
+}
+
+.my-account-admin ul li a:hover {
     color: gray;
 }
 
 .my-account-orders {
-    margin-top: 60px;
+    margin-right: 5%;
+    width: 70%;
 }
 
 .my-account-orders h3 {
@@ -895,7 +1130,8 @@ nav {
 /* admin */
 
 .admin {
-    padding: 60px 30px;
+    padding: 100px 40px;
+    padding-top: 180px;
 }
 
 .admin a {
@@ -906,7 +1142,7 @@ nav {
     display: flex;
     align-items: center;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .admin a svg {
@@ -918,8 +1154,8 @@ nav {
 }
 
 .admin h1 {
-    font-size: 24px;
-    font-weight: 300;
+    font-size: 28px;
+    font-weight: 400;
     margin-bottom: 40px;
     text-transform: uppercase;
     display: flex;
@@ -952,7 +1188,7 @@ nav {
 
 .account h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
     margin-bottom: 24px;
     letter-spacing: 2px;
 }
@@ -1031,7 +1267,7 @@ nav {
 
 .faqs h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .faqs .accordion {
@@ -1093,7 +1329,7 @@ nav {
 
 .returns h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .returns p {
@@ -1142,7 +1378,7 @@ nav {
 
 .terms h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .terms p {
@@ -1167,7 +1403,7 @@ nav {
 
 .about h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .about-container {
@@ -1194,7 +1430,7 @@ nav {
 
 .about-us h4 {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: gray;
     margin-right: 52px;
 }
@@ -1223,7 +1459,7 @@ nav {
 
 .behind-scenes-firstbox h4 {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: gray;
     margin-bottom: 40px;
     display: flex;
@@ -1268,7 +1504,7 @@ nav {
     justify-content: center;
     margin-bottom: 60px;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: gray;
     width: 100%;
 }
@@ -1303,7 +1539,7 @@ nav {
 
 .principales-secondbox h4 {
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     color: gray;
     display: flex;
     align-items: center;
@@ -1352,7 +1588,7 @@ nav {
 
 .contact h1 {
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .contact h2 {

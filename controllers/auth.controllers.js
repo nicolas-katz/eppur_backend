@@ -43,7 +43,7 @@ const logIn = async (req, res) => {
     const user = await Auth.findOne({email: req.body.email})
     const username = user.firstname
     req.session.username = username;
-    res.redirect("/collections/products")
+    res.redirect("/account")
 }
 
 // Logout function
@@ -58,19 +58,38 @@ const logOut = (req, res) => {
     })
 }
 
-// Create user function
-const createUser = (req, res) => {
-
+// Get all users function
+const getAllUsers = async (req, res) => {
+    try {
+        const users = await Auth.find({}).lean()
+        res.render('account/admin/users', {
+            users: users,
+            user: req.session.user
+        })
+    } catch (e) {
+        res.json(e)
+    }
 }
 
 // Update user function
-const updateUserById = (req, res) => {
-    
+const updateUserById = async (req, res) => {
+  try {
+      await Auth.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        new: true,
+        runValidators: true
+      })
+  } catch (e) {
+    res.json(e)
+  }
 }
 
 // Delete user function
-const deleteUserById = (req, res) => {
-    
+const deleteUserById = async (req, res) => {
+    try {
+        await Auth.findByIdAndDelete({_id: req.params.id})
+    } catch (e) {
+      res.json(e)
+    }
 }
 
 // Exports
@@ -78,7 +97,7 @@ module.exports = {
     signUp,
     logIn,
     logOut,
-    createUser,
+    getAllUsers,
     updateUserById,
     deleteUserById
 }

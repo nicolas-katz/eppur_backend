@@ -16,31 +16,36 @@
     <div class="categories-index">
         <div class="categories-box">
             <div class="category-box">
-                <a href="/collections/outfits">
+                <h3>
                     OUTFITS
-                </a>
+                    <a href="/collections/outfits">VER MÁS</a>
+                </h3>
                 <img src="../images/outfits.jpg">
             </div>
             <div class="category-box">
-                <a href="/collections/products/remeras">
+                <h3>
                     REMERAS
-                </a>
+                    <a href="/collections/products/remeras">VER MÁS</a>
+                </h3>
                 <img src="../images/outfits.jpg">
             </div>
             <div class="category-box">
-                <a href="/collections/products/pantalones">
+                <h3>
                     PANTALONES
-                </a>
+                    <a href="/collections/products/pantalones">VER MÁS</a>
+                </h3>
                 <img src="../images/outfits.jpg">
             </div>
             <div class="category-box">
-                <a href="/collections/products/accesorios">
+                <h3>
                     ACCESORIOS
-                </a>
+                    <a href="/collections/products/accesorios">VER MÁS</a>
+                </h3>
                 <img src="../images/outfits.jpg">
             </div>
         </div>
     </div>
+    {{#if boolean}}
     <div class="clients-index">
         <h2>
             NUESTROS CLIENTES
@@ -52,29 +57,13 @@
             </a>
         </h2>
         <div class="clients-box">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
-            <img src="../images/productos.jpg">
+            {{#each photos as |photo|}}
+                <img src="{{this.image}}">
+            {{/each}}
         </div>
         <p>¿Queres publicar tu outfit EP/PUR? Mandanos tu foto a <a href="mailto:eppur@gmail.com">eppur@gmail.com</a> con el asunto "MI OUTFIT EN LA GALERÍA".</p>
     </div>
+    {{/if}}
     <div class="banner">
         <a href="/collections/outfits">ENCONTRA TU OUTFIT EP/PUR</a>
     </div>

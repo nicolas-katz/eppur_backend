@@ -20,7 +20,6 @@ router.get('/outfits', getOutfits)
 router.get('/products/all-products', getProducts)
 router.get('/products/:category', getProductsByCategory)
 router.get('/products/details/:id', getProductsById)
-router.post('/create', createProduct)
 
 // Exports
 module.exports = router

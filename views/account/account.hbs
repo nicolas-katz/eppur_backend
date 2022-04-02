@@ -4,30 +4,19 @@
         <h1>MI CUENTA</h1>
         <h2>Bienvenido de nuevo, {{username}}!</h2>
     </div>
-    <div class="my-account-admin">
-        <a href="/account/admin?show=ordenes">
-            VER ORDENES
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
-            </svg>
-        </a>
-        <a href="/account/admin?show=productos">
-            VER PRODUCTOS
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
-            </svg>
-        </a>
-        <a href="/account/admin?show=usuarios">
-            VER USUARIO
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
-            </svg>
-        </a>
-    </div>
-    <div class="my-account-orders">
-        <h3>
-            MIS PEDIDOS 
-        </h3>        
-        <p>No has pedido nada aún.</p>
+    <div class="my-account-box">
+        <div class="my-account-orders">
+            <h3>MIS PEDIDOS</h3>        
+            <p>No has pedido nada aún.</p>
+        </div>
+        <div class="my-account-admin">
+            <h3>ADMINISTRAR TIENDA</h3>
+            <ul>
+                <li><a href="/account/administrator/usuarios">Usuarios</a></li>
+                <li><a href="/account/administrator/productos">Productos</a></li>
+                <li><a href="/account/administrator/ordenes">Ordenes</a></li>
+                <li><a href="/account/administrator/galeria">Galería</a></li>
+            </ul>
+        </div>
     </div>
 </div>

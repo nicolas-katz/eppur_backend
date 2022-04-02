@@ -35,10 +35,6 @@ const productsSchema = new mongoose.Schema({
         type: Array,
         required: true
     },
-    stock: {
-        type: Number,
-        required: true
-    }
 }, {
     timestamps: true,
     versionKey: false
