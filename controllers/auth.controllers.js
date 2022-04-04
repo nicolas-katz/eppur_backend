@@ -69,6 +69,14 @@ const logIn = async (req, res) => {
         } else {
             req.session.user = email
             req.session.username = user.firstname;
+            req.user = {
+                name: user.firstname,
+                lastname: user.lastname,
+                phone: user.phone,
+                email: user.email,
+                role: user.role,
+                id: user._id
+            }
             
             const token = jwt.sign({
                 name: user.name,
