@@ -46,6 +46,7 @@ const createPhoto = async (req, res) => {
         const { email, image } = req.body
         const newPhoto = await new Gallery({email, image})
         await newPhoto.save()
+        res.redirect('/account/administrator/galeria')
     } catch (e) {
         res.json(e)
     }

@@ -7,9 +7,37 @@
     </a>
     <h1>
         ADMINISTRAR USUARIOS
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
         </svg>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CREAR USUARIO</h5>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" data-bs-dismiss="modal" aria-label="Close">
+                <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
+                <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
+              </svg>
+            </div>
+            <div class="modal-body">
+              <form action="/account/administrator/usuarios" method="post">
+                <input type="text" name="firstname" id="firstname" placeholder="Nombre/s" value="{{firstname}}" required>
+                <input type="text" name="lastname" id="lastname" placeholder="Apellido/s" value="{{lastname}}" required>
+                <input type="tel" name="phone" id="phone" placeholder="Telefono" value="{{phone}}" required>
+                <input type="email" name="email" id="email" placeholder="Correo" value="{{email}}" required>
+                <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" maxlength="20" value="{{password}}" required>
+                <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Repeti tu contraseña" minlength="8" maxlength="20" value="{{confirmpassword}}" required>
+                <input type="submit" value="CREAR CUENTA">              
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </h1>
 <table class="table table-hover">
   <thead>
@@ -30,7 +58,7 @@
         <td>{{this.lastname}}</td>
         <td>{{this.email}}</td>
         <td>{{this.phone}}</td>
-        <td>{{this.isAdmin}}</td>
+        <td>{{this.role}}</td>
       </tr>
     {{/each}}
   </tbody>

@@ -806,7 +806,11 @@ nav {
 .outfit-box .outfit-data h4 {
     font-size: 20px;
     font-weight: 400;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
+}
+
+.outfit-box .outfit-data p {
+    font-weight: 300;
 }
 
 /* details */
@@ -1080,6 +1084,10 @@ nav {
     width: 25%;
 }
 
+.my-account-box.notAdmin .my-account-admin {
+    width: 0;
+}
+
 .my-account-admin h3 {
     font-size: 22px;
     font-weight: 300;
@@ -1111,6 +1119,11 @@ nav {
 .my-account-orders {
     margin-right: 5%;
     width: 70%;
+}
+
+.my-account-box.notAdmin .my-account-orders {
+    width: 100%;
+    margin-right: 0;
 }
 
 .my-account-orders h3 {
@@ -1172,6 +1185,51 @@ nav {
 }
 
 .admin h1 svg:hover {
+    color: black;
+}
+
+.table th {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.table td {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.admin .modal h5 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.admin .modal-body form input {
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0 20px;
+    margin: 8px 0;
+    border-radius: 0;
+    border: 1px solid gainsboro;
+    transition: 1s;
+    cursor: pointer;
+    outline: none;
+}
+
+.admin .modal-body form input:hover {
+    border: 1px solid black;
+}
+
+.admin .modal-body form input:last-child {
+    background: black;
+    font-weight: 400;
+    border: 1px solid black;
+    color: white;
+}
+
+.admin .modal-body form input:last-child:hover {
+    background: transparent;
     color: black;
 }
 

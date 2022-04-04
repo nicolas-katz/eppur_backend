@@ -2,6 +2,10 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 
+let validatesRoles = {
+    values: ["user", "admin"]
+}
+
 // Model
 const AuthSchema = new mongoose.Schema({
     firstname: {
@@ -25,9 +29,9 @@ const AuthSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    isAdmin: {
-        type: Boolean,
-        default: false
+    role: {
+        type: String,
+        default: "user"
     }
 }, {
     timestamps: true,

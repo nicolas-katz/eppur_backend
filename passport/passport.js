@@ -2,22 +2,10 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy
 const Auth = require('../models/Auth')
 
-function getByUsername(username) {
-  try {
-    const users = users_contenedor.getAll();
-    const match = users.find((user) => user.username === username);
-    return match ? match : null;
-  } catch (error) {
-    throw new Error(
-      `Error al obtener el usuario con username:'${username}': ${error}`
-    );
-  }
-}
-
 passport.use('login',
   new LocalStrategy(
     { 
-      emailField: "email", 
+      usernameField: "email", 
       passwordField: "password",
       passReqToCallback: true
     },
@@ -26,7 +14,7 @@ passport.use('login',
       if (!user) {
         return done(null, false, { message: "Not User found." });
       } else {
-        const match = await user.comparePassword(password);
+        const match = await user.comparePassword(password, user.password);
         if (match) {
           return done(null, user);
         } else {

@@ -4,19 +4,21 @@
         <h1>MI CUENTA</h1>
         <h2>Bienvenido de nuevo, {{username}}!</h2>
     </div>
-    <div class="my-account-box">
+    <div class="{{#if isAdmin}}my-account-box{{else}}my-account-box notAdmin{{/if}}">
         <div class="my-account-orders">
             <h3>MIS PEDIDOS</h3>        
             <p>No has pedido nada aún.</p>
         </div>
-        <div class="my-account-admin">
-            <h3>ADMINISTRAR TIENDA</h3>
-            <ul>
-                <li><a href="/account/administrator/usuarios">Usuarios</a></li>
-                <li><a href="/account/administrator/productos">Productos</a></li>
-                <li><a href="/account/administrator/ordenes">Ordenes</a></li>
-                <li><a href="/account/administrator/galeria">Galería</a></li>
-            </ul>
-        </div>
+        {{#if isAdmin}}
+            <div class="my-account-admin">
+                <h3>ADMINISTRAR TIENDA</h3>
+                <ul>
+                    <li><a href="/account/administrator/usuarios">Usuarios</a></li>
+                    <li><a href="/account/administrator/productos">Productos</a></li>
+                    <li><a href="/account/administrator/ordenes">Ordenes</a></li>
+                    <li><a href="/account/administrator/galeria">Galería</a></li>
+                </ul>
+            </div>
+        {{/if}}
     </div>
 </div>

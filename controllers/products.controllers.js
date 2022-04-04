@@ -93,6 +93,7 @@ const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
         await newProduct.save()
+        res.redirect("/account/administrator/productos")
     } catch (e) {
         res.json(e)
     }
