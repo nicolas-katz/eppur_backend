@@ -81,7 +81,9 @@ const logIn = async (req, res) => {
             const token = jwt.sign({
                 name: user.name,
                 id: user._id
-            }, config.TOKEN_SECRET)
+            }, config.TOKEN_SECRET, {
+                expiresIn: config.TOKEN_EXPIRATION
+            })
 
             res.header('auth-token', token)
             res.redirect("/account")

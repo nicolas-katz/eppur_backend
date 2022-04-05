@@ -41,7 +41,7 @@ app.use(session({
     saveUninitialized: false,
     rolling: true,
     cookie: {
-        maxAge: config.SESSION_EXPIRATION * 1000,
+        maxAge: Number(config.SESSION_EXPIRATION),
         httpOnly: false,
         secure: false
     }

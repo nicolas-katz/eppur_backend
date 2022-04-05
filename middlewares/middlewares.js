@@ -1,13 +1,18 @@
 const Auth = require("../models/Auth");
 const jwt = require('jsonwebtoken')
-const config = require('../config')
+const config = require('../config');
+const Cart = require("../models/Cart");
 
 const isAdmin = async (req, res, next) => {
-  const currentUser = await Auth.findOne({email: req.session.user})
-  if (currentUser.role == "admin") {
-      return next();
+  if(req.session.user) {
+    const currentUser = await Auth.findOne({email: req.session.user})
+    if (currentUser.role == "admin") {
+        return next();
+      } else {
+        res.redirect("/");
+      } 
     } else {
-      res.redirect("/account");
+      res.redirect("/account/login");
     }
 };
 
@@ -42,9 +47,19 @@ const verifyToken = (req, res, next) => {
   }
 }
 
+const verifyCart = async (req, res, next) => {
+  const userCart = Cart.findOne({_id: req.user._id})
+  if(userCart) {
+    return next()
+  } else {
+    res.redirect('/')
+  }
+}
+
 module.exports = {
     isAdmin,
     isAuthenticated,
     fadeLogs,
-    verifyToken
+    verifyToken,
+    verifyCart
 }

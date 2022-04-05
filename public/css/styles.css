@@ -7,6 +7,8 @@
     font-family: 'Jost', sans-serif;
 }
 
+/* scrollbar */
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -14,6 +16,35 @@
 ::-webkit-scrollbar-thumb {
     background: black;
     border: 2px solid white;
+}
+
+/* system */
+
+.system {
+    padding: 100px 160px;
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.system h1 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 54px;
+}
+
+.system div {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+.system p {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 24px 0;
 }
 
 /* chat widget */
@@ -136,7 +167,7 @@ nav {
 }
 
 .brand {
-    margin-left: -148px;
+    margin-left: -138px;
 }
 
 .brand a {
@@ -1100,8 +1131,9 @@ nav {
 }
 
 .my-account-admin ul li {
-    margin: 6px 0;
-    list-style: circle;
+    margin: 10px 0;
+    list-style: none;
+    margin-left: -32px;
 }
 
 .my-account-admin ul li a {

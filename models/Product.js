@@ -19,10 +19,10 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    images: {
-        type: Array,
+    images: [{
+        type: String,
         required: true
-    },
+    }],
     description: {
         type: String,
         required: true
@@ -31,10 +31,10 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sizes: {
-        type: Array,
-        required: true
-    },
+    sizes: [{
+        size: { type: String, required: true },
+        stock: { type: Number, required: true, default: 0 }
+    }],
 }, {
     timestamps: true,
     versionKey: false

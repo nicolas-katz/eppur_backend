@@ -3,9 +3,37 @@ const { Schema, model } = require('mongoose')
 
 // Model
 const cartSchema = new Schema({
-    products: {
-        type: Array,
-        required: true
+    products: [{
+        _id: { type: String, required: true },
+        title: { type: String, required: true },
+        price: { type: Number, required: true },
+        category: { type: String, required: true },
+        color: { type: String, required: true },
+        image: { type: String, required: true },
+        images: [{ type: String, required: true }],
+        description: { type: String, required: true },
+        sizes: [{ 
+            size: { type: String, required: true },
+            stock: { type: Number, required: true, default: 0 }
+        }],
+    }],
+    quantity: { 
+        type: Number, 
+        required: true, 
+        default: 1
+    },   
+    userID: { 
+        type: String, 
+        required: true 
+    },
+    userEmail: { 
+        type: String, 
+        required: true 
+    },
+    total: {
+        type: Number,
+        required: true,
+        default: 0
     }
 }, {
     timestamps: true,
