@@ -1,0 +1,186 @@
+.my-account {
+    padding: 100px 140px;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-account-title a {
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: 1s;
+    text-decoration: none;
+    color: black;
+}
+
+.my-account-title a:hover {
+    color: gray;
+}
+
+.my-account-title h1 {
+    font-size: 42px;
+    font-weight: 400;
+    color: black;
+    margin: 16px 0 10px 0;
+}
+
+.my-account-title h2 {
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+}
+
+.my-account-box {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.my-account-admin {
+    width: 100%;
+}
+
+.my-account-admin h3 {
+    font-size: 24px;
+    font-weight: 400;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 16px;
+}
+
+.my-account-admin ul {
+    margin-top: 20px;
+}
+
+.my-account-admin ul li {
+    margin: 10px 0;
+}
+
+.my-account-admin ul li a {
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    transition: 1s;
+    text-decoration: none;
+}
+
+.my-account-admin ul li a:hover {
+    color: gray;
+}
+
+.my-account-orders {
+    width: 100%;
+}
+
+.my-account-orders h3 {
+    font-size: 24px;
+    font-weight: 400;
+    border-bottom: 1px solid gainsboro;
+    padding-bottom: 16px;
+}
+
+.my-account-orders p {
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    margin-top: 32px;
+}
+
+/* is admin */
+
+.admin {
+    padding: 100px 80px;
+    padding-top: 180px;
+}
+
+.admin a {
+    text-decoration: none;
+    color: black;
+    transition: 1s;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 400;
+    width: max-content;
+}
+
+.admin a svg {
+    margin-right: 4px;
+}
+
+.admin a:hover {
+    color: gray;
+}
+
+.admin h1 {
+    font-size: 42px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.admin h1 svg {
+    width: 24px !important;
+    height: 24px !important;
+    cursor: pointer;
+    transition: 1s;
+    color: black;
+}
+
+.admin h1 svg:hover {
+    color: gray;
+}
+
+.table {
+    cursor: pointer;
+}
+
+.table th {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.table td {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.admin .modal .modal-header {
+    padding: 20px !important;
+}
+
+.admin .modal h5 {
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: capitalize !important;
+}
+
+.admin .modal-body form input {
+    width: 100%;
+    height: 44px;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 0 20px;
+    margin: 8px 0;
+    border-radius: 0;
+    border: 1px solid gainsboro;
+    transition: 1s;
+    outline: none;
+}
+
+.admin .modal-body form input:last-child {
+    background: black;
+    font-weight: 400;
+    border: 1px solid black;
+    color: white;
+    transition: 1s;
+}
+
+.admin .modal-body form input:last-child:hover {
+    opacity: .8;
+}

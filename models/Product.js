@@ -9,7 +9,8 @@ const productsSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: true
+        required: true,
+        enum: ["pantalones", "remeras", "buzos", "bermudas", "boinas", "accesorios"]
     },
     price: {
         type: Number,
@@ -19,22 +20,20 @@ const productsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    images: [{
-        type: String,
-        required: true
-    }],
-    description: {
-        type: String,
-        required: true
-    },
     color: {
         type: String,
         required: true
     },
-    sizes: [{
-        size: { type: String, required: true },
-        stock: { type: Number, required: true, default: 0 }
-    }],
+    size: {
+        type: String,
+        required: true,
+        enum: ["small", "medium", "large"]
+    },
+    stock: {
+        type: Number,
+        required: true,
+        default: 0
+    }
 }, {
     timestamps: true,
     versionKey: false

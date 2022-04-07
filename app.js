@@ -16,10 +16,9 @@ const { engine } = require('express-handlebars')
 const productsRouter = require('./routes/products.router') 
 const authRouter = require('./routes/auth.router') 
 const infoRouter = require('./routes/info.router') 
-const galleryRouter = require('./routes/gallery.router') 
 const cartRouter = require('./routes/cart.router') 
+const indexRouter = require('./routes/index.router') 
 const config = require('./config')
-const { showAllPhotos_withLimit } = require('./controllers/gallery.controllers')
 
 // CORS Configuration
 const corsOptions = {
@@ -66,16 +65,8 @@ app.use((req, res, next) => {
 app.use('/collections', productsRouter)
 app.use('/account', authRouter)
 app.use('/information', infoRouter)
-app.use('/gallery', galleryRouter)
+app.use(indexRouter)
 app.use('/cart', cartRouter)
-
-// Index routes
-app.get('/', showAllPhotos_withLimit)
-app.get('/about', (req, res) => {
-    res.render('about', {
-        user: req.session.user
-    })
-})
 
 // Express handlebars engine
 app.set('views', path.join(__dirname, 'views'))
@@ -92,7 +83,7 @@ app.use((req, res) => {
     res.status(404).render("404", {
         message: "La página",
         path: "/",
-        button_text: "INICIO",
+        button_text: "Inicio",
         user: req.session.user
     });
 })

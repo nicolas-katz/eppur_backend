@@ -10,7 +10,8 @@ const getProducts = async (req, res) => {
             products: products,
             boolean: boolean,
             user: req.session.user,
-            title: "TODOS LOS PRODUCTOS"
+            title: "Colección Eppur",
+            isAllProducts: true
         })
     } catch (e) {
         return res.json(e)   
@@ -29,18 +30,17 @@ const getAllProducts = async (req, res) => {
     }
 }
 
-const getOutfits = async (req, res) => {
+const showProducts_withLimit = async (req, res) => {
     try {
-        const products = await Product.find({}).lean()
-        const boolean = products.length >= 1
-        return res.render('collections/outfits', {
+         const products = await Product.find({}).sort({'createdAt': 1}).limit(3).lean()
+         const boolean = products.length >= 1
+         return res.render('index', {
             products: products,
             boolean: boolean,
-            user: req.session.user,
-            title: "TODOS LOS OUTFITS"
-        })
+            user: req.session.user
+         })
     } catch (e) {
-        return res.json(e)   
+        res.json(e)
     }
 }
 
@@ -57,8 +57,8 @@ const getProductsById = async (req, res) => {
     } catch (e) {
         res.render('404', {
             message: "El producto",
-            path: "/collections/products",
-            button_text: "PRODUCTOS"
+            path: "/collections/coleccion-eppur",
+            button_text: "Productos"
         })
     }
 }
@@ -69,18 +69,71 @@ const getProductsByCategory = async (req, res) => {
         const category = req.params.category
         const productsByCategory = await Product.find({category: category}).lean()
         const boolean = productsByCategory.length >= 1
-        if(category == "remeras" || category == "pantalones" || category == "accesorios") {
+        if(category == "buzos" || category == "remeras" || category == "pantalones" || category == "bermudas" || category == "boinas" || category == "accesorios") {
             res.render("collections/products", {
                 products: productsByCategory,
                 boolean: boolean,
                 user: req.session.user,
-                title: category.toUpperCase()
+                title: category,
+                isCategory: true
             })
         } else {
             res.render('404', {
                 message: "La categoría",
-                path: "/collections",
-                button_text: "COLECCIONES"
+                path: "/collections/coleccion-eppur",
+                button_text: "Colecciones"
+            })
+        }
+    } catch (e) {
+        res.json(e)
+    }
+}
+
+// Get products by color functions
+const getProductsByColor = async (req, res) => {
+    try {
+        const color = req.params.color
+        const productsByColor = await Product.find({color: color}).lean()
+        const boolean = productsByColor.length >= 1
+        if(color == "negro" || color == "blanco" || color == "gris" || color == "beige") {
+            res.render("collections/products", {
+                products: productsByColor,
+                boolean: boolean,
+                user: req.session.user,
+                title: color,
+                isColor: true
+            })
+        } else {
+            res.render('404', {
+                message: "El color",
+                path: "/collections/coleccion-eppur",
+                button_text: "Colecciones"
+            })
+        }
+    } catch (e) {
+        res.json(e)
+    }
+}
+
+// Get products by size functions
+const getProductsBySize = async (req, res) => {
+    try {
+        const size = req.params.size
+        const productsBySize = await Product.find({size: size}).lean()
+        const boolean = productsBySize.length >= 1
+        if(size == "small" || size == "medium" || size == "large") {
+            res.render("collections/products", {
+                products: productsBySize,
+                boolean: boolean,
+                user: req.session.user,
+                title: size,
+                isSize: true
+            })
+        } else {
+            res.render('404', {
+                message: "El talle",
+                path: "/collections/coleccion-eppur",
+                button_text: "Colecciones"
             })
         }
     } catch (e) {
@@ -124,9 +177,11 @@ const deleteProductById = async (req, res) => {
 module.exports = {
     getProducts,
     getAllProducts,
-    getOutfits,
+    showProducts_withLimit,
     getProductsById,
     getProductsByCategory,
+    getProductsByColor,
+    getProductsBySize,
     createProduct,
     updateProductById,
     deleteProductById

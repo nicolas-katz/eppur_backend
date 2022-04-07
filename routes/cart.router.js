@@ -7,11 +7,7 @@ const router = Router()
 
 // GET routes
 router
-.get('/checkout', [isAuthenticated, verifyCart ], (req, res) => {
-    res.render('cart/checkout', {
-        user: req.session.user
-    })
-})
+.get('/checkout', [isAuthenticated, verifyCart ], (req, res) => { res.render('cart/checkout', { user: req.session.user }) })
 .get('/', getUserCart)
 .post('/:id', addProductToCart)
 .delete('/:id', deleteProductOfCart)

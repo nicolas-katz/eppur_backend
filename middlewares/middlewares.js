@@ -16,6 +16,19 @@ const isAdmin = async (req, res, next) => {
     }
 };
 
+const isUser = async (req, res, next) => {
+  if(req.session.user) {
+    const currentUser = await Auth.findOne({email: req.session.user})
+    if (currentUser.role == "user") {
+        return next();
+      } else {
+        res.redirect("/");
+      } 
+    } else {
+      res.redirect("/account/login");
+    }
+};
+
 const isAuthenticated = (req, res, next) => {
     if (req.session.user) {
       return next();
@@ -58,6 +71,7 @@ const verifyCart = async (req, res, next) => {
 
 module.exports = {
     isAdmin,
+    isUser,
     isAuthenticated,
     fadeLogs,
     verifyToken,

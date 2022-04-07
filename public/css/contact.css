@@ -1,0 +1,81 @@
+.contact {
+    padding: 100px;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact h1 {
+    font-size: 54px;
+    font-weight: 400;
+    color: black;
+}
+
+.contact h2 {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: grey;
+}
+
+.contact h2 a {
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+}
+
+.contact h2 a:hover {
+    color: grey;
+}
+
+.contact form {
+    width: 70%;
+    height: max-content;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.contact form input {
+    color: black;
+    font-size: 18px;
+    font-weight: 300;
+    background: none;
+    outline: none;
+    border: 1px solid gainsboro;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.contact form input::placeholder, .contact form textarea::placeholder {
+    color: black;
+}
+
+.contact form input:last-child {
+    background: black;
+    color: white;
+    transition: 1s;
+    letter-spacing: 2px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.contact form input:last-child:hover {
+    opacity: .8;
+}
+
+.contact form textarea {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    color: black;
+    padding: 20px 20px 0 20px;
+    border: 1px solid gainsboro;
+    outline: none;
+}

@@ -1,0 +1,93 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    width: 100%;
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.header-brand a {
+    font-size: 48px;
+    line-height: 38px;
+    color: black;
+    letter-spacing: 4px;
+    text-decoration: none;
+    transition: 1s;
+    font-family: 'Waiting for the Sunrise', sans-serif;
+}
+
+.header-brand a:hover {
+    opacity: .8;
+    color: black;
+}
+
+.header-links {
+    display: flex;
+    align-items: center;
+}
+
+.header-links .navlinks {
+    margin-right: 40px;
+}
+
+.header-links .navlinks a, .header-links .dropdown span {
+    text-decoration: none;
+    color: black;
+    margin: 0 12px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.header-links .navlinks a:hover, .header-links .dropdown span:hover {
+    opacity: .8;
+}
+
+.header-links .navlinks .dropdown {
+    display: inline;
+}
+
+.header-links .navlinks .dropdown-toggle::after {
+    margin-left: .500em !important;
+}
+
+.header-links .navlinks .dropdown .dropdown-menu {
+    padding: 20px 40px !important;
+    font-weight: 400 !important;
+}
+
+.header-links .navlinks .dropdown .dropdown-item {
+    font-weight: 400 !important;
+}
+
+.header-links .navlinks .dropdown .dropdown-item:hover {
+    background: none !important;
+    opacity: .8;
+} 
+
+.header-links .usernav {
+    display: flex;
+    align-items: center;
+}
+
+.header-links .usernav svg {
+    width: 20px;
+    height: 20px;
+    color: black;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.header-links .usernav svg:first-child {
+    width: 24px;
+    height: 24px;
+    margin-right: 18px;
+    margin-top: 2px;
+}

@@ -1,24 +1,24 @@
 <div class="my-account">
     <div class="my-account-title">
-        <a href="/account/logout">CERRAR SESIÓN</a>
-        <h1>MI CUENTA</h1>
+        <a href="/account/logout">Cerrar Sesión</a>
+        <h1>{{#if isAdmin}}Cuenta De Administrador{{else}}Mi Cuenta{{/if}}</h1>
         <h2>Bienvenido de nuevo, {{username}}!</h2>
     </div>
-    <div class="{{#if isAdmin}}my-account-box{{else}}my-account-box notAdmin{{/if}}">
-        <div class="my-account-orders">
-            <h3>MIS PEDIDOS</h3>        
-            <p>No has pedido nada aún.</p>
-        </div>
+    <div class="my-account-box">
         {{#if isAdmin}}
             <div class="my-account-admin">
-                <h3>ADMINISTRAR TIENDA</h3>
+                <h3>Administrar Tienda</h3>
                 <ul>
                     <li><a href="/account/administrator/usuarios">Usuarios</a></li>
-                    <li><a href="/account/administrator/productos">Productos</a></li>
-                    <li><a href="/account/administrator/outfits">Outfits</a></li>
+                    <li><a href="/account/administrator/productos">Colección Eppur</a></li>
                     <li><a href="/account/administrator/ordenes">Ordenes</a></li>
                     <li><a href="/account/administrator/galeria">Galería</a></li>
                 </ul>
+            </div>
+        {{else}}
+            <div class="my-account-orders">
+                <h3>Mis Pedidos</h3>        
+                <p>No has pedido nada aún.</p>
             </div>
         {{/if}}
     </div>

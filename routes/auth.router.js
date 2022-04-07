@@ -8,19 +8,19 @@ const { getAllProducts, createProduct } = require('../controllers/products.contr
 const { isAuthenticated, fadeLogs, isAdmin } = require('../middlewares/middlewares')
 const Auth = require('../models/Auth')
 
-// GET routes
-router.get('/login', fadeLogs, (req, res) => {
+router
+.get('/login', fadeLogs, (req, res) => {
     res.render('account/login', {
         user: req.session.user
     })
 })
-router.get('/signup', fadeLogs, (req, res) => {
+.get('/signup', fadeLogs, (req, res) => {
     res.render('account/signup', {
         user: req.session.user
     })
 })
-router.get("/logout", logOut)
-router.get('/', isAuthenticated, async (req, res) => {
+.get("/logout", logOut)
+.get('/', isAuthenticated, async (req, res) => {
     const isAdmin = await Auth.findOne({email: req.session.user, role: "admin"})
     res.render('account/account', {
         user: req.session.user,
@@ -28,16 +28,14 @@ router.get('/', isAuthenticated, async (req, res) => {
         isAdmin: isAdmin
     })
 })
-router.get('/administrator/usuarios', [isAuthenticated, isAdmin], getAllUsers)
-router.get('/administrator/productos', [isAuthenticated, isAdmin], getAllProducts)
-router.get('/administrator/galeria', [isAuthenticated, isAdmin], getAllPhotos)
+.get('/administrator/usuarios', isAdmin, getAllUsers)
+.get('/administrator/productos', isAdmin, getAllProducts)
+.get('/administrator/galeria', isAdmin, getAllPhotos)
 
-// POST routes
-router.post('/administrator/usuarios', createUser)
-router.post('/administrator/galeria', createPhoto)
-router.post('/administrator/productos', createProduct)
-router.post('/signup', signUp)
-router.post('/login', logIn)
+.post('/administrator/usuarios', createUser)
+.post('/administrator/galeria', createPhoto)
+.post('/administrator/productos', createProduct)
+.post('/signup', signUp)
+.post('/login', logIn)
 
-// Exports
 module.exports = router

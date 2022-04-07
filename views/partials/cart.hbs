@@ -1,12 +1,27 @@
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">MI CARRITO</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <h6>EL CARRITO ESTA VACIO.</h6>
-                    <button>CHECKOUT - $17</button>
-                </div>
+    <div class="cart-header">
+        <h5 id="offcanvasRightLabel">Mi Carrito</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="cart-body">
+        {{#if productsInCart}}
+            <div class="cart-body-products">
+                {{#each productsInCart}}
+                    <div class="product-box">
+                        <img src="{{this.image}}">
+                        <div class="product-box-data">
+                            <h4>{{this.title}}</h4>
+                            <h5>{{this.price}}</h5>
+                            <p>Cant. {{this.quantity}}</p>
+                            <p>Color {{this.color}}</p>
+                            <p>Talle {{this.size}}</p>
+                        </div>
+                        <a href="/cart/product/delete-product">Borrar</a>
+                    </div>
+                {{/each}}
             </div>
-            <!-- Cart Widget OffCanvas -->
-        </div>
+        {{else}}
+            <h6>El carrito esta vacio.</h6>
+        {{/if}}
+    </div>
+</div>

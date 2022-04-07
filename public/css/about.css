@@ -1,0 +1,185 @@
+.about {
+    padding: 100px 40px;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about h1 {
+    font-size: 54px;
+    font-weight: 400;
+    color: black;
+}
+
+.about-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.about-us {
+    display: flex;
+    align-items: center;
+    height: 600px;
+    width: 100%;
+}
+
+.about-us img {
+    height: 100%;
+    width: 600px;
+    min-width: 600px;
+    margin-right: 32px;
+    object-fit: cover;
+}
+
+.about-us h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: blank;
+    margin-right: 52px;
+}
+
+.about-us p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    color: gray;
+}
+
+.behind-scenes {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.behind-scenes-firstbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+    width: 55%;
+}
+
+.behind-scenes-firstbox h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: blank;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.behind-scenes-firstbox h4 p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
+    color: gray;
+    margin-left: 20px;
+    width: 100%;
+    margin-top: 14px;
+}
+
+.behind-scenes-firstbox img {
+    height: 500px;
+    width: 100%;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.behind-scenes-secondbox {
+    height: 100%;
+    width: 40%;
+    min-width: 40%;
+    object-fit: cover;
+}
+
+.movement {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 900px;
+    grid-template-rows: max-content 400px;
+    place-items: center;
+    margin-left: 12%;
+}
+
+.movement h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    font-size: 20px;
+    font-weight: 400;
+    color: blank;
+    width: 100%;
+}
+
+.movement h4 p {
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    margin-left: 60px;
+}
+
+.movement img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.principales {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.principales-firstbox {
+    width: 50%;
+    min-width: 50%;
+    height: 700px;
+    object-fit: cover;
+    margin-right: 70px;
+}
+
+.principales-secondbox h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: blank;
+    display: flex;
+    align-items: center;
+}
+
+.principales-secondbox h4 p {
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    width: 80%;
+}
+
+.principales-secondbox img {
+    display: block;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 70px;
+}
+
+.visit-us {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 260px;
+}
+
+.visit-us p {
+    font-size: 18px;
+    font-weight: 300;
+    color: gray;
+    text-align: center;
+}

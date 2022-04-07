@@ -4,6 +4,7 @@ const passport = require('passport')
 const config = require('../config')
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
+const { sendEmail, renderNewUser } = require('../email/nodemailer')
 
 const registerSchema = Joi.object({
     firstname: Joi.string().required(),
@@ -38,6 +39,7 @@ const signUp = async (req, res) => {
             newUser.role = "admin"
         }
         await newUser.save()
+        sendEmail(config.SUPER_ADMIN_EMAIL, 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
         req.flash("success_msg", "You are registered.");
         res.redirect('/account/login')
     }

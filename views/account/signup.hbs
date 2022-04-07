@@ -1,5 +1,5 @@
 <div class="account">
-    <h1>CREAR CUENTA</h1>
+    <h1>Crear Cuenta</h1>
     <h2>Por favor rellena la información de debajo</h2>
     <form method="POST" action="/account/signup">
         <input type="text" name="firstname" id="firstname" placeholder="Nombre/s" value="{{firstname}}" minlength="3" maxlength="20" required>
@@ -8,7 +8,7 @@
         <input type="email" name="email" id="email" placeholder="Correo" value="{{email}}" minlength="6" maxlength="30" required>
         <input type="password" name="password" id="password" placeholder="Contraseña" minlength="8" maxlength="30" value="{{password}}" required>
         <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Repeti tu contraseña" minlength="8" maxlength="30" value="{{confirmpassword}}" required>
-        <input type="submit" value="CREAR CUENTA">
+        <input type="submit" value="Crear Cuenta">
     </form>
     <p>¿Ya tienes una cuenta? <a href="/account/login">Iniciar sesión</a></p>
 </div>

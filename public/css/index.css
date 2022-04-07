@@ -1,0 +1,116 @@
+.index main {
+    height: 800px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.index main img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.index-about {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-about h1 {
+    font-size: 48px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.index-about p {
+    font-size: 18px;
+    font-weight: 300;
+    list-style: 28px;
+    color: gray;
+    width: 56%;
+    text-align: center;
+}
+
+.index-products {
+    margin-top: 40px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+.index-products::-webkit-scrollbar {
+    width: 0;
+}
+
+.index-products .product-box {
+    width: 340px;
+    min-width: 340px;
+    height: max-content;
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+
+.index-products .product-box img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+}
+
+.index-products .product-box-data {
+    margin-top: 16px;
+}
+
+.index-products .product-box-data h4 {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
+
+.index-products .product-box-data h5 {
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: -6px;
+}
+
+.index-media {
+    margin: 30px 0 60px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.index-media h4 {
+    font-size: 24px;
+    font-weight: 400;
+    color: black;
+    margin-right: 16px;
+}
+
+.index-media a svg {
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+    display: flex;
+    align-items: center;
+    margin: 0 5px;
+    margin-top: -10px;
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.index-media a:hover svg {
+    color: gray;
+}

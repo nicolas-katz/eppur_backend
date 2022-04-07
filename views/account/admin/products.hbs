@@ -3,10 +3,10 @@
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
         </svg>
-        VOLVER ATRÁS
+        Volver Atrás
     </a>
     <h1>
-        ADMINISTRAR PRODUCTOS
+        Administrar Colección
            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
         </svg>
@@ -16,7 +16,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">CREAR PRODUCTO</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" data-bs-dismiss="modal" aria-label="Close">
   <path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"/>
   <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"/>
@@ -28,8 +28,10 @@
                 <input type="text" name="category" id="category" placeholder="Categoría" required>
                 <input type="number" name="price" id="price" placeholder="Precio" required>
                 <input type="text" name="color" id="color" placeholder="Color" required>
-                <input type="text" name="description" id="description" placeholder="Descripción" required>
-                <input type="submit" value="CREAR PRODUCTO">              
+                <input type="text" name="size" id="size" placeholder="Talle" required>
+                <input type="number" name="stock" id="stock" placeholder="Stock" required>
+                <input type="text" name="image" id="image" placeholder="Imagen" required>
+                <input type="submit" value="Crear Producto">              
               </form>
             </div>
           </div>
@@ -45,8 +47,8 @@
       <th scope="col">Categoría</th>
       <th scope="col">Precio</th>
       <th scope="col">Color</th>
-      <th scope="col">Talles y Stock</th>
-      <th scope="col">Descripción</th>
+      <th scope="col">Talle</th>
+      <th scope="col">Stock</th>      
       <th scope="col">URL</th>
     </tr>
   </thead>
@@ -58,9 +60,9 @@
         <td>{{this.category}}</td>
         <td>{{this.price}}</td>
         <td>{{this.color}}</td>
-        <td>{{this.sizes}}</td>
-        <td>{{this.description}}</td>
-        <td>{{this.imageURL}}</td>
+        <td>{{this.size}}</td>
+        <td>{{this.stock}}</td>
+        <td>{{this.image}}</td>
       </tr>
     {{/each}}
   </tbody>

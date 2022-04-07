@@ -1,9 +1,10 @@
 <div class="gallery">
-    <h1>GALERÍA DE FOTOS</h1>
+    <h1>Galería De Fotos</h1>
+    <p>Aquí compartiremos todas las fotos de nuestros clientes que suban sus fotos a Instagram usando el hashtag #RolandByYou. Entre todos aquellos que participen, sortearemos mensualmente productos de nuestra marca.</p>
     {{#if boolean}}
         <div class="gallery-box">
           {{#each photos as |photo|}}
-            <img src="{{this.image}}">
+            <a href="https://www.instagram.com/eppur_ind/" target="_blank"><img src="{{this.image}}"></a>
           {{/each}}  
         </div>
     {{else}}

@@ -1,29 +1,59 @@
 <div class="products">
-    <h1>{{title}}</h1>
+    <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}} {{title}}</h1>
     {{#if boolean}}
-    <div class="products-flex">
-        <div class="filters">
-            <div>
-                <h3>FILTROS</h3>
-                <a href="/collections/products/all-products">TODOS LOS PRODUCTOS</a>
-                <a href="/collections/products/remeras">REMERAS</a>
-                <a href="/collections/products/pantalones">PANTALONES</a>
-                <a href="/collections/products/accesorios">ACCESORIOS</a>
+    {{#if isAllProducts}}
+        <div class="filters-container">
+            <div class="filters">
+                <div class="dropdown by-category">
+                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Categorías</span>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/buzos">Buzos</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/remeras">Remeras</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/pantalones">Pantalones</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/bermudas">Bermudas</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/boinas">Boinas</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/accesorios">Accesorios</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown by-color">
+                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Colores</span>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/negro">Negro</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/blanco">Blanco</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/gris">Gris</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/beige">Beige</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown by-size">
+                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Talles</span>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/large">Large</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/medium">Medium</a></li>
+                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/small">Small</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
+    {{else}}
+        <div class="products-nav">
+            <span>
+                <a class="nav" href="/collections/coleccion-eppur">Colección Eppur </a>
+                <a> / {{#if isColor}}Color{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
+            </span>
+        </div>
+    {{/if}}
     <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
             {{#each products as |product index|}}
-                <a class="product-box" href="/collections/products/details/{{this._id}}">
-                    <img src="../../images/productos.jpg" >
+                <a class="product-box" href="/collections/coleccion-eppur/{{this.category}}/{{this._id}}">
+                    <img src="{{this.image}}" >
                     <div class="product-content">
-                        <h4>{{this.title}} - {{this.color}}</h4>
+                        <h4>{{this.title}}</h4>
                         <h5>${{this.price}}</h5>
                     </div>
                 </a>     
             {{/each}}
     </div>
-    </div>
     {{else}}
-    <p class="notfound">No hay productos cargados en la web. <a href="/collections">VOLVER ATRÁS</a></p>
+    <p class="notfound">No hay productos cargados en la web. <a href="{{#if isAllProducts}}/{{else}}/collections/coleccion-eppur{{/if}}">Volver Atrás</a></p>
     {{/if}}
 </div>

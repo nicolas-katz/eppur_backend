@@ -24,22 +24,7 @@ const getAllPhotos = async (req, res) => {
     } catch (e) {
         res.json(e)
     }
- }
-
-const showAllPhotos_withLimit = async (req, res) => {
-    try {
-         const photos = await Gallery.find({}).limit(10).lean()
-         const boolean = photos.length >= 1
-         return res.render('index', {
-             photos: photos,
-             boolean: boolean,
-             user: req.session.user,
-             banner: true
-         })
-    } catch (e) {
-        res.json(e)
-    }
- }
+}
 
 const createPhoto = async (req, res) => {
     try {
@@ -74,7 +59,6 @@ const deletePhotoById = async (req, res) => {
 module.exports = {
     showAllPhotos,
     getAllPhotos,
-    showAllPhotos_withLimit,
     createPhoto,
     updatePhotoById,
     deletePhotoById
