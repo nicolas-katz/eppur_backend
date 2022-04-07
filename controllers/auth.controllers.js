@@ -88,7 +88,7 @@ const logIn = async (req, res) => {
             })
 
             res.header('auth-token', token)
-            res.redirect("/account")
+            res.redirect("/collections/coleccion-eppur")
         }
     }
 }

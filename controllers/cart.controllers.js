@@ -1,3 +1,4 @@
+const Auth = require('../models/Auth')
 const Cart = require('../models/Cart')
 const Product = require('../models/Product')
 
@@ -17,10 +18,13 @@ const getUserCart = async (req, res) => {
 
 const addProductToCart = async (req, res) => {
     try {
+        const isAdmin = await Auth.findOne({role: "admin"})
         if(!req.user) {
             res.redirect('/account/login')
         } else {
-            const { userID, userEmail, productID, quantity } = req.body
+            if(isAdmin) return;
+            else {
+                const { userID, userEmail, productID, quantity } = req.body
 
             let cart = await Cart.findOne({_id: userID})
             let product = await Product.findOne({_id: productID})
@@ -51,7 +55,7 @@ const addProductToCart = async (req, res) => {
                 cart.total += quantity * price;
         
                 await cart.save()
-                res.redirect(process.cwd())
+                res.redirect("/")
             } else {
                 const newCart = await new Cart({
                     userEmail,
@@ -61,9 +65,10 @@ const addProductToCart = async (req, res) => {
                 });
                 
                 await newCart.save();
-                res.redirect(process.cwd())
+                res.redirect("/")
             }
         }
+            }
     } catch (e) {
         res.json(e)
     }

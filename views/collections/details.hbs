@@ -14,14 +14,14 @@
             <h3>Talle: <span>{{this.size}}</span></h3>
             <h4>Descripción</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam fugiat iusto officia repudiandae perferendis! Fugiat sint, exercitationem atque consequatur eius, obcaecati quas optio voluptatem cupiditate assumenda dignissimos, illo eos!</p>
-            <div class="add-product">
+            <form class="add-product" method="post" action="/collections/coleccion-eppur/{{this.category}}/{{this._id}}">
               <div class="item-count">
                 <span>-</span>
                 <input type="text" value="1">
                 <span>+</span>
               </div>
-              <button>Agregar Producto</button>
-            </div>
+              <button type="submit">Agregar Producto</button>
+            </form>
         </div>
     </div>
   {{/each}}
