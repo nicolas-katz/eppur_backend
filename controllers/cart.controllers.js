@@ -4,11 +4,11 @@ const Product = require('../models/Product')
 
 const getUserCart = async (req, res) => {
     try {
-        const cart = await Cart.findOne({_id: req.params.id})
-        const boolean = cart.length >= 1
+        // const cart = await Cart.findOne({_id: req.params.id})
+        // const boolean = cart.length >= 1
         res.render('cart/cart', {
-            cart: cart,
-            boolean: boolean,
+            // cart: cart,
+            // boolean: boolean,
             user: req.session.user
         })
     } catch (e) {
@@ -18,56 +18,42 @@ const getUserCart = async (req, res) => {
 
 const addProductToCart = async (req, res) => {
     try {
-        const isAdmin = await Auth.findOne({role: "admin"})
-        if(!req.user) {
-            res.redirect('/account/login')
-        } else {
-            if(isAdmin) return;
-            else {
-                const { userID, userEmail, productID, quantity } = req.body
-
-            let cart = await Cart.findOne({_id: userID})
-            let product = await Product.findOne({_id: productID})
-        
-            if(!product) {
-                res.status(400).json('Not Found Product')
-            }
-
-            let title = product.title
-            let category = product.category
-            let price = product.price
-            let color = product.color
-            let description = product.description
-            let sizes = product.sizes
-            let image = product.image
-            let images = product.images
-        
-            if(cart) {
-                let index = cart.products.indexOf(prod => prod._id == productID);
-                if(index > -1) {
-                    let item = cart.products[index];
-                    item.quantity += quantity;
-                    cart.products[item] = item;
-                } else {
-                    cart.products.push({productID, title, quantity, price, color, sizes, image, images, category, description});
-                }
-        
-                cart.total += quantity * price;
-        
-                await cart.save()
-                res.redirect("/")
-            } else {
-                const newCart = await new Cart({
-                    userEmail,
-                    userID,
-                    products: [{productID, title, quantity, price, color, description, sizes, image, images, category}],
-                    total: quantity * price
-                });
+        const { productID, quantity } = req.body
+            if(req.session.user) {
+                const userEmail = req.session.user
+                const cart = await Cart.findOne({email: userEmail})
+                const product = await Product.findOne({_id: productID})
+                if(!product) res.status(400).json({error: 'Not Found Product'})
                 
-                await newCart.save();
-                res.redirect("/")
-            }
-        }
+                let title = product.title
+                let price = product.price
+                let category = product.category
+                let size = product.size
+                let color = product.color
+                let stock = product.stock
+                let image = product.image
+
+                if(cart) {
+                    let index = cart.products.indexOf(prod => prod._id == productID);
+                    if(index > -1) {
+                        let item = cart.products[index];
+                        item.quantity += quantity;
+                        cart.products[item] = item;
+                    } else {
+                        await cart.products.push({productID, title, quantity, price, color, size, image, stock, category});
+                    }
+                    cart.total += quantity * price;
+                    await cart.save()
+                    res.redirect("/cart")
+                } else {
+                    const newCart = await new Cart({
+                        userID,
+                        products: [{productID, title, quantity, price, color, size, image, stock, category}],
+                        total: quantity * price
+                    });
+                    await newCart.save();
+                    res.redirect("/cart")
+                }
             }
     } catch (e) {
         res.json(e)

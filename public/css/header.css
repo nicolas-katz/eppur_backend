@@ -19,7 +19,6 @@ nav {
     letter-spacing: 4px;
     text-decoration: none;
     transition: 1s;
-    font-family: 'Waiting for the Sunrise', sans-serif;
 }
 
 .header-brand a:hover {
@@ -33,7 +32,7 @@ nav {
 }
 
 .header-links .navlinks {
-    margin-right: 40px;
+    margin-right: 28px;
 }
 
 .header-links .navlinks a, .header-links .dropdown span {
@@ -44,6 +43,11 @@ nav {
     font-weight: 600;
     transition: 1s;
     cursor: pointer;
+}
+
+.header-links .dropdown span svg {
+    display: inline;
+    margin-left: 6px;
 }
 
 .header-links .navlinks a:hover, .header-links .dropdown span:hover {
@@ -78,16 +82,24 @@ nav {
 }
 
 .header-links .usernav svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     color: black;
     cursor: pointer;
     transition: 1s;
+    margin-right: 6px;
 }
 
-.header-links .usernav svg:first-child {
-    width: 24px;
-    height: 24px;
-    margin-right: 18px;
+.header-links .usernav svg:hover {
+    color: gray;
+}
+
+.header-links .usernav .bi-person {
     margin-top: 2px;
+}
+
+.header-links .usernav .bi-bag {
+    width: 20px;
+    height: 20px;
+    margin-right: 0;
 }

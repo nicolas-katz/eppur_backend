@@ -83,14 +83,19 @@
 .products .filters .dropdown span {
     font-size: 18px;
     font-weight: 400;
-    color: black;
+    color: gray;
     display: flex;
     align-items: center;
     transition: 1s;
 }
 
 .products .filters .dropdown span:hover {
-    opacity: .8;
+    color: black;
+}
+
+.products .filters .dropdown span svg {
+    display: inline;
+    margin-left: 6px;
 }
 
 .products .filters .dropdown-toggle::after {
@@ -234,7 +239,7 @@
 }
 
 .details-content p {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     color: gray;
 }
@@ -292,6 +297,7 @@
     color: white;
     border: none;
     transition: 1s;
+    cursor: pointer;
 }
 
 .details-content .add-product button:hover {

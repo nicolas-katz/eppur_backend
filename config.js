@@ -4,6 +4,8 @@ require('dotenv').config();
 // ENV Configurations
 const Configurations = {
   PORT: process.env.PORT || 3001,
+  USER_NODEMAILER: process.env.USER_NODEMAILER || "nicokatz12@gmail.com",
+  PASS_NODEMAILER: process.env.PASS_NODEMAILER || "hordeatiigjmpfhz",
   SESSION_SECRET: process.env.SESSION_SECRET || "eppurapp",
   SESSION_EXPIRATION: process.env.SESSION_EXPIRATION || 604800,
   TOKEN_EXPIRATION: process.env.TOKEN_EXPIRATION || 604800,

@@ -4,7 +4,8 @@ const passport = require('passport')
 const config = require('../config')
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
-const { sendEmail, renderNewUser } = require('../email/nodemailer')
+const sendEmail = require('../email/nodemailer')
+const { renderNewUser } = require('../libs/renderEmailTables')
 
 const registerSchema = Joi.object({
     firstname: Joi.string().required(),

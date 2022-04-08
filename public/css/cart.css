@@ -1,0 +1,33 @@
+.cart {
+    padding: 100px 40px;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart h1 {
+    font-size: 54px;
+    font-weight: 400;
+    color: black;
+}
+
+.cart .notfound {
+    margin-top: 28px;
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    text-align: center;
+}
+
+.cart .notfound a {
+    transition: 1s;
+    display: block;
+    color: black;
+    margin-top: 4px;
+}
+
+.cart .notfound a:hover {
+    color: gray;
+}

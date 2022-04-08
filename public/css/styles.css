@@ -121,9 +121,16 @@
 }
 
 .offcanvas-backdrop {
-    background: rgba(0, 0, 0, 0.062) !important;
+    background: rgba(0, 0, 0, 0.192) !important;
+    transition: 1s !important;
 }
 
 .offcanvas-backdrop.show {
     opacity: .1 !important;
+}
+
+/* dropdown arraw */
+
+.dropdown-toggle::after {
+    display: none !important;
 }
