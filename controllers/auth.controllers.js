@@ -80,7 +80,7 @@ const logIn = async (req, res) => {
                 role: user.role,
                 id: user._id
             }
-            
+                        
             const token = jwt.sign({
                 name: user.name,
                 id: user._id

@@ -19,42 +19,42 @@ const getUserCart = async (req, res) => {
 const addProductToCart = async (req, res) => {
     try {
         const { productID, quantity } = req.body
-            if(req.session.user) {
-                const userEmail = req.session.user
-                const cart = await Cart.findOne({email: userEmail})
-                const product = await Product.findOne({_id: productID})
-                if(!product) res.status(400).json({error: 'Not Found Product'})
-                
-                let title = product.title
-                let price = product.price
-                let category = product.category
-                let size = product.size
-                let color = product.color
-                let stock = product.stock
-                let image = product.image
-
-                if(cart) {
-                    let index = cart.products.indexOf(prod => prod._id == productID);
-                    if(index > -1) {
-                        let item = cart.products[index];
-                        item.quantity += quantity;
-                        cart.products[item] = item;
-                    } else {
-                        await cart.products.push({productID, title, quantity, price, color, size, image, stock, category});
-                    }
-                    cart.total += quantity * price;
-                    await cart.save()
-                    res.redirect("/cart")
-                } else {
-                    const newCart = await new Cart({
-                        userID,
-                        products: [{productID, title, quantity, price, color, size, image, stock, category}],
-                        total: quantity * price
-                    });
-                    await newCart.save();
-                    res.redirect("/cart")
-                }
+        const userEmail = req.session.user
+        const cart = await Cart.findOne({email: userEmail}) || null
+        const product = await Product.findOne({_id: productID})
+        if(!product) {
+            req.flash("error_msg", "The product does not exists. Try again.");
+            res.redirect("collections/coleccion-eppur")
+        }  
+        let title = product.title
+        let price = product.price
+        let category = product.category
+        let size = product.size
+        let color = product.color
+        let stock = product.stock
+        let image = product.image
+        if(cart != null) {
+            let product = cart.products.find(prod => prod._id = productID)
+            if(product) {
+                let item = product;
+                item.quantity += quantity;
+                product = item;
+            } else {
+                await cart.products.push({productID, title, quantity, price, color, size, image, stock, category});
             }
+            cart.total += quantity * price;
+            await cart.save()
+            res.redirect("/cart")
+        } 
+        else {
+            const newCart = await new Cart({
+                userEmail: userEmail,
+                products: [{_id: productID, title, quantity, price, color, size, image, stock, category}],
+                total: quantity * price
+            });
+            await newCart.save();
+            res.redirect("/cart")
+        }
     } catch (e) {
         res.json(e)
     }

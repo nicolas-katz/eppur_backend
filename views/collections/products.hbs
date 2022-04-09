@@ -1,5 +1,5 @@
 <div class="products">
-    <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}} {{title}}</h1>
+    <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}}{{#if isModel}}Modelo:{{/if}} {{title}}</h1>
     {{#if boolean}}
     {{#if isAllProducts}}
         <div class="filters-container">
@@ -53,7 +53,7 @@
         <div class="products-nav">
             <span>
                 <a class="nav" href="/collections/coleccion-eppur">Colección Eppur </a>
-                <a> / {{#if isColor}}Color{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
+                <a> / {{#if isColor}}Color{{/if}}{{#if isModel}}Modelo{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
             </span>
         </div>
     {{/if}}

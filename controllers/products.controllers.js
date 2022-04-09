@@ -1,5 +1,6 @@
 // Imports
 const Product = require('../models/Product')
+const Auth = require('../models/Auth')
 
 // Get products by collection functions
 const getProducts = async (req, res) => {
