@@ -1,16 +1,24 @@
 const Auth = require('../models/Auth')
 const Cart = require('../models/Cart')
 const Product = require('../models/Product')
+const formatterDolar = require('../libs/formatPrices')
 
 const getUserCart = async (req, res) => {
     try {
-        // const cart = await Cart.findOne({_id: req.params.id})
-        // const boolean = cart.length >= 1
-        res.render('cart/cart', {
-            // cart: cart,
-            // boolean: boolean,
-            user: req.session.user
-        })
+        const cart = await Cart.findOne({userEmail: req.session.user}).lean()
+        if(cart) {
+            const cartProducts = cart.products
+            const cartTotal = formatterDolar.format(cart.total)
+            res.render('cart/cart', {
+                cartProducts: cartProducts,
+                cartTotal: cartTotal,
+                user: req.session.user
+            })
+        } else {
+            res.render('cart/cart', {
+                user: req.session.user
+            })
+        }
     } catch (e) {
         res.json(e)
     }
@@ -19,6 +27,7 @@ const getUserCart = async (req, res) => {
 const addProductToCart = async (req, res) => {
     try {
         const { productID, quantity } = req.body
+        const parsedQuantity = Number(quantity)
         const userEmail = req.session.user
         const cart = await Cart.findOne({email: userEmail}) || null
         const product = await Product.findOne({_id: productID})
@@ -37,10 +46,11 @@ const addProductToCart = async (req, res) => {
             let product = cart.products.find(prod => prod._id = productID)
             if(product) {
                 let item = product;
-                item.quantity += quantity;
+                item.quantity += parsedQuantity;
+                item.stock -= parsedQuantity
                 product = item;
             } else {
-                await cart.products.push({productID, title, quantity, price, color, size, image, stock, category});
+                await cart.products.push({productID, title, parsedQuantity, price, color, size, image, stock, category});
             }
             cart.total += quantity * price;
             await cart.save()
@@ -49,7 +59,7 @@ const addProductToCart = async (req, res) => {
         else {
             const newCart = await new Cart({
                 userEmail: userEmail,
-                products: [{_id: productID, title, quantity, price, color, size, image, stock, category}],
+                products: [{_id: productID, title, parsedQuantity, price, color, size, image, stock, category}],
                 total: quantity * price
             });
             await newCart.save();

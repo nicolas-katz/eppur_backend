@@ -7,6 +7,10 @@ const gallerySchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    url: {
+        type: String,
+        default: "https://www.instagram.com/eppur_ind/"
+    },
     image: {
         type: String,
         required: true

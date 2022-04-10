@@ -1,7 +1,7 @@
 // Imports
 const app = require('./app')
 const database = require('./database/database')
-const config = require('./config')
+const config = require('./config/config')
 const createAdminUser = require('./libs/createAdminUser')
 
 // Setting PORT

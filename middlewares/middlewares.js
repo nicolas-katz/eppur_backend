@@ -1,6 +1,6 @@
 const Auth = require("../models/Auth");
 const jwt = require('jsonwebtoken')
-const config = require('../config');
+const config = require('../config/config');
 const Cart = require("../models/Cart");
 
 const isAdmin = async (req, res, next) => {
@@ -45,23 +45,8 @@ const fadeLogs = (req, res, next) => {
   }
 };
 
-const verifyToken = (req, res, next) => {
-  const token = req.header('auth-token')
-  if(token) {
-    try {
-      const verified = jwt.verify(token, config.TOKEN_SECRET)
-      req.user = verified
-      return next()
-    } catch (e) {
-      res.status(400).json({error: 'Invalid Token'})
-    }
-  } else {
-    res.status(401).json({error: 'Invalid Access'})
-  }
-}
-
 const verifyCart = async (req, res, next) => {
-  const userCart = Cart.findOne({_id: req.user._id})
+  const userCart = Cart.findOne({userEmail: req.session.user})
   if(userCart) {
     return next()
   } else {
@@ -74,6 +59,5 @@ module.exports = {
     isUser,
     isAuthenticated,
     fadeLogs,
-    verifyToken,
     verifyCart
 }

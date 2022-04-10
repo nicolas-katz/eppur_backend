@@ -4,7 +4,7 @@
     {{#if boolean}}
         <div class="gallery-box">
           {{#each photos as |photo|}}
-            <a href="https://www.instagram.com/eppur_ind/" target="_blank"><img src="{{this.image}}"></a>
+            <a href="{{this.url}}" target="_blank"><img src="{{this.image}}"></a>
           {{/each}}  
         </div>
     {{else}}

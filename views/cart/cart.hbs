@@ -1,7 +1,50 @@
 <div class="cart">
     <h1>Carrito</h1>
-    {{#if products}}
-    
+    {{#if cartProducts}}
+        <div class="products-cart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each cartProducts}}
+                        <tr>
+                            <td>
+                                <a href="/collections/coleccion-eppur/{{this.category}}/{{this._id}}"><img src="{{this.image}}"></a>
+                                <div class="data">
+                                    <h4>{{this.title}}</h4>
+                                    <h5>${{this.price}}</h5>
+                                    <h6>
+                                        <span>Cant.: {{this.quantity}}</span>
+                                        <span>Talle: {{this.size}}</span>
+                                        <span>Color: {{this.color}}</span>
+                                    </h6>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="item-count">
+                                    <span>-</span>
+                                    <input type="text" name="quantity" id="quantity" value="{{this.quantity}}" >
+                                    <span>+</span>
+                                </div>
+                                <a href="/">Quitar</a>
+                            </td>
+                            <td>
+                                ${{this.price}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <div class="total">
+            <h2>Total: {{cartTotal}}</h2>
+            <button>Terminar Compra</button>
+        </div>
     {{else}}
         <p class="notfound">No has seleccionado ningún producto. <a href="/collections/coleccion-eppur">Seguir Comprando</a></p>
     {{/if}}

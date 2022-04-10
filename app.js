@@ -4,6 +4,7 @@ const app = express()
 require('dotenv').config()
 const path = require('path')
 const morgan = require('morgan')
+const multer = require('multer')
 const methodOverride = require('method-override')
 const session = require('express-session')
 const passport = require('passport')
@@ -18,7 +19,7 @@ const authRouter = require('./routes/auth.router')
 const infoRouter = require('./routes/info.router') 
 const cartRouter = require('./routes/cart.router') 
 const indexRouter = require('./routes/index.router') 
-const config = require('./config')
+const config = require('./config/config')
 
 // CORS Configuration
 const corsOptions = {
@@ -28,12 +29,24 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
+// Multer
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'public/images'),
+    filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+
 // Middlewares
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(morgan('dev'))
 app.use(methodOverride('_method'))
+app.use(multer({
+    storage,
+    dest: path.join(__dirname, 'public/images')
+}).single('image'))
 app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,

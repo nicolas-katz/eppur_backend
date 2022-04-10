@@ -43,6 +43,7 @@ const updatePhotoById = async (req, res) => {
             new: true,
             runValidators: true
         })
+        res.redirect("/account/administrator/galeria")
     } catch (e) {
         res.json(e)
     }
@@ -51,6 +52,7 @@ const updatePhotoById = async (req, res) => {
 const deletePhotoById = async (req, res) => {
     try {
         await Gallery.findByIdAndDelete({_id: req.params.id})
+        res.redirect("/account/administrator/galeria")
     } catch (e) {
         res.json(e)
     }

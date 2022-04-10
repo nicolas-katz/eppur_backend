@@ -31,3 +31,145 @@
 .cart .notfound a:hover {
     color: gray;
 }
+
+.cart .products-cart {
+    margin-top: 48px;
+    width: 80%;
+}
+
+.cart .products-cart .table {
+    width: 100%;
+}
+
+thead {
+    border-bottom: 2px rgba(220, 220, 220, 0.281) solid !important;
+}
+
+.cart .products-cart .table thead tr th {
+    font-size: 24px;
+    font-weight: 300;
+    color: black;
+    margin-bottom: 18px;
+}
+
+.cart .products-cart .table tbody tr td {
+    padding: 40px 0;
+}
+
+.cart .products-cart .table tbody tr td:first-child {
+    display: flex;
+}
+
+.cart .products-cart .table tbody tr td:first-child img {
+    width: 120px;
+    margin-right: 24px;
+}
+
+.cart .products-cart .table tbody tr td:first-child .data {
+    display: flex;
+    flex-direction: column;
+}
+
+.cart .products-cart .table tbody tr td:first-child .data h4 {
+    font-size: 32px;
+    font-weight: 400;
+    color: black;
+}
+
+.cart .products-cart .table tbody tr td:first-child .data h5 {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+    margin-top: -8px;
+}
+
+.cart .products-cart .table tbody tr td:first-child .data h6 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4px;
+    text-transform: capitalize;
+}
+
+.cart .products-cart .table tbody tr td:first-child .data h6 span {
+    font-size: 14px;
+    font-weight: 400;
+    color: gray;
+    margin-top: 2px;
+}
+
+.cart .products-cart .table tbody tr td .item-count {
+    display: flex;
+    align-items: center;
+    border: 1px solid gainsboro;
+    width: max-content;
+    height: max-content;
+    padding: 0 18px;
+    margin-bottom: 10px;
+}
+
+.cart .products-cart .table tbody tr td .item-count span {
+    font-size: 24px;
+    font-weight: 400;
+    color: rgb(185, 185, 185);
+}
+
+.cart .products-cart .table tbody tr td .item-count span:first-child {
+    font-size: 32px;
+}
+
+.cart .products-cart .table tbody tr td .item-count input {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+    width: 60px;
+    height: 48px;
+    text-align: center;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.cart .products-cart .table tbody tr td a {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.cart .products-cart .table tbody tr td:last-child {
+    color: black;
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.cart .total {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+.cart .total h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
+
+.cart .total button {
+    margin-top: 10px;
+    width: max-content;
+    padding: 0 28px;
+    height: 56px;
+    font-size: 20px;
+    font-weight: 300;
+    color: white;
+    outline: none;
+    background: black;
+    border: none;
+    transition: 1s;
+    text-align: center;
+}
+
+.cart .total button:hover {
+    opacity: .8;
+}

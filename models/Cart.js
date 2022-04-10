@@ -12,7 +12,8 @@ const cartSchema = new Schema({
         image: { type: String, required: true },
         size: { type: String, required: true },
         stock: { type: Number, required: true, default: 0 },
-        quantity: { type: Number, required: true, default: 1 }
+        quantity: { type: Number, required: true, default: 1 },
+        subtotal: { type: Number, required: true, default: 0 }
     }],  
     userEmail: { 
         type: String, 

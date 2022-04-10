@@ -1,7 +1,7 @@
 // Imports
 const Auth = require('../models/Auth')
 const passport = require('passport')
-const config = require('../config')
+const config = require('../config/config')
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
 const sendEmail = require('../email/nodemailer')
@@ -55,11 +55,6 @@ const loginSchema = Joi.object({
 const logIn = async (req, res) => {
     const { email, password } = req.body
     loginSchema.validate(email, password)
-    // passport.authenticate('login', {
-    //     successRedirect: '/account',
-    //     failureRedirect: '/account/login',
-    //     failureFlash: true
-    // })
     const user = await Auth.findOne({email: email})
     if(!user) {
         req.flash("error_msg", "This email does not exist.");
@@ -72,17 +67,10 @@ const logIn = async (req, res) => {
         } else {
             req.session.user = email
             req.session.username = user.firstname;
-            req.user = {
-                name: user.firstname,
-                lastname: user.lastname,
-                phone: user.phone,
-                email: user.email,
-                role: user.role,
-                id: user._id
-            }
+            req.session.role = user.role;
                         
             const token = jwt.sign({
-                name: user.name,
+                role: user.role,
                 id: user._id
             }, config.TOKEN_SECRET, {
                 expiresIn: config.TOKEN_EXPIRATION
@@ -111,9 +99,12 @@ const logOut = (req, res) => {
 const getAllUsers = async (req, res) => {
     try {
         const users = await Auth.find({}).lean()
+        const currentUser = await Auth.findOne({email: req.session.user}).lean()
+        const userID = currentUser._id
         res.render('account/admin/users', {
             users: users,
-            user: req.session.user
+            user: req.session.user,
+            userID: userID
         })
     } catch (e) {
         res.json(e)
@@ -151,19 +142,35 @@ const createUser = async (req, res) => {
 // Update user function
 const updateUserById = async (req, res) => {
   try {
-      await Auth.findByIdAndUpdate({_id: req.params.id}, req.body, {
-        new: true,
-        runValidators: true
-      })
-  } catch (e) {
-    res.json(e)
+        const userID = await Auth.findOne({_id: req.params.id})
+        const _usedID = userID.email == "eppur@gmail.com"
+        if(_usedID) {
+            req.flash("error_msg", "You can not edit a super admin. Try again.");
+            res.redirect("/account")
+        } else {
+            await Auth.findByIdAndUpdate({_id: req.params.id}, req.body, {
+                new: true,
+                runValidators: true
+            })
+            res.redirect("/account/administrator/usuarios")
+        }
+    } catch (e) {
+        res.json(e)
   }
 }
 
 // Delete user function
 const deleteUserById = async (req, res) => {
     try {
-        await Auth.findByIdAndDelete({_id: req.params.id})
+        const userID = await Auth.findOne({_id: req.params.id})
+        const _usedID = userID.email == "eppur@gmail.com"
+        if(_usedID) {
+            req.flash("error_msg", "You can not delete a super admin. Try again.");
+            res.redirect("/account")
+        } else {
+            await Auth.findByIdAndDelete({_id: req.params.id})
+            res.redirect("/account/administrator/usuarios")
+        }
     } catch (e) {
       res.json(e)
     }

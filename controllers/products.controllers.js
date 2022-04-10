@@ -160,6 +160,7 @@ const updateProductById = async (req, res) => {
             new: true,
             runValidators: true
         })
+        res.redirect("/account/administrator/productos")
     } catch (e) {
         res.json(e)
     }
@@ -169,6 +170,7 @@ const updateProductById = async (req, res) => {
 const deleteProductById = async (req, res) => {
     try {
         await Product.findByIdAndDelete({_id: req.params.id})
+        res.redirect("/account/administrator/productos")
     } catch (e) {
         res.json(e)
     }
