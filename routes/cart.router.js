@@ -9,9 +9,8 @@ const router = Router()
 router
 .get('/checkout', [ isAuthenticated, verifyCart ], (req, res) => { res.render('cart/checkout', { user: req.session.user }) })
 .get('/', [ isAuthenticated ], getUserCart)
+.get('/delete/:id', deleteProductOfCart)
 .post('/add-product', addProductToCart)
-.delete('/:id', deleteProductOfCart)
-.delete('/', deleteAllProduct)
 
 // Exports
 module.exports = router

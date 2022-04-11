@@ -7,14 +7,19 @@ footer {
 .footer-information {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin-bottom: 100px;
-    margin-left: 160px;
+    margin-left: 200px;
 }
 
 .footer-information .footer-links {
     margin-right: 80px;
     display: flex;
     flex-direction: column;
+}
+
+.footer-information .footer-links:last-child {
+    margin-right: 0;
 }
 
 .footer-information .footer-links h5, .footer-media h5 {

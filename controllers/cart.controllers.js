@@ -42,25 +42,28 @@ const addProductToCart = async (req, res) => {
         let color = product.color
         let stock = product.stock
         let image = product.image
+        let subtotal = product.price * parsedQuantity
+        
         if(cart != null) {
             let product = cart.products.find(prod => prod._id = productID)
             if(product) {
                 let item = product;
                 item.quantity += parsedQuantity;
                 item.stock -= parsedQuantity
+                subtotal += subtotal
                 product = item;
             } else {
                 await cart.products.push({productID, title, parsedQuantity, price, color, size, image, stock, category});
             }
-            cart.total += quantity * price;
+            cart.total += subtotal;
             await cart.save()
             res.redirect("/cart")
         } 
         else {
             const newCart = await new Cart({
                 userEmail: userEmail,
-                products: [{_id: productID, title, parsedQuantity, price, color, size, image, stock, category}],
-                total: quantity * price
+                products: [{_id: productID, title, parsedQuantity, subtotal, price, color, size, image, stock, category}],
+                total: subtotal
             });
             await newCart.save();
             res.redirect("/cart")
@@ -71,46 +74,23 @@ const addProductToCart = async (req, res) => {
 }
 
 const deleteProductOfCart = async (req, res) => {
-    try {    
-        let cart = await carritoModel.findOne({_id : req.body.userID});
-        let index = await cart.products.findIndex(prod => prod._id == req.params.id);
-    
-        if(index > -1) {
-            let item = cart.products[index];
-    
-            if (item.quantity > 1){
-                item.quantity -= 1;
-                cart.total -= item.quantity * item.price;
-            } else return;
-        } 
-    
-        await cart.save();
-        res.redirect(process.cwd())
-    } catch (e) {
-        res.json(e)
-    }
-}
-
-const deleteAllProduct = async (req, res) => {
     try {
-        try {    
-            let cart = await Cart.findOne({_id : req.body.userID});
-            let index = await cart.products.findIndex(prod => prod._id == req.params.id);
+        const userEmail = req.session.user
+        const productID = req.params.id
+        const cart = await Cart.findOne({userEmail: userEmail})
         
-            if(index > -1) {
-                let item = cart.products[index];
-        
-                if (item.quantity >= 1){
-                    cart.total -= item.price;
-                    cart.products.splice(index, 1);
+        if(cart) {
+            const product = cart.products.find(prod => prod._id == productID)
+            if(product) {
+                if (product.quantity >= 1){
+                    cart.total -= product.price;
+                    cart.products.splice(cart.products[product], 1);
                 } else return;
-            } 
-        
-            await cart.save();
-            res.redirect(process.cwd())
-        } catch (e) {
-            res.json(e)
+            }
+            res.redirect("/cart")
         }
+
+        res.redirect("/")
     } catch (e) {
         res.json(e)
     }
@@ -119,6 +99,5 @@ const deleteAllProduct = async (req, res) => {
 module.exports = {
     getUserCart,
     addProductToCart,
-    deleteProductOfCart,
-    deleteAllProduct
+    deleteProductOfCart
 }

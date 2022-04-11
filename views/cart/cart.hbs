@@ -7,7 +7,7 @@
                     <tr>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
-                        <th scope="col">Total</th>
+                        <th scope="col">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,10 +31,10 @@
                                     <input type="text" name="quantity" id="quantity" value="{{this.quantity}}" >
                                     <span>+</span>
                                 </div>
-                                <a href="/">Quitar</a>
+                                <a href="/cart/delete/{{this._id}}">Quitar</a>
                             </td>
                             <td>
-                                ${{this.price}}
+                                ${{this.subtotal}}
                             </td>
                         </tr>
                     {{/each}}
