@@ -1,5 +1,5 @@
 <div class="products">
-    <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}}{{#if isModel}}Modelo:{{/if}} {{title}}</h1>
+    <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}} {{title}}</h1>
     {{#if boolean}}
     {{#if isAllProducts}}
         <div class="filters-container">
@@ -7,22 +7,6 @@
                 <div class="dropdown by-category">
                     <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         Categorías
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/buzos">Buzos</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/remeras">Remeras</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/pantalones">Pantalones</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/bermudas">Bermudas</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/boinas">Boinas</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/accesorios">Accesorios</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown by-category">
-                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Productos
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
                         </svg>
@@ -69,7 +53,7 @@
         <div class="products-nav">
             <span>
                 <a class="nav" href="/collections/coleccion-eppur">Colección Eppur </a>
-                <a> / {{#if isColor}}Color{{/if}}{{#if isModel}}Modelo{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
+                <a> / {{#if isColor}}Color{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
             </span>
         </div>
     {{/if}}

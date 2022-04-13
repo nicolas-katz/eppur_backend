@@ -50,10 +50,12 @@ const getProductsById = async (req, res) => {
     try {
         const id = req.params.id
         const productById = await Product.findById({_id: id}).lean()
-        const products = await Product.find({_id: productById}).lean()  
+        const products = await Product.findOne({_id: productById}).lean()  
+        const stock = products.stock > 0
         return res.render("collections/details", {
             products: products,
-            user: req.session.user
+            user: req.session.user,
+            stock: stock
         }) 
     } catch (e) {
         res.render('404', {

@@ -4,20 +4,29 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="cart-body">
-        {{#if productsInCart}}
+        {{#if cartProducts}}
             <div class="cart-body-products">
-                {{#each productsInCart}}
+                {{#each cartProducts}}
                     <div class="product-box">
-                        <img src="{{this.image}}">
                         <div class="product-box-data">
-                            <h4>{{this.title}}</h4>
-                            <h5>{{this.price}}</h5>
-                            <p>Cant. {{this.quantity}}</p>
-                            <p>Color {{this.color}}</p>
-                            <p>Talle {{this.size}}</p>
+                            <img src="{{this.image}}">
+                            <div>
+                                <h4>{{this.title}}</h4>
+                                <p>{{this.size}}</p>
+                                <h5>{{this.price}}</h5>
+                            </div>
                         </div>
-                        <a href="/cart/product/delete-product">Borrar</a>
+                        <div class="product-box-count">
+                            <div class="item-count">
+                                <span>-</span>
+                                <input type="text" name="quantity" id="quantity" value="{{this.quantity}}">
+                                <span>+</span>
+                            </div>
+                            <a href="/cart/product/delete-product">Quitar</a>
+                        </div>
                     </div>
+                    <h3>Total: ${{cartTotal}}</h3>
+                    <button>Terminar Compra</button>
                 {{/each}}
             </div>
         {{else}}

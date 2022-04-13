@@ -3,6 +3,19 @@ const jwt = require('jsonwebtoken')
 const config = require('../config/config');
 const Cart = require("../models/Cart");
 
+const verifyLoginToken = async (req, res, next) => {
+  const token = req.signedCookies.token
+  if (!token) req.flash('error_msg', 'Invalid Token')
+  try {
+      const user = jwt.verify(token, config.TOKEN_SECRET)
+      req.user = user
+      return next()
+  } catch (e) {
+      req.flash('error_msg', 'Invalid Token')
+      res.redirect("/")
+  }
+}
+
 const isAdmin = async (req, res, next) => {
   if(req.session.user) {
     const currentUser = await Auth.findOne({email: req.session.user})
@@ -55,6 +68,7 @@ const verifyCart = async (req, res, next) => {
 }
 
 module.exports = {
+    verifyLoginToken,
     isAdmin,
     isUser,
     isAuthenticated,

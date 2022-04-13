@@ -1,15 +1,14 @@
 footer {
     border-top: 1px solid rgba(221, 221, 221, 0.788);
     width: 100%;
-    padding: 100px 40px 60px 40px;
+    padding: 100px 40px 40px 40px;
 }
 
 .footer-information {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-bottom: 100px;
-    margin-left: 200px;
+    margin-bottom: 120px;
+    margin-left: 180px;
 }
 
 .footer-information .footer-links {
@@ -70,13 +69,33 @@ footer {
 
 .footer-copyright {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
 .footer-copyright h6 {
-    text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
+    color: black;
+}
+
+.footer-copyright h6 a {
+    text-decoration: none;
+    transition: 1s;
+}
+
+.footer-copyright h6 a:hover {
     color: gray;
+}
+
+.footer-copyright a {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    transition: 1s;
+    text-decoration: none;
+}
+
+.footer-copyright a:hover {
+    color: grey;
 }

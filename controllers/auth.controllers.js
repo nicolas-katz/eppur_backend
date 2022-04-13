@@ -1,6 +1,5 @@
 // Imports
 const Auth = require('../models/Auth')
-const passport = require('passport')
 const config = require('../config/config')
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
@@ -40,7 +39,7 @@ const signUp = async (req, res) => {
             newUser.role = "admin"
         }
         await newUser.save()
-        sendEmail(config.SUPER_ADMIN_EMAIL, 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
+        sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
         req.flash("success_msg", "You are registered.");
         res.redirect('/account/login')
     }
@@ -66,17 +65,31 @@ const logIn = async (req, res) => {
             res.render("account/login")
         } else {
             req.session.user = email
-            req.session.username = user.firstname;
-            req.session.role = user.role;
+            req.session.username = user.firstname
+            req.session.role = user.role
+            req.session._id = user._id
+            req.user = {
+                firstname: user.firstname,
+                email: email,
+                role: user.role,
+                _id: user._id
+            }
+            req.session.isAuthenticated = true
                         
             const token = jwt.sign({
-                role: user.role,
-                id: user._id
+                name: user.firstname, 
+                userID: user._id, 
+                role: user.role
             }, config.TOKEN_SECRET, {
-                expiresIn: config.TOKEN_EXPIRATION
+                expiresIn: '1d'
             })
 
-            res.header('auth-token', token)
+            res.cookie('token', token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + 1000*60*60*24),
+                secure: config.NODE_ENV === 'production',
+                signed: true
+            })
             res.redirect("/collections/coleccion-eppur")
         }
     }
@@ -88,6 +101,11 @@ const logOut = (req, res) => {
     req.session.destroy((err) => {
         if (!err) {
             req.user = null
+            const token = req.signedCookies.token
+            res.cookie('token', token, {
+                httpOnly: true,
+                expires: new Date(Date.now())
+            })
             res.redirect("/");
         } else {
             res.redirect("/account")
@@ -99,12 +117,9 @@ const logOut = (req, res) => {
 const getAllUsers = async (req, res) => {
     try {
         const users = await Auth.find({}).lean()
-        const currentUser = await Auth.findOne({email: req.session.user}).lean()
-        const userID = currentUser._id
         res.render('account/admin/users', {
             users: users,
-            user: req.session.user,
-            userID: userID
+            user: req.session.user
         })
     } catch (e) {
         res.json(e)

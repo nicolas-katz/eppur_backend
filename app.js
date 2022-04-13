@@ -62,7 +62,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(flash())
 app.use(cors(corsOptions))
-app.use(cookieParser())
+app.use(cookieParser(config.TOKEN_SECRET))
 app.use(compression())
 
 // Global variables

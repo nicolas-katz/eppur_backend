@@ -19,6 +19,10 @@ const cartSchema = new Schema({
         type: String, 
         required: true 
     },
+    userID: {
+        type: String,
+        required: true
+    },
     total: {
         type: Number,
         required: true,

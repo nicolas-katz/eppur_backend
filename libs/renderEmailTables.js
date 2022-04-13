@@ -1,9 +1,13 @@
 const renderNewUser = (newUser) => {
     const { firstname, lastname, phone, email, role, _id, createdAt } = newUser;
     return `
-      <h1>Nuevo Usuario | ${_id}</h1>
+      <h1>Nuevo Usuario</h1>
       <table>
          <tbody>
+          <tr>
+            <td>ID</td>
+            <td>${_id}</td>
+          </tr>
           <tr>
             <td>Nombre completo</td>
             <td>${firstname} ${lastname}</td>

@@ -1,5 +1,5 @@
 <div class="cart">
-    <h1>Carrito</h1>
+    <h1>{{#if cartProducts}}<a href="/collections/coleccion-eppur">Coleccion Eppur</a> / {{/if}}Carrito</h1>
     {{#if cartProducts}}
         <div class="products-cart">
             <table class="table">
@@ -27,11 +27,11 @@
                             </td>
                             <td>
                                 <div class="item-count">
-                                    <span>-</span>
-                                    <input type="text" name="quantity" id="quantity" value="{{this.quantity}}" >
-                                    <span>+</span>
+                                    <a href="/cart/removeone-product/{{this._id}}">-</a>
+                                    <input type="text" name="quantity" id="quantity" value="{{this.quantity}}" min="1" max="{{this.stock}}" >
+                                    <a href="/cart/addone-product/{{this._id}}">+</a>
                                 </div>
-                                <a href="/cart/delete/{{this._id}}">Quitar</a>
+                                <a href="/cart/remove-product/{{this._id}}">Quitar</a>
                             </td>
                             <td>
                                 ${{this.subtotal}}
@@ -42,7 +42,7 @@
             </table>
         </div>
         <div class="total">
-            <h2>Total: {{cartTotal}}</h2>
+            <h2>Total: ${{cartTotal}}</h2>
             <button>Terminar Compra</button>
         </div>
     {{else}}

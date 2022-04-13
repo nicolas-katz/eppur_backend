@@ -1,16 +1,27 @@
 .cart {
-    padding: 100px 40px;
     padding-top: 140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .cart h1 {
-    font-size: 54px;
+    font-size: 42px;
     font-weight: 400;
     color: black;
+}
+
+.cart h1 a {
+    color: black;
+    transition: 1s;
+    text-decoration: none;
+}
+
+.cart h1 a:hover {
+    color: black;
+    opacity: .8;
 }
 
 .cart .notfound {
@@ -19,6 +30,7 @@
     font-weight: 400;
     color: black;
     text-align: center;
+    padding-bottom: 100px;
 }
 
 .cart .notfound a {
@@ -35,6 +47,7 @@
 .cart .products-cart {
     margin-top: 48px;
     width: 80%;
+    padding: 0 40px 80px 40px;
 }
 
 .cart .products-cart .table {
@@ -53,7 +66,7 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td {
-    padding: 40px 0;
+    padding: 32px 0;
 }
 
 .cart .products-cart .table tbody tr td:first-child {
@@ -107,13 +120,14 @@ thead {
     margin-bottom: 10px;
 }
 
-.cart .products-cart .table tbody tr td .item-count span {
+.cart .products-cart .table tbody tr td .item-count a {
     font-size: 24px;
     font-weight: 400;
     color: rgb(185, 185, 185);
+    text-decoration: none;
 }
 
-.cart .products-cart .table tbody tr td .item-count span:first-child {
+.cart .products-cart .table tbody tr td .item-count a:first-child {
     font-size: 32px;
 }
 
@@ -142,24 +156,28 @@ thead {
 }
 
 .cart .total {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 20px;
+   position: sticky;
+   bottom: 0;
+   width: 100%;
+   background: white;
+   border-top: 1px solid rgba(220, 220, 220, 0.616);
+   height: 85px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
 }
 
 .cart .total h2 {
     font-size: 20px;
     font-weight: 400;
     color: black;
+    margin-right: 20px;
 }
 
 .cart .total button {
-    margin-top: 10px;
     width: max-content;
     padding: 0 28px;
-    height: 56px;
+    height: 85px;
     font-size: 20px;
     font-weight: 300;
     color: white;

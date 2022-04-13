@@ -257,20 +257,17 @@
     margin-right: 20px;
 }
 
-.details-content .add-product .item-count span {
+.details-content .add-product .item-count a {
     width: max-content;
     font-size: 24px;
     font-weight: 400;
     color: black;
     cursor: pointer;
     transition: 1s;
+    text-decoration: none;
 }
 
-.details-content .add-product .item-count span:hover {
-    color: gray;
-}
-
-.details-content .add-product .item-count span:last-child {
+.details-content .add-product .item-count a:last-child {
     font-size: 20px;
 }
 
