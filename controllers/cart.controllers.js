@@ -7,12 +7,11 @@ const getUserCart = async (req, res) => {
     try {
         const cart = await Cart.findOne({userEmail: req.session.user}).lean() || null
         if(cart != null) {
-            const cartProducts = cart.products
-            const cartTotal = cart.total
             res.render('cart/cart', {
-                cartProducts: cartProducts,
-                cartTotal: cartTotal,
-                user: req.session.user
+                cartProducts: cart.products,
+                cartTotal: cart.total,
+                user: req.session.user,
+                userID: req.session._id
             })
         } else {
             res.render('cart/cart', {

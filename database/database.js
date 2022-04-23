@@ -1,8 +1,6 @@
-// Imports
 const mongoose = require('mongoose');
 const config = require('../config/config')
 
-// Connecting to database
 const database = ()=>{
     mongoose
         .connect(config.MONGODB_URI, {
@@ -13,5 +11,4 @@ const database = ()=>{
         .catch((err)=> console.log(err))
 }
 
-// Exports
 module.exports = database

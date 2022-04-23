@@ -33,10 +33,18 @@ const renderNewUser = (newUser) => {
 }
 
 const renderNewOrder = (newOrder) => {
-
+  return `
+    <h1>Nueva Orden</h1>
+  `
 }
 
+const renderClientOrder = (newOrder) => {
+  return `
+    <h1>Nueva Orden</h1>
+  `
+}
 module.exports = {
     renderNewUser,
-    renderNewOrder
+    renderNewOrder,
+    renderClientOrder
 }

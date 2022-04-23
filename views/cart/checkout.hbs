@@ -1,6 +1,86 @@
 <div class="checkout">
-    <div class="checkout-payment"></div>
-    <div class="checkout-cart">
-        
-    </div>
+    <h1>Checkout</h1>
+    <form class="checkout-container" method="post" action="/checkout/newOrder">
+        <div class="checkout-data">
+            <div class="checkout-data-personal">
+                <h2>Datos Personales</h2>
+                <label for="firstname">Nombre*</label>
+                <input type="text" name="firstname" id="firstname" value="{{firstname}}" required >
+                <label for="lastname">Apellido*</label>
+                <input type="text" name="lastname" id="lastname" value="{{lastname}}" required >
+                <label for="email">Correo*</label>
+                <input type="email" name="email" id="email" value="{{email}}" required >
+                <label for="phone">Telefono*</label>
+                <input type="tel" name="phone" id="phone" value="{{phone}}" required >
+            </div>
+            <div class="checkout-data-shipment">
+                <h2>Métodos De Envío</h2>
+                <p>Selecciona tu método de envío:</p>
+                <select name="shipment" id="shipment" required>
+                    <option value="delivery_casa">Delivery A Mi Casa</option>
+                    <option value="retiro_local">Retiro En El Local</option>
+                </select>
+                <p>
+                    Si tu selección es <strong>'Delivery A Mi Casa'</strong>, una vez realizado el pedido, nos comunicaremos con vos para pedirte los datos necesarios para entregar el pedido.
+                    <br>
+                    Las tarifas correspondientes son las siguientes:
+                        <ul>
+                            <li>Dentro de CABA: $700</li>
+                            <li>Provincia de Buenos Aires y Alrededores: $1.100</li>
+                            <li>Correo Argentino (Fuera De Buenos Aires): $1.500</li>
+                        </ul>
+                </p>
+                <p>Recorda que si tu pedido supera los $8.000, el envío será gratuito.</p>
+                <p>
+                    Si tu selección es <strong>'Retiro En El Local'</strong> te dejamos los datos de nuestro Showroom:
+                    <br>
+                    Av. Calle Sin Salida 123 (Piso 3 'D'), Ciudad Autonoma De Buenos Aires, Argentina. 
+                    <br>
+                    El Showroom esta abierto de 12 - 18hs. 
+                    <br>
+                    <a href="https://www.google.com.ar/maps/place/Universidad+del+CEMA/@-34.5986825,-58.3745401,17z/data=!3m1!4b1!4m5!3m4!1s0x95bccacb40d06165:0xa29e8d640eb1ba4f!8m2!3d-34.5986869!4d-58.3723514" target="_blank">¿Cómo Llegar?</a>
+                </p>
+            </div>
+            <div class="checkout-data-payment">
+                <h2>Métodos De Pago</h2>
+                <p>Selecciona tu método de pago:</p>
+                <select name="payment" id="payment" required>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="mercado_pago">Mercado Pago</option>
+                    <option value="transferencia_bancaria">Transferencia Bancaria</option>
+                </select>
+                <p>Para pagar con Mercado Pago o Transferencia Bancaria te enviaremos los datos correspondientes a tu número de telefono y una vez hecho el pago, deberás reenviarnos una foto del comprobante.</p>
+            </div>
+        </div>
+        <div class="checkout-products">
+            <div class="padding">
+                <table class="table order-products">
+                    <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each products}}
+                            <tr>
+                                <td>
+                                    <h4>{{this.title}}</h4>
+                                    <h5>Cant.: {{this.quantity}}</h5>
+                                    <h5>Talle: {{this.size}}</h5>
+                                    <h5>Color: {{this.color}}</h5>
+                                </td>
+                                <td><h4>${{this.subtotal}}</h4></td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <div class="total-checkout">
+                   <h5>Tu Carrito: ${{total}}.</h5>
+                </div>
+                <button type="submit">Realizar Pedido</button>
+                <a href="/cart">Editar Carrito</a>
+            </div>
+        </div>
+    </form>
 </div>

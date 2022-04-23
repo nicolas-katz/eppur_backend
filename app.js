@@ -1,4 +1,3 @@
-// Imports
 const express = require('express')
 const app = express()
 require('dotenv').config()
@@ -19,9 +18,9 @@ const authRouter = require('./routes/auth.router')
 const infoRouter = require('./routes/info.router') 
 const cartRouter = require('./routes/cart.router') 
 const indexRouter = require('./routes/index.router') 
+const orderRouter = require('./routes/order.router') 
 const config = require('./config/config')
 
-// CORS Configuration
 const corsOptions = {
     origin: `http://localhost:${config.PORT}`,
     credentials: true,
@@ -29,7 +28,6 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-// Multer
 const storage = multer.diskStorage({
     destination: path.join(__dirname, 'public/images'),
     filename: (req, file, cb) => {
@@ -37,7 +35,6 @@ const storage = multer.diskStorage({
     }
 })
 
-// Middlewares
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '/public')))
@@ -65,7 +62,6 @@ app.use(cors(corsOptions))
 app.use(cookieParser(config.TOKEN_SECRET))
 app.use(compression())
 
-// Global variables
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
@@ -74,14 +70,13 @@ app.use((req, res, next) => {
     next()
 })
 
-// Routes
 app.use('/collections', productsRouter)
 app.use('/account', authRouter)
 app.use('/information', infoRouter)
 app.use(indexRouter)
 app.use('/cart', cartRouter)
+app.use('/checkout', orderRouter)
 
-// Express handlebars engine
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'hbs')
 app.engine('.hbs', engine({
@@ -91,7 +86,6 @@ app.engine('.hbs', engine({
     defaultLayout: 'main',
 }));
 
-// 404 Error
 app.use((req, res) => {
     res.status(404).render("404", {
         message: "La página",
@@ -101,11 +95,9 @@ app.use((req, res) => {
     });
 })
 
-// 500 Error
 app.use(function (err, req, res, next) {
     console.log(err.stack);
     res.status(500).send("We found an error 500: " + err);
 });
 
-// Exports
 module.exports = app

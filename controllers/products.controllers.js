@@ -1,8 +1,6 @@
-// Imports
 const Product = require('../models/Product')
 const Auth = require('../models/Auth')
 
-// Get products by collection functions
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find({}).lean()
@@ -33,7 +31,7 @@ const getAllProducts = async (req, res) => {
 
 const showProducts_withLimit = async (req, res) => {
     try {
-         const products = await Product.find({}).sort({'createdAt': -1}).limit(8).lean()
+         const products = await Product.find({}).sort({'createdAt': -1}).limit(3).lean()
          const boolean = products.length >= 1
          return res.render('index', {
             products: products,
@@ -45,7 +43,6 @@ const showProducts_withLimit = async (req, res) => {
     }
 }
 
-// Get products by id functions
 const getProductsById = async (req, res) => {
     try {
         const id = req.params.id
@@ -66,7 +63,6 @@ const getProductsById = async (req, res) => {
     }
 }
 
-// Get products by category functions
 const getProductsByCategory = async (req, res) => {
     try {
         const category = req.params.category
@@ -92,7 +88,6 @@ const getProductsByCategory = async (req, res) => {
     }
 }
 
-// Get products by color functions
 const getProductsByColor = async (req, res) => {
     try {
         const color = req.params.color
@@ -155,7 +150,6 @@ const createProduct = async (req, res) => {
     }
 }
 
-// Update products functions
 const updateProductById = async (req, res) => {
     try {
         await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
@@ -168,7 +162,6 @@ const updateProductById = async (req, res) => {
     }
 }
 
-// Delete products by id functions
 const deleteProductById = async (req, res) => {
     try {
         await Product.findByIdAndDelete({_id: req.params.id})
@@ -178,7 +171,6 @@ const deleteProductById = async (req, res) => {
     }
 }
 
-// Exports
 module.exports = {
     getProducts,
     getAllProducts,

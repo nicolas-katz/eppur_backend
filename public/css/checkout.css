@@ -1,0 +1,172 @@
+.checkout {
+    padding: 100px 80px;
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout h1 {
+    font-size: 54px;
+    font-weight: 400;
+    color: black;
+}
+
+.checkout-container {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.checkout-data {
+    width: 52%;
+}
+
+.checkout-data-personal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
+    font-size: 48px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 36px;
+}
+
+.checkout-data-personal label {
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 4px;
+}
+
+.checkout-data-personal input {
+    outline: none;
+    background: none;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 0 30px;
+    height: 54px;
+    border: 1px solid gainsboro;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.checkout-data-shipment {
+    margin-top: 40px;
+}
+
+.checkout-data-shipment p, .checkout-data-shipment p a {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    margin-top: 20px;
+}
+
+.checkout-data-shipment ul li {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+}
+
+.checkout-data-payment {
+    margin-top: 40px;
+}
+
+.checkout-data-shipment select, .checkout-data-payment select {
+    outline: none;
+    background: none;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 0 30px;
+    height: 54px;
+    border: 1px solid gainsboro;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    appearance: none;
+}
+
+.checkout-data-payment p {
+    font-size: 18px;
+    font-weight: 400;
+    color: black;
+    margin-top: 20px;
+}
+
+.checkout-products {
+    width: 42%;
+    position: relative;
+}
+
+.checkout-products .padding {
+    padding: 36px;
+    background: rgba(238, 237, 237, 0.589);
+    height: max-content;
+    position: sticky;
+    top: 80px;
+}
+
+.checkout-products .padding .order-products thead tr th {
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+.checkout-products .padding .order-products tbody tr td h4 {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+}
+
+.checkout-products .padding .order-products tbody tr td h5 {
+    font-size: 14px;
+    font-weight: 400;
+    color: gray;
+    margin-top: -6px;
+    text-transform: capitalize;
+}
+
+.checkout-products .padding .total-checkout {
+    margin-top: 20px;
+}
+
+.checkout-products .padding .total-checkout h5 {
+    font-size: 22px;
+    font-weight: 400;
+    color: black;
+}
+
+.checkout-products .padding button {
+    display: block;
+    height: 54px;
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    background: black;
+    transition: 1s;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    margin: 20px 0 8px 0;
+}
+
+.checkout-products .padding button:hover {
+    opacity: .8;
+}
+
+.checkout-products .padding a {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}

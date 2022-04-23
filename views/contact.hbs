@@ -1,32 +1,10 @@
 <div class="contact">
     <h1>Contacto</h1>
     <h2>Make sure to contact us if you have any doubt or proposal to <a href="mailto:eppur@gmail.com">eppur@gmail.com</a> or DM us on Instagram <a href="https://www.instagram.com/eppur_ind/" target="_blank">@eppur_ind</a>.</h2>
-    <form id="form">
+    <form id="form" method="post" action="/contact">
         <input type="text" name="name" id="name" placeholder="Nombre" required minlength="3" maxlength="20">
         <input type="email" name="email" id="email" placeholder="Correo" required minlength="6" maxlength="30">
         <textarea name="message" id="message" cols="30" rows="10" placeholder="Mensaje" required minlength="10" maxlength="200"></textarea>
         <input type="submit" value="Enviar Mensaje">
     </form>
 </div>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-    (function() {
-        emailjs.init('user_o2na6vVXvH8T9fu0epHNJ');
-    })();
-</script>
-<script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                emailjs.sendForm('service_kknqk9j', 'template_6m1zzna', this)
-                    .then(function() {
-                        document.querySelector("#name").value = ''
-                        document.querySelector("#email").value = ''
-                        document.querySelector("#message").value = ''
-                    }, function(error) {
-                        console('FAILED EMAILING', error);
-                    });
-            });
-        }
-</script>

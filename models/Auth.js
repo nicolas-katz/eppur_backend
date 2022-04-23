@@ -1,12 +1,6 @@
-// Imports
 const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 
-let validatesRoles = {
-    values: ["user", "admin"]
-}
-
-// Model
 const AuthSchema = new mongoose.Schema({
     firstname: {
         type: String,
@@ -38,7 +32,6 @@ const AuthSchema = new mongoose.Schema({
     versionKey: false
 })
 
-// Encryping password
 AuthSchema.methods.encryptPassword = async (password) => {
     const salt = await bcrypt.genSalt(10)
     return await bcrypt.hash(password, salt)
@@ -47,5 +40,4 @@ AuthSchema.methods.comparePassword = async (password, receivedPassword) => {
     return await bcrypt.compare(password, receivedPassword)
 }
 
-// Exports
 module.exports = mongoose.model('Auth', AuthSchema)

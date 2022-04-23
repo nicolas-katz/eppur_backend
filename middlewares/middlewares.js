@@ -59,11 +59,11 @@ const fadeLogs = (req, res, next) => {
 };
 
 const verifyCart = async (req, res, next) => {
-  const userCart = Cart.findOne({userEmail: req.session.user})
-  if(userCart) {
+  const cart = await Cart.findOne({userEmail: req.session.user})
+  if(cart.products.length >= 1) {
     return next()
   } else {
-    res.redirect('/')
+    res.redirect('/cart')
   }
 }
 

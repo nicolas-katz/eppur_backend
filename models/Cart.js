@@ -1,7 +1,5 @@
-// Imports
 const { Schema, model } = require('mongoose')
 
-// Model
 const cartSchema = new Schema({
     products: [{
         _id: { type: String, required: true },
@@ -33,5 +31,4 @@ const cartSchema = new Schema({
     versionKey: false
 })
 
-// Exports
 module.exports = model('Cart', cartSchema)

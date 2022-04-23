@@ -131,7 +131,7 @@ thead {
     font-size: 32px;
 }
 
-.cart .products-cart .table tbody tr td .item-count input {
+.cart .products-cart .table tbody tr td .item-count span {
     font-size: 22px;
     font-weight: 400;
     color: black;
@@ -141,6 +141,9 @@ thead {
     outline: none;
     background: none;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cart .products-cart .table tbody tr td a {
@@ -156,15 +159,11 @@ thead {
 }
 
 .cart .total {
-   position: sticky;
-   bottom: 0;
    width: 100%;
-   background: white;
-   border-top: 1px solid rgba(220, 220, 220, 0.616);
-   height: 85px;
    display: flex;
-   align-items: center;
    justify-content: flex-end;
+   align-items: center;
+   margin-top: 60px;
 }
 
 .cart .total h2 {
@@ -174,11 +173,11 @@ thead {
     margin-right: 20px;
 }
 
-.cart .total button {
+.cart .total a {
     width: max-content;
-    padding: 0 28px;
-    height: 85px;
-    font-size: 20px;
+    padding: 0 20px;
+    height: 60px;
+    font-size: 18px;
     font-weight: 300;
     color: white;
     outline: none;
@@ -186,8 +185,13 @@ thead {
     border: none;
     transition: 1s;
     text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.cart .total button:hover {
+.cart .total a:hover {
     opacity: .8;
+    color: white;
 }

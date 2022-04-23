@@ -1,4 +1,3 @@
-// Imports
 const Auth = require('../models/Auth')
 const config = require('../config/config')
 const Joi = require('@hapi/joi')
@@ -14,7 +13,6 @@ const registerSchema = Joi.object({
     password: Joi.string().required()
 })
 
-// Signup function
 const signUp = async (req, res) => {
     const { firstname, lastname, phone, email, password, confirmpassword, role } = req.body
     registerSchema.validate(firstname, lastname, phone, email, password)
@@ -50,7 +48,6 @@ const loginSchema = Joi.object({
     password: Joi.string().required()
 })
 
-// Login function
 const logIn = async (req, res) => {
     const { email, password } = req.body
     loginSchema.validate(email, password)
@@ -95,7 +92,6 @@ const logIn = async (req, res) => {
     }
 }
 
-// Logout function
 const logOut = (req, res) => {
     req.logout();
     req.session.destroy((err) => {
@@ -126,7 +122,6 @@ const getAllUsers = async (req, res) => {
     }
 }
 
-// Create user function
 const createUser = async (req, res) => {
     const { firstname, lastname, phone, email, password, confirmpassword, isAdmin } = req.body
     const errors = []
@@ -154,7 +149,6 @@ const createUser = async (req, res) => {
     }
 }
 
-// Update user function
 const updateUserById = async (req, res) => {
   try {
         const userID = await Auth.findOne({_id: req.params.id})
@@ -174,7 +168,6 @@ const updateUserById = async (req, res) => {
   }
 }
 
-// Delete user function
 const deleteUserById = async (req, res) => {
     try {
         const userID = await Auth.findOne({_id: req.params.id})
@@ -191,7 +184,6 @@ const deleteUserById = async (req, res) => {
     }
 }
 
-// Exports
 module.exports = {
     signUp,
     logIn,

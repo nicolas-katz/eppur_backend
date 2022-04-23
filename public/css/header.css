@@ -32,14 +32,14 @@ nav {
 }
 
 .header-links .navlinks {
-    margin-right: 20px;
+    margin-right: 14px;
 }
 
 .header-links .navlinks a, .header-links .dropdown span {
     text-decoration: none;
     color: black;
     margin: 0 8px;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     transition: 1s;
     cursor: pointer;
@@ -73,7 +73,7 @@ nav {
 
 .header-links .navlinks .dropdown .dropdown-item:hover {
     background: none !important;
-    opacity: .8;
+    color: gray !important;
 } 
 
 .header-links .usernav {
@@ -82,8 +82,8 @@ nav {
 }
 
 .header-links .usernav svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     color: black;
     cursor: pointer;
     transition: 1s;
@@ -94,12 +94,13 @@ nav {
     color: gray;
 }
 
-.header-links .usernav .bi-person {
-    margin-top: 3px;
+.header-links .usernav .bi-person-circle {
+    margin-top: 6px;
 }
 
-.header-links .usernav .bi-bag {
-    width: 23px;
-    height: 23px;
+.header-links .usernav .bi-cart {
+    width: 26px;
+    height: 26px;
     margin-right: 0;
+    margin-top: 4px;
 }

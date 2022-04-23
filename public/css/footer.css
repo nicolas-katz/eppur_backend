@@ -1,14 +1,13 @@
 footer {
     border-top: 1px solid rgba(221, 221, 221, 0.788);
     width: 100%;
-    padding: 100px 40px 40px 40px;
+    padding: 100px 180px 30px 180px;
 }
 
 .footer-information {
     display: flex;
     flex-direction: row;
     margin-bottom: 120px;
-    margin-left: 180px;
 }
 
 .footer-information .footer-links {

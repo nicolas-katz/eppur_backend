@@ -28,7 +28,7 @@
                             <td>
                                 <div class="item-count">
                                     <a href="/cart/removeone-product/{{this._id}}">-</a>
-                                    <input type="text" name="quantity" id="quantity" value="{{this.quantity}}" min="1" max="{{this.stock}}" >
+                                    <span>{{this.quantity}}</span>
                                     <a href="/cart/addone-product/{{this._id}}">+</a>
                                 </div>
                                 <a href="/cart/remove-product/{{this._id}}">Quitar</a>
@@ -40,10 +40,10 @@
                     {{/each}}
                 </tbody>
             </table>
-        </div>
-        <div class="total">
-            <h2>Total: ${{cartTotal}}</h2>
-            <button>Terminar Compra</button>
+            <div class="total">
+                <h2>Total: ${{cartTotal}}</h2>
+                <a href="/checkout/client/{{userID}}">Terminar Compra</a>
+            </div>
         </div>
     {{else}}
         <p class="notfound">No has seleccionado ningún producto. <a href="/collections/coleccion-eppur">Seguir Comprando</a></p>

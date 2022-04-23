@@ -1,7 +1,5 @@
-// Imports
 const mongoose = require('mongoose')
 
-// Model
 const gallerySchema = new mongoose.Schema({
     email: {
         type: String,
@@ -20,5 +18,4 @@ const gallerySchema = new mongoose.Schema({
     versionKey: false
 })
 
-// Exports
 module.exports = mongoose.model('Gallery', gallerySchema)

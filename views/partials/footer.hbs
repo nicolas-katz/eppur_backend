@@ -2,15 +2,15 @@
         <div class="footer-information">
             <div class="footer-links">
                 <h5>Información & Ayuda</h5>
+                <a href="/faqs">Preguntas Frecuentes</a>
                 <a href="/information/returns">Politica de Devolución</a>
-                <a href="/sizes">Guía de Talles</a>
                 <a href="/information/terms">Terminos y Condiciones</a>
             </div>
             <div class="footer-links">
-                <h5>Tienda</h5>
-                <a href="/collections/coleccion-eppur">Colección Eppur</a>
-                <a href="/collections/outfits-for-you">Outfits For You</a>
-                <a href="{{#if user}}/account{{else}}/account/login{{/if}}">Mi Cuenta</a>
+                <h5>Nuestra Tienda</h5>
+                {{#if user}}<a href="/account">Mi Cuenta</a>{{else}}<a href="/account/login">Iniciar Sesión</a>{{/if}}
+                <a href="/about">Sobre Nosotros</a>
+                <a href="/contact">Contacto</a>
             </div>
             <div class="footer-media">
                 <h5>@eppur_ind</h5>

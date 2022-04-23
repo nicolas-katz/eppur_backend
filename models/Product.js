@@ -1,7 +1,5 @@
-// Imports
 const mongoose = require('mongoose')
 
-// Model
 const productsSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -40,5 +38,4 @@ const productsSchema = new mongoose.Schema({
     versionKey: false
 })
 
-// Exports
 module.exports = mongoose.model('Product', productsSchema)
