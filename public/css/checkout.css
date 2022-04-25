@@ -1,6 +1,5 @@
 .checkout {
     padding: 100px 80px;
-    padding-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,11 +105,14 @@
 }
 
 .checkout-products .padding {
-    padding: 36px;
+    padding: 28px;
     background: rgba(238, 237, 237, 0.589);
     height: max-content;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: sticky;
-    top: 80px;
+    top: 60px;
 }
 
 .checkout-products .padding .order-products thead tr th {

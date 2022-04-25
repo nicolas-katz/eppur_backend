@@ -102,7 +102,7 @@ const addOneProduct = async (req, res) => {
                     await cart.save()
                     res.redirect("/cart")
                 } else {
-                    req.flash('error_msg', 'There are not more stock. Try with another product.')
+                    req.flash('error_msg', 'Lo sentimos. No hay más stock.')
                     res.redirect("/cart")
                 }
             } else return;

@@ -3,27 +3,18 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 40px;
+    padding: 12px 40px;
     width: 100%;
     background: white;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
 }
 
-.header-brand a {
-    font-size: 48px;
-    line-height: 38px;
-    color: black;
-    letter-spacing: 4px;
-    text-decoration: none;
-    transition: 1s;
-}
-
-.header-brand a:hover {
-    opacity: .8;
-    color: black;
+.header-brand a img {
+    width: 200px;
+    object-fit: cover;
 }
 
 .header-links {
@@ -32,14 +23,14 @@ nav {
 }
 
 .header-links .navlinks {
-    margin-right: 14px;
+    margin-right: 32px;
 }
 
 .header-links .navlinks a, .header-links .dropdown span {
     text-decoration: none;
     color: black;
-    margin: 0 8px;
-    font-size: 16px;
+    margin: 0 10px;
+    font-size: 14px;
     font-weight: 600;
     transition: 1s;
     cursor: pointer;
@@ -82,12 +73,12 @@ nav {
 }
 
 .header-links .usernav svg {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     color: black;
     cursor: pointer;
     transition: 1s;
-    margin-right: 6px;
+    margin-right: 12px;
 }
 
 .header-links .usernav svg:hover {
@@ -95,12 +86,11 @@ nav {
 }
 
 .header-links .usernav .bi-person-circle {
-    margin-top: 6px;
+    margin-top: 2px;
 }
 
 .header-links .usernav .bi-cart {
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     margin-right: 0;
-    margin-top: 4px;
 }

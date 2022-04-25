@@ -5,6 +5,8 @@ const { showProducts_withLimit } = require('../controllers/products.controllers'
 const { showAllPhotos } = require('../controllers/gallery.controllers')
 const sendEmail = require('../email/nodemailer')
 const config = require('../config/config')
+const getSystemInformation = require('../controllers/system.controllers')
+const { isAdmin } = require('../middlewares/middlewares')
 
 router
 .get('/', showProducts_withLimit)
@@ -18,9 +20,13 @@ router
 })
 .post('/contact', (req, res) => {
     sendEmail(req.body.email, config.SUPER_ADMIN_EMAIL, 'Eppur, tengo una consulta', req.body.message) 
-    req.flash("success_msg", "Se ha enviado correctamente tu email. Gracias por comunicarte con Eppur!")
+    req.flash("success_msg", "Se ha enviado correctamente tu email. En breve te daremos una respuesta.")
     res.redirect("/contact")
 })
 .get('/sizes', (req, res) => { res.render('sizes', { user: req.session.user }) })
+.get('/outfits-for-you', (req, res) => { res.render('collections/outfits', { user: req.session.user }) })
+.get('/returns', (req, res) => { res.render('information/returns', { user: req.session.user }) })
+.get('/terms', (req, res) => { res.render('information/terms', { user: req.session.user }) })
+.get('/system', isAdmin, getSystemInformation)
 
 module.exports = router

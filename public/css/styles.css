@@ -4,14 +4,36 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Arvo', sans-serif;
+}
+
+/* chat */
+
+.chat {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: rgb(74, 197, 74);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.chat svg {
+    color: white;
+    width: 24px !important;
+    height: 24px !important;
 }
 
 /* system */
 
 .system {
     padding: 100px 160px;
-    padding-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +67,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 200px;
+    padding: 100px 200px;
 }
 
 .error-page h1 {

@@ -7,7 +7,11 @@ const { renderNewOrder, renderClientOrder } = require('../libs/renderEmailTables
 
 const getAllOrders = async (req, res) => {
     try {
-        
+        const orders = await Order.find({}).lean()
+        res.render('account/admin/orders', {
+            user: req.session.user,
+            orders: orders
+        })
     } catch (e) {
         res.json(e)
     }
@@ -48,7 +52,11 @@ const createNewOrder = async (req, res) => {
 
 const updateOrderById = async (req, res) => {
     try {
-        
+        await Order.findByIdAndUpdate({_id: req.params.id}, req.body, {
+            new: true,
+            runValidators: true
+        })
+        res.redirect("/account/administrator/ordenes")
     } catch (e) {
         res.json(e)
     }
@@ -56,7 +64,8 @@ const updateOrderById = async (req, res) => {
 
 const deleteOrderById = async (req, res) => {
     try {
-        
+        await Order.findByIdAndDelete({_id: req.params.id})
+        res.redirect("/account/administrator/ordenes")
     } catch (e) {
         res.json(e)
     }
@@ -64,7 +73,15 @@ const deleteOrderById = async (req, res) => {
 
 const getClientOrders = async (req, res) => {
     try {
-        
+        const orders = await Order.find({userID: req.session._id}).lean()
+        const isAdmin = await Auth.findOne({email: req.session.user, role: "admin"})
+
+        res.render('account/account', {
+            user: req.session.user,
+            username: req.session.username,
+            isAdmin: isAdmin,
+            orders: orders
+        })
     } catch (e) {
         res.json(e)
     }

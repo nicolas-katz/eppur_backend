@@ -18,14 +18,14 @@ const signUp = async (req, res) => {
     registerSchema.validate(firstname, lastname, phone, email, password)
     const errors = []
     if(password != confirmpassword) {
-        errors.push({message: "Password do not match. Try again."})
+        req.flash('error_msg', 'Las contraseñas no coinciden. Vuelve a intentarlo.')
     }
     if(errors.length > 0) {
         res.render('account/signup', {errors, firstname, lastname, phone, email, password, confirmpassword})
     } else {
         const emailUser = await Auth.findOne({email: email})
         if(emailUser) {
-            errors.push({message: "Email is already in use. Try again."})
+            req.flash('error_msg', 'El correo ingresado ya existe. Intenta con otro correo.')
             res.render('account/signup', {errors, firstname, lastname, phone, email, password, confirmpassword})
         }
         const newUser = await new Auth({firstname, lastname, phone, email, password, role})
@@ -38,7 +38,7 @@ const signUp = async (req, res) => {
         }
         await newUser.save()
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
-        req.flash("success_msg", "You are registered.");
+        req.flash("success_msg", "Felicidades. Tu registro ha sido exitoso.");
         res.redirect('/account/login')
     }
 }
@@ -53,12 +53,12 @@ const logIn = async (req, res) => {
     loginSchema.validate(email, password)
     const user = await Auth.findOne({email: email})
     if(!user) {
-        req.flash("error_msg", "This email does not exist.");
+        req.flash("error_msg", "Lo sentimos. El correo ingresado no esta registrado.");
         res.render("account/login")
     } else {
         const match = await user.comparePassword(password, user.password);
         if(!match) {
-            req.flash("error_msg", "The password is wrong. Try again.");
+            req.flash("error_msg", "La contraseña ingresada es incorrecta. Vuelve a intentarlo.");
             res.render("account/login")
         } else {
             req.session.user = email
@@ -94,6 +94,7 @@ const logIn = async (req, res) => {
 
 const logOut = (req, res) => {
     req.logout();
+    req.flash('success_msg', 'Te has deslogueado correctament. Hasta pronto.')
     req.session.destroy((err) => {
         if (!err) {
             req.user = null

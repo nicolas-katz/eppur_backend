@@ -1,6 +1,5 @@
 .products {
     padding: 100px 40px;
-    padding-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +71,7 @@
 }
 
 .products .filters .dropdown {
-    margin-right: 24px;
+    margin-right: 16px;
     cursor: pointer;
 }
 
@@ -81,9 +80,9 @@
 }
 
 .products .filters .dropdown span {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
-    color: gray;
+    color: black;
     display: flex;
     align-items: center;
     transition: 1s;
@@ -103,7 +102,7 @@
 }
 
 .products .filters .dropdown .dropdown-menu {
-    padding: 20px 40px !important;
+    padding: 20px 60px !important;
     font-weight: 400 !important;
 }
 
@@ -167,7 +166,6 @@
 
 .details {
     padding: 100px 140px;
-    padding-top: 140px;
     display: flex;
     justify-content: space-evenly;
 }

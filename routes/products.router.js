@@ -6,7 +6,6 @@ const { getProducts, getProductsById, getProductsByCategory, getProductsByColor,
 const { isAuthenticated, isUser } = require('../middlewares/middlewares')
 
 router
-.get('/outfits-for-you', (req, res) => { res.render('collections/outfits', { user: req.session.user }) })
 .get('/coleccion-eppur', getProducts)
 .get('/coleccion-eppur/:category', getProductsByCategory)
 .get('/coleccion-eppur/colores/:color', getProductsByColor)

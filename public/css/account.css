@@ -1,6 +1,5 @@
 .my-account {
-    padding: 100px 140px;
-    padding-top: 140px;
+    padding: 100px 120px;
     display: flex;
     flex-direction: column;
 }
@@ -84,6 +83,17 @@
     font-weight: 300;
     color: gray;
     margin-top: 32px;
+}
+
+.my-account-orders table {
+    margin-top: 32px;
+}
+
+.my-account-orders table thead tr th {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    padding-bottom: 10px;
 }
 
 /* is admin */

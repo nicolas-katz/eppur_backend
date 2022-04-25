@@ -1,10 +1,10 @@
 .cart {
-    padding-top: 140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding-top: 100px;
 }
 
 .cart h1 {

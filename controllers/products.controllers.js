@@ -31,7 +31,7 @@ const getAllProducts = async (req, res) => {
 
 const showProducts_withLimit = async (req, res) => {
     try {
-         const products = await Product.find({}).sort({'createdAt': -1}).limit(3).lean()
+         const products = await Product.find({}).sort({'createdAt': -1}).limit(8).lean()
          const boolean = products.length >= 1
          return res.render('index', {
             products: products,

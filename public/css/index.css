@@ -1,5 +1,5 @@
 .index main {
-    height: 480px;
+    height: 700px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -13,30 +13,7 @@
     height: 100%;
 }
 
-.index main a {
-    position: absolute;
-    top: 50%;
-    left: 44%;
-    width: max-content;
-    height: 64px;
-    padding: 0 24px;
-    font-size: 20px;
-    font-weight: 500;
-    color: white;
-    background: black;
-    border: none;
-    transition: 1s;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.index main a:hover {
-    opacity: .8;
-}
-
-.index-about {
+.index-about, .index-outfits {
     margin-top: 80px;
     display: flex;
     flex-direction: column;
@@ -44,30 +21,69 @@
     justify-content: center;
 }
 
-.index-about h1 {
-    font-size: 48px;
+.index-about h1, .index-outfits h1 {
+    font-size: 42px;
     font-weight: 400;
     color: black;
     margin-bottom: 20px;
 }
 
-.index-about p {
+.index-about p, .index-outfits p {
     font-size: 18px;
     font-weight: 300;
     list-style: 28px;
     color: gray;
-    width: 56%;
+    width: 60%;
     text-align: center;
 }
 
+.index-outfits {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.index-outfits .images {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.index-outfits .images img {
+    object-fit: cover;
+    width: 550px;
+    height: 640px;
+    margin-right: 20px;
+}
+
+.index-outfits .images div {
+    display: flex;
+    flex-direction: column;
+}
+
+.index-outfits .images div img {
+    width: 550px;
+    height: 310px;
+}
+
+.index-outfits .images div img:last-child {
+    margin-top: 20px;
+}
+
 .index-products {
-    margin: 40px 0 60px 0;
+    margin: 60px 0;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 20px;
 }
 
 .index h2 {
@@ -79,18 +95,19 @@
 }
 
 .index-products .product-box {
-    width: 32%;
-    min-width: 32%;
+    width: 24%;
+    min-width: 24%;
     height: max-content;
     display: flex;
     flex-direction: column;
     text-decoration: none;
     color: black;
+    margin: .3%;
 }
 
 .index-products .product-box img {
     width: 100%;
-    height: 500px;
+    height: 400px;
     object-fit: cover;
 }
 
@@ -110,9 +127,45 @@
     margin-top: -8px;
 }
 
+.index-footer-text {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 180px;
+}
+
+.index-footer-text label {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    color: black;
+    width: 70%;
+}
+
+.index-footer-text a {
+    background: black;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 300;
+    height: 64px;
+    padding: 0 40px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s;
+}
+
+.index-footer-text a:hover {
+    color: white;
+    opacity: .8;
+}
+
 .index-footer {
-    margin: 60px 0 80px 0;
-    padding: 0 260px;
+    margin: 100px 0;
+    padding: 0 100px;
     display: flex;
     justify-content: space-between;
 }

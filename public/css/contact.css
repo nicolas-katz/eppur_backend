@@ -1,6 +1,5 @@
 .contact {
     padding: 100px;
-    padding-top: 140px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,13 +16,14 @@
     margin-top: 18px;
     font-size: 18px;
     font-weight: 300;
+    line-height: 26px;
     text-align: center;
     color: grey;
+    width: 76%;
 }
 
 .contact h2 a {
     color: black;
-    text-decoration: none;
     transition: 1s;
 }
 
@@ -78,4 +78,30 @@
     padding: 20px 20px 0 20px;
     border: 1px solid gainsboro;
     outline: none;
+}
+
+.contact-icons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact-icons a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.contact-icons a svg {
+    color: black;
+    width: 24px !important;
+    height: 24px !important;
+    margin: 0 20px;
+    transition: 1s;
+}
+
+.contact-icons a:hover svg {
+    color: gray;
 }

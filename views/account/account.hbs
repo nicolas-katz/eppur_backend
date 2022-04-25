@@ -18,7 +18,40 @@
         {{else}}
             <div class="my-account-orders">
                 <h3>Mis Pedidos</h3>        
-                <p>No has pedido nada aún.</p>
+                {{#if orders}}
+                   <table>
+                       <thead>
+                           <tr>
+                               <th scope="col" style="grid-area: order;">Nro Orden</th>
+                               <th scope="col" style="grid-area: name;">Nombre Completo</th>
+                               <th scope="col" style="grid-area: email;">Correo</th>
+                               <th scope="col" style="grid-area: phone;">Telefono</th>
+                               <th scope="col" style="grid-area: total;">Total</th>
+                               <th scope="col" style="grid-area: payment;">Pago</th>
+                               <th scope="col" style="grid-area: shipment;">Envío</th>
+                               <th scope="col" style="grid-area: state;">Estado</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           {{#each orders}}
+                                {{#each this}}
+                                <tr>
+                                    <td>{{this.numOrder}}</td>
+                                    <td>{{this.userData.firstname}} {{this.userData.lastname}}</td>
+                                    <td>{{this.userData.email}}</td>
+                                    <td>{{this.userData.phone}}</td>
+                                    <td>{{this.total}}</td>
+                                    <td>{{this.payment}}</td>
+                                    <td>{{this.shipment}}</td>
+                                    <td>{{this.state}}</td>
+                                </tr>
+                                {{/each}}
+                           {{/each}}
+                       </tbody>
+                   </table>
+                {{else}}
+                    <p>No has pedido nada aún.</p>
+                {{/if}}
             </div>
         {{/if}}
     </div>
