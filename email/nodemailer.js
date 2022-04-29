@@ -19,7 +19,7 @@ const sendEmail = async (from, to, subject, message) => {
       };
       await transporter.sendMail(mailOptions);
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
 };
 

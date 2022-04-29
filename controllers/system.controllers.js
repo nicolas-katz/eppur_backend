@@ -1,5 +1,5 @@
 const getSystemInformation = (req, res) => {
-    res.render("information/system", {
+    res.render("system", {
         argEntrada: process.argv, 
         os: process.platform, 
         nodeVs: process.version, 

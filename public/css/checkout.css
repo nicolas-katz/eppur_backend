@@ -1,26 +1,20 @@
 .checkout {
-    padding: 100px 80px;
+    padding: 60px 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.checkout h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
-}
-
 .checkout-container {
     margin-top: 60px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
 }
 
 .checkout-data {
-    width: 52%;
+    width: 100%;
 }
 
 .checkout-data-personal {
@@ -30,14 +24,14 @@
 }
 
 .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
-    font-size: 48px;
+    font-size: 28px;
     font-weight: 400;
     color: black;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
 }
 
 .checkout-data-personal label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     color: black;
     margin-bottom: 4px;
@@ -48,11 +42,11 @@
     background: none;
     margin-bottom: 16px;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 20px;
     height: 54px;
     border: 1px solid gainsboro;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
@@ -61,14 +55,14 @@
 }
 
 .checkout-data-shipment p, .checkout-data-shipment p a {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
     margin-top: 20px;
 }
 
 .checkout-data-shipment ul li {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
 }
@@ -82,53 +76,49 @@
     background: none;
     margin-bottom: 16px;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 20px;
     height: 54px;
     border: 1px solid gainsboro;
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     cursor: pointer;
     appearance: none;
 }
 
 .checkout-data-payment p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
     margin-top: 20px;
 }
 
 .checkout-products {
-    width: 42%;
+    width: 100%;
     position: relative;
+    margin-top: 32px;
 }
 
 .checkout-products .padding {
-    padding: 28px;
+    padding: 20px;
     background: rgba(238, 237, 237, 0.589);
     height: max-content;
-    max-height: 90vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    position: sticky;
-    top: 60px;
 }
 
 .checkout-products .padding .order-products thead tr th {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 500;
     color: black;
 }
 
 .checkout-products .padding .order-products tbody tr td h4 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     color: black;
 }
 
 .checkout-products .padding .order-products tbody tr td h5 {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: gray;
     margin-top: -6px;
@@ -140,7 +130,7 @@
 }
 
 .checkout-products .padding .total-checkout h5 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 400;
     color: black;
 }
@@ -148,7 +138,7 @@
 .checkout-products .padding button {
     display: block;
     height: 54px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: white;
     background: black;
@@ -169,6 +159,148 @@
 
 .checkout-products .padding a {
     color: black;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
+}
+
+@media only screen and (min-width: 768px) {
+    .checkout {
+        padding: 60px 24px;
+    }
+
+    .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
+        font-size: 32px;
+        margin-bottom: 36px;
+    }
+     
+    .checkout-data-personal label {
+        font-size: 18px;
+    }
+    
+    .checkout-data-personal input {
+        padding: 0 30px;
+        font-size: 18px;
+    }
+
+    .checkout-data-shipment p, .checkout-data-shipment p a {
+        font-size: 18px;
+    }
+    
+    .checkout-data-shipment ul li {
+        font-size: 18px;
+    }
+
+    .checkout-data-shipment select, .checkout-data-payment select {
+        padding: 0 30px;
+        font-size: 18px;
+    }
+    
+    .checkout-data-payment p {
+        font-size: 18px;
+    }
+    
+    .checkout-products .padding {
+        padding: 24px;
+    }
+    
+    .checkout-products .padding .order-products thead tr th {
+        font-size: 20px;
+    }
+    
+    .checkout-products .padding .order-products tbody tr td h4 {
+        font-size: 22px;
+    }
+    
+    .checkout-products .padding .order-products tbody tr td h5 {
+        font-size: 14px;
+    }
+    
+    .checkout-products .padding .total-checkout h5 {
+        font-size: 22px;
+    }
+    
+    .checkout-products .padding button {
+        font-size: 18px;
+    }
+
+    .checkout-products .padding a {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .checkout {
+        padding: 60px 64px;
+    }
+
+    .checkout-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .checkout-data {
+        width: 46%;
+    }
+
+    .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
+        font-size: 36px;
+    }
+
+    .checkout-products {
+        width: 48%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: sticky;
+        top: 80px;
+        height: max-content;
+        max-height: 90vh;
+        margin-top: 0;
+    }
+
+    .checkout-products .padding {
+        padding: 28px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .checkout {
+        padding: 60px 80px;
+    }
+
+    .checkout-data {
+        width: 52%;
+    }
+
+    .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
+        font-size: 42px;
+    }
+
+    .checkout-products {
+        width: 42%;
+    }
+
+    .checkout-products .padding .order-products thead tr th {
+        font-size: 22px;
+    }
+    
+    .checkout-products .padding .order-products tbody tr td h4 {
+        font-size: 24px;
+    }
+    
+    .checkout-products .padding .order-products tbody tr td h5 {
+        font-size: 16px;
+    }
+    
+    .checkout-products .padding .total-checkout h5 {
+        font-size: 24px;
+    }
+    
+    .checkout-products .padding button {
+        font-size: 20px;
+    }
+
+    .checkout-products .padding a {
+        font-size: 18px;
+    }
 }

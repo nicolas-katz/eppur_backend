@@ -3,7 +3,7 @@ const config = require('../config/config')
 const Joi = require('@hapi/joi')
 const jwt = require('jsonwebtoken')
 const sendEmail = require('../email/nodemailer')
-const { renderNewUser } = require('../libs/renderEmailTables')
+const { renderNewUser, renderNewUserClient } = require('../libs/renderEmailTables')
 
 const registerSchema = Joi.object({
     firstname: Joi.string().required(),
@@ -29,6 +29,7 @@ const signUp = async (req, res) => {
         newUser.password = await newUser.encryptPassword(password)
         await newUser.save()
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
+        sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Felicidades! Ya eres un Eppurer!', renderNewUserClient(newUser))
         req.flash("success_msg", "Felicidades. Tu registro ha sido exitoso.");
         res.redirect('/mi-cuenta/login')
     }

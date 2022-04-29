@@ -30,8 +30,9 @@ router
 })
 .get('/guia-de-talles', (req, res) => { res.render('sizes', { user: req.session.user }) })
 .get('/outfits-for-you', (req, res) => { res.render('collections/outfits', { user: req.session.user }) })
-.get('/devoluciones', (req, res) => { res.render('information/returns', { user: req.session.user }) })
-.get('/terminos-y-condiciones', (req, res) => { res.render('information/terms', { user: req.session.user }) })
+.get('/devoluciones', (req, res) => { res.render('returns', { user: req.session.user }) })
+.get('/como-comprar', (req, res) => { res.render('how-to-buy', { user: req.session.user }) })
+.get('/terminos-y-condiciones', (req, res) => { res.render('terms', { user: req.session.user }) })
 .get('/sistema', [ isAuthenticated, isAdmin ], getSystemInformation)
 
 module.exports = router

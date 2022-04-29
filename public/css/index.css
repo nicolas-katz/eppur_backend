@@ -54,85 +54,43 @@
     margin-right: 0;
 }
 
-.index-how-buy {
+.index-body {
+    margin: 60px 12px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    background-image: url(../images/background2.jpeg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
 }
 
-.index-how-buy h2 {
-    font-size: 32px;
-    font-weight: 400;
-    color: black;
-    margin-bottom: 20px;
-}
-
-.index-how-buy .box {
-    margin: 8px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    border-bottom: 1px solid gainsboro;
-}
-
-.index-how-buy .box:last-child {
-    border: none;
-}
-
-.index-how-buy .box span {
-    font-size: 24px;
-    font-weight: 400;
-    color: black;
-    text-align: center;
-}
-
-.index-how-buy .box p {
-    color: gray;
+.index-body a {
+    padding: 0 20px;
+    height: 60px;
+    background: white;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
     font-size: 16px;
-    font-weight: 400;
-    line-height: 26px;
-    text-align: center;
-}
-
-.index-how-buy .box p a {
-    text-decoration: none;
+    font-weight: 500;
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
     transition: 1s;
-}
+    text-decoration: none;
+} 
 
-.index-how-buy .box p a:hover {
-    color: gray;
-}
-
-.index-footer {
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.index-footer h3 {
-    font-size: 36px;
-    font-weight: 400;
-    letter-spacing: 4px;
+.index-body a:hover {
+    opacity: .8;
     color: black;
 }
 
-.index-footer h4 {
-    font-size: 16px;
-    font-weight: 400;
-    color: gray;
-    margin-top: 12px;
-    font-style: italic;
-}
-
-.index-footer h4 span {
-    text-decoration: underline;
+.index-body a svg {
+    margin-left: 8px;
+    width: 16px;
+    height: 16px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -160,33 +118,17 @@
         width: 70%;
     }
 
-    .index-how-buy {
-        margin-bottom: 60px;
+    .index-body {
+        margin: 60px 24px;
     }
     
-    .index-how-buy h2 {
-        font-size: 42px;
-    }
-    
-    .index-how-buy .box {
-        width: 70%;
-    }
+    .index-body a {
+        font-size: 18px;
+    } 
 
-    .index-how-buy .box span {
-        font-size: 24px;
-    }
-
-    .index-footer {
-        margin-bottom: 60px;
-    }
-
-    .index-footer h3 {
-        font-size: 52px;
-        letter-spacing: 6px;
-    }
-
-    .index-footer h4 {
-        font-size: 20px;
+    .index-body a svg {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -203,30 +145,19 @@
         margin: 0;
     }
 
-    .index-how-buy h2 {
-        font-size: 48px;
+    .index-body {
+        margin: 60px 64px;
     }
     
-    .index-how-buy .box {
-        width: 40%;
-    }
+    .index-body a {
+        padding: 0 28px;
+        height: 64px;
+        font-size: 20px;
+    } 
 
-    .index-how-buy .box span {
-        font-size: 26px;
-    }
-    
-    .index-how-buy .box p {
-        font-size: 18px;
-        line-height: 28px;
-    }
-    
-    .index-footer h3 {
-        font-size: 70px;
-        letter-spacing: 8px;
-    }
-
-    .index-footer h4 {
-        font-size: 22px;
+    .index-body a svg {
+        width: 20px;
+        height: 20px;
     }
 }
 
@@ -234,5 +165,9 @@
     .index-about-images img {
         width: 30%;
         height: 600px;
+    }
+
+    .index-body {
+        margin: 60px 80px;
     }
 }
