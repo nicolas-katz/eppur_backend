@@ -1,21 +1,39 @@
 .products {
-    padding: 100px 40px;
+    padding: 60px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.products h6 {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+    word-spacing: 5px;
+    text-transform: capitalize;
+}
+
+.products h6 a {
+    text-decoration: none;
+    color: gray;
+    transition: 1s;
+}
+
+.products h6 a:hover {
+    color: black;
 }
 
 .products h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
     text-transform: capitalize;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .products .notfound {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     margin-top: 20px;
     text-align: center;
@@ -35,86 +53,83 @@
     color: gray;
 }
 
-.products .products-nav {
-    margin-left: 28px;
-    display: flex;
-    width: 100%;
-}
-
-.products .products-nav span a {
-    font-size: 14px;
-    font-weight: 400;
-    text-decoration: none;
-    color: gray;
-    text-transform: capitalize;
-    transition: 1s;
-    display: inline;
-}
-
-.products .products-nav span a:hover {
-    color: gray;
-    opacity: 1;
-}
-
-.products .products-nav span .nav:hover {
-    color: black;
-}
-
-.products .filters-container {
-    position: relative;
-    width: 100%;
-    margin-left: 28px;
-}
-
 .products .filters {
+    width: 100%;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    height: 64px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    z-index: 2;
+    margin: 20px 0;
 }
 
-.products .filters .dropdown {
-    margin-right: 16px;
+.products .filters h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: grey;
+    display: flex;
+    text-align: center;
+    align-items: center;
     cursor: pointer;
 }
 
-.products .filters .dropdown:last-child {
-    margin-right: 0;
+.products .filters h2 svg {
+    margin-left: 8px;
+    width: 18px;
+    height: 18px;
+    color: grey;
 }
 
-.products .filters .dropdown span {
-    font-size: 16px;
+.offcanvas-filters {
+    padding: 20px !important;
+}
+
+.offcanvas-filters h5 {
+    font-size: 24px;
     font-weight: 400;
     color: black;
+}
+
+.offcanvas-filters svg {
+    cursor: pointer;
+    color: black;
+}
+
+.offcanvas-filters .filter-box {
+    margin: 16px 0;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    padding-bottom: 16px;
+    border-bottom: 1px solid gainsboro;
+}
+
+.offcanvas-filters .filter-box:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.offcanvas-filters .filter-box h3 {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
+
+.offcanvas-filters .filter-box a {
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 2px 0;
+    margin-left: 12px;
+    color: gray;
     transition: 1s;
 }
 
-.products .filters .dropdown span:hover {
+.offcanvas-filters .filter-box a:hover {
     color: black;
 }
-
-.products .filters .dropdown span svg {
-    display: inline;
-    margin-left: 6px;
-}
-
-.products .filters .dropdown-toggle::after {
-    margin-left: .500em !important;
-}
-
-.products .filters .dropdown .dropdown-menu {
-    padding: 20px 60px !important;
-    font-weight: 400 !important;
-}
-
-.products .filters .dropdown .dropdown-item {
-    font-weight: 400 !important;
-    font-size: 14px;
-}
-
-.products .filters .dropdown .dropdown-item:hover {
-    background: none !important;
-    opacity: .8;
-} 
 
 .products-container {
     margin-top: 24px;
@@ -131,8 +146,8 @@
 }
 
 .products-container .product-box {
-    width: 31%;
-    margin: 1%;
+    width: 46%;
+    margin: 2%;
     height: max-content;
     position: relative;
     text-decoration: none;
@@ -141,7 +156,7 @@
 
 .products-container .product-box img {
     width: 100%;
-    height: 520px;
+    height: 200px;
     cursor: pointer;
     object-fit: cover;
 }
@@ -151,7 +166,7 @@
 }
 
 .products-container .product-box .product-content h4 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
 }
@@ -159,27 +174,112 @@
 .products-container .product-box .product-content h5 {
     font-size: 16px;
     font-weight: 300;
-    margin-top: -8px;
+    margin-top: -6px;
 } 
+
+.products-container .product-box .product-content label {
+    font-size: 13px;
+    font-weight: 400;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background: white;
+    color: black;
+    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 8px;
+}
+
+@media only screen and (min-width: 540px) {
+    .products-container .product-box img {
+        height: 320px;
+    }
+
+    .products-container .product-box .product-content label {
+        font-size: 14px;
+        position: absolute;
+        top: 12px;
+        left: 10px;
+        padding: 10px 12px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .products .filters {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    .products .filters h2 {
+        margin-right: 40px;
+        border-left: 1px solid gainsboro;
+        padding-left: 40px;
+        font-size: 24px;
+    }
+
+    .products-container .product-box img {
+        height: 400px;
+    }
+
+    .products-container .product-box .product-content label {
+        font-size: 15px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .products-container {
+        padding: 0 30px;
+    }
+
+    .products-container .product-box {
+        width: 22%;
+        margin: 1% 1.5%;
+    }
+
+    .products-container .product-box img {
+        height: 320px;
+    }
+
+    .products-container .product-box .product-content h4 {
+        font-size: 20px;
+    }
+
+    .products-container .product-box .product-content h5 {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .products-container {
+        padding: 0 80px;
+    }
+
+    .products-container .product-box img {
+        height: 360px;
+    }
+}
 
 /* details */
 
 .details {
-    padding: 100px 140px;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .details img {
     object-fit: cover;
     height: 540px;
-    width: 400px;
+    width: 100%;
 }
 
 .details .details-content {
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    padding: 0 20px;
+    margin: 40px 0 60px 0;
 }
 
 .details-content .details-nav {
@@ -202,13 +302,11 @@
 }
 
 .details-content .details-nav a span {
-    margin: 0 8px;
+    margin: 0 2px;
 }
 
 .details-content h1 {
-    font-size: 48px;
-    font-weight: 400;
-    color: black;
+    text-align: left !important;
 }
 
 .details-content h2 {
@@ -252,32 +350,17 @@
     width: max-content;
     display: flex;
     align-items: center;
-    margin-right: 20px;
-}
-
-.details-content .add-product .item-count a {
-    width: max-content;
-    font-size: 24px;
-    font-weight: 400;
-    color: black;
-    cursor: pointer;
-    transition: 1s;
-    text-decoration: none;
-}
-
-.details-content .add-product .item-count a:last-child {
-    font-size: 20px;
+    margin-right: 40px;
 }
 
 .details-content .add-product .item-count input {
-    width: 70px;
+    width: 20px;
     outline: none;
     background: none;
     border: none;
     font-size: 28px;
     font-weight: 400;
     color: black;
-    text-align: center;
 }
 
 .details-content .add-product button {
@@ -297,4 +380,90 @@
 
 .details-content .add-product button:hover {
     opacity: .8;
+}
+
+@media only screen and (min-width: 768px) {
+    .details {
+        padding: 60px 20px 80px 20px;
+        display: flex;
+        flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(2, 48%);
+        gap: 4%;
+        width: 100%;
+    }
+    
+    .details img {
+        height: 560px;
+        width: 100%;
+    }
+    
+    .details .details-content {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .details-content .details-nav a span {
+        margin: 0 4px;
+    }
+    
+    .details-content h1 {
+        font-size: 48px;
+    }
+    
+    .details-content h2 {
+        font-size: 24px;
+    }
+    
+    .details-content h3 {
+        font-size: 18px;
+    }
+    
+    .details-content h4 {
+        font-size: 20px;
+    }
+    
+    .details-content p {
+        font-size: 16px;
+    }
+
+    .details-content .add-product .item-count {
+        margin-right: 20px;
+    }
+
+    .details-content .add-product .item-count a {
+        font-size: 24px;
+    }
+    
+    .details-content .add-product .item-count a:last-child {
+        font-size: 20px;
+    }
+    
+    .details-content .add-product .item-count input {
+        font-size: 28px;
+        text-align: left;
+        width: 50px;
+    }
+    
+    .details-content .add-product button {
+        height: 56px;
+        width: max-content;
+        padding: 0 28px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .details {
+        padding: 60px 60px 80px 60px;
+        display: grid;
+        grid-template-columns: repeat(2, 46%);
+        gap: 8%;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .details {
+        padding: 60px 200px 80px 200px;
+    }
 }

@@ -1,17 +1,17 @@
 {{#if products}}
-  {{!-- {{#each products}} --}}
-    <form class="details" method="post" action="/collections/add-product">
+    <form class="details" method="post" action="/coleccion-eppur/agregar-producto">
         <img src="{{products.image}}">
         <div class="details-content">
             <div class="details-nav">
-              <a href="/collections/coleccion-eppur">Colección Eppur <span>/</span></a>
-              <a href="/collections/coleccion-eppur/{{products.category}}">{{products.category}} <span>/</span></a>
+              <a href="/coleccion-eppur">Colección Eppur <span>/</span></a>
+              <a href="/coleccion-eppur/categorias/{{products.category}}">{{products.category}} <span>/</span></a>
               <a>{{products.title}}</a>
             </div>
             <h1>{{products.title}}</h1>
             <h2>${{products.price}}</h2>
             <h3>Color: <span>{{products.color}}</span></h3>
             <h3>Talle: <span>{{products.size}}</span></h3>
+            <h3>Stock Disponible: <span>{{products.stock}}</span></h3>
             <h4>Descripción</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia ipsam fugiat iusto officia repudiandae perferendis! Fugiat sint, exercitationem atque consequatur eius.</p>
             <div class="add-product">
@@ -28,7 +28,6 @@
             </div>
         </div>
     </form>
-  {{!-- {{/each}} --}}
   {{else}}
-    <p class="notfound">No hemos podido encontrar el producto seleccionado. <a href="/collections/coleccion-eppur">Volves Atrás</a></p>
+    <p class="notfound">No hemos podido encontrar el producto seleccionado. <a href="/coleccion-eppur">Volves Atrás</a></p>
 {{/if}}

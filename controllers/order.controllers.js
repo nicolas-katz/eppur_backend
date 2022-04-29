@@ -13,7 +13,7 @@ const getAllOrders = async (req, res) => {
             orders: orders
         })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -42,11 +42,12 @@ const createNewOrder = async (req, res) => {
         cart.total = 0
         await cart.save()
         await newOrder.save()
+        req.flash("success_msg", "Tu pedido se ha completado con exito. Revisa tu casilla para terminar la compra.")
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado una nueva orden', renderNewOrder(newOrder))
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Tu pedido ha sido un exito', renderClientOrder(newOrder))
-        res.redirect("/account")
+        res.redirect("/mi-cuenta")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -56,18 +57,18 @@ const updateOrderById = async (req, res) => {
             new: true,
             runValidators: true
         })
-        res.redirect("/account/administrator/ordenes")
+        res.redirect("/mi-cuenta/administrador/ordenes")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
 const deleteOrderById = async (req, res) => {
     try {
         await Order.findByIdAndDelete({_id: req.params.id})
-        res.redirect("/account/administrator/ordenes")
+        res.redirect("/mi-cuenta/administrador/ordenes")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -83,7 +84,7 @@ const getClientOrders = async (req, res) => {
             orders: orders
         })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -103,7 +104,7 @@ const checkout = async (req, res) => {
             total: cart.total
         })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 

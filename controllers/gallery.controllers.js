@@ -10,8 +10,8 @@ const showAllPhotos = async (req, res) => {
             user: req.session.user
         })
    } catch (e) {
-       res.json(e)
-   }
+        res.redirect("/")
+}
 }
 
 const getAllPhotos = async (req, res) => {
@@ -22,7 +22,7 @@ const getAllPhotos = async (req, res) => {
              user: req.session.user
          })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -31,9 +31,9 @@ const createPhoto = async (req, res) => {
         const { email, image } = req.body
         const newPhoto = await new Gallery({email, image})
         await newPhoto.save()
-        res.redirect('/account/administrator/galeria')
+        res.redirect('/mi-cuenta/administrador/galeria')
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -43,18 +43,18 @@ const updatePhotoById = async (req, res) => {
             new: true,
             runValidators: true
         })
-        res.redirect("/account/administrator/galeria")
+        res.redirect("/mi-cuenta/administrador/galeria")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
 const deletePhotoById = async (req, res) => {
     try {
         await Gallery.findByIdAndDelete({_id: req.params.id})
-        res.redirect("/account/administrator/galeria")
+        res.redirect("/mi-cuenta/administrador/galeria")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 

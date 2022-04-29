@@ -1,19 +1,20 @@
 const Product = require('../models/Product')
-const Auth = require('../models/Auth')
 
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find({}).lean()
         const boolean = products.length >= 1
+        const notStock = products.map(prod => prod.stock == 0)
         return res.render('collections/products', {
             products: products,
             boolean: boolean,
             user: req.session.user,
             title: "Colección Eppur",
-            isAllProducts: true
+            isAllProducts: true,
+            notStock: notStock
         })
     } catch (e) {
-        return res.json(e)   
+        res.redirect("/")
     }
 }
 
@@ -25,7 +26,7 @@ const getAllProducts = async (req, res) => {
             user: req.session.user,
         })
     } catch (e) {
-        return res.json(e)   
+        res.redirect("/")
     }
 }
 
@@ -39,7 +40,7 @@ const showProducts_withLimit = async (req, res) => {
             user: req.session.user
          })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -57,7 +58,7 @@ const getProductsById = async (req, res) => {
     } catch (e) {
         res.render('404', {
             message: "El producto",
-            path: "/collections/coleccion-eppur",
+            path: "/coleccion-eppur",
             button_text: "Productos"
         })
     }
@@ -79,12 +80,12 @@ const getProductsByCategory = async (req, res) => {
         } else {
             res.render('404', {
                 message: "La categoría",
-                path: "/collections/coleccion-eppur",
-                button_text: "Colecciones"
+                path: "/coleccion-eppur",
+                button_text: "Productos"
             })
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -104,12 +105,12 @@ const getProductsByColor = async (req, res) => {
         } else {
             res.render('404', {
                 message: "El color",
-                path: "/collections/coleccion-eppur",
+                path: "/coleccion-eppur",
                 button_text: "Colecciones"
             })
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -130,12 +131,12 @@ const getProductsBySize = async (req, res) => {
         } else {
             res.render('404', {
                 message: "El talle",
-                path: "/collections/coleccion-eppur",
+                path: "/coleccion-eppur",
                 button_text: "Colecciones"
             })
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -144,9 +145,9 @@ const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
         await newProduct.save()
-        res.redirect("/account/administrator/productos")
+        res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -156,18 +157,18 @@ const updateProductById = async (req, res) => {
             new: true,
             runValidators: true
         })
-        res.redirect("/account/administrator/productos")
+        res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
 const deleteProductById = async (req, res) => {
     try {
         await Product.findByIdAndDelete({_id: req.params.id})
-        res.redirect("/account/administrator/productos")
+        res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 

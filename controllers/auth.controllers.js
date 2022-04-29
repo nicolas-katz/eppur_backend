@@ -16,30 +16,21 @@ const registerSchema = Joi.object({
 const signUp = async (req, res) => {
     const { firstname, lastname, phone, email, password, confirmpassword, role } = req.body
     registerSchema.validate(firstname, lastname, phone, email, password)
-    const errors = []
     if(password != confirmpassword) {
         req.flash('error_msg', 'Las contraseñas no coinciden. Vuelve a intentarlo.')
-    }
-    if(errors.length > 0) {
-        res.render('account/signup', {errors, firstname, lastname, phone, email, password, confirmpassword})
+        res.redirect("/mi-cuenta/signup")
     } else {
         const emailUser = await Auth.findOne({email: email})
         if(emailUser) {
             req.flash('error_msg', 'El correo ingresado ya existe. Intenta con otro correo.')
-            res.render('account/signup', {errors, firstname, lastname, phone, email, password, confirmpassword})
+            res.redirect("/mi-cuenta/signup")
         }
         const newUser = await new Auth({firstname, lastname, phone, email, password, role})
         newUser.password = await newUser.encryptPassword(password)
-        if(newUser.email == config.FIRST_ADMIN_EMAIL) {
-            newUser.role = "admin"
-        }
-        if(newUser.email == config.SECOND_ADMIN_EMAIL) {
-            newUser.role = "admin"
-        }
         await newUser.save()
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado un nuevo usuario', renderNewUser(newUser))
         req.flash("success_msg", "Felicidades. Tu registro ha sido exitoso.");
-        res.redirect('/account/login')
+        res.redirect('/mi-cuenta/login')
     }
 }
 
@@ -54,12 +45,12 @@ const logIn = async (req, res) => {
     const user = await Auth.findOne({email: email})
     if(!user) {
         req.flash("error_msg", "Lo sentimos. El correo ingresado no esta registrado.");
-        res.render("account/login")
+        res.redirect("/mi-cuenta/login")
     } else {
         const match = await user.comparePassword(password, user.password);
         if(!match) {
             req.flash("error_msg", "La contraseña ingresada es incorrecta. Vuelve a intentarlo.");
-            res.render("account/login")
+            res.redirect("/mi-cuenta/login")
         } else {
             req.session.user = email
             req.session.username = user.firstname
@@ -87,14 +78,15 @@ const logIn = async (req, res) => {
                 secure: config.NODE_ENV === 'production',
                 signed: true
             })
-            res.redirect("/collections/coleccion-eppur")
+            req.flash("success_msg", `Bienvenido de nuevo, ${user.firstname}!`)
+            res.redirect("/coleccion-eppur")
         }
     }
 }
 
 const logOut = (req, res) => {
-    req.logout();
     req.flash('success_msg', 'Te has deslogueado correctament. Hasta pronto.')
+    req.logout();
     req.session.destroy((err) => {
         if (!err) {
             req.user = null
@@ -105,7 +97,7 @@ const logOut = (req, res) => {
             })
             res.redirect("/");
         } else {
-            res.redirect("/account")
+            res.redirect("/mi-cuenta")
         }
     })
 }     
@@ -119,7 +111,7 @@ const getAllUsers = async (req, res) => {
             user: req.session.user
         })
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -130,23 +122,17 @@ const createUser = async (req, res) => {
         errors.push({message: "Password do not match. Try again."})
     }
     if(errors.length > 0) {
-        res.render('account/administrator/ususarios', {errors, firstname, lastname, phone, email, password, confirmpassword})
+        res.render('account/administrador/ususarios', {errors, firstname, lastname, phone, email, password, confirmpassword})
     } else {
         const emailUser = await Auth.findOne({email: email})
         if(emailUser) {
             errors.push({message: "Email is already in use. Try again."})
-            res.render('account/administrator/ususarios', {errors, firstname, lastname, phone, email, password, confirmpassword})
+            res.render('account/administrador/ususarios', {errors, firstname, lastname, phone, email, password, confirmpassword})
         }
         const newUser = await new Auth({firstname, lastname, phone, email, password, isAdmin})
         newUser.password = await newUser.encryptPassword(password)
-        if(newUser.email == config.FIRST_ADMIN_EMAIL) {
-            newUser.role = "admin"
-        }
-        if(newUser.email == config.SECOND_ADMIN_EMAIL) {
-            newUser.role = "admin"
-        }
         await newUser.save()
-        res.redirect('/account/administrator/usuarios')
+        res.redirect('/mi-cuenta/administrador/usuarios')
     }
 }
 
@@ -156,16 +142,16 @@ const updateUserById = async (req, res) => {
         const _usedID = userID.email == "eppur@gmail.com"
         if(_usedID) {
             req.flash("error_msg", "You can not edit a super admin. Try again.");
-            res.redirect("/account")
+            res.redirect("/mi-cuenta")
         } else {
             await Auth.findByIdAndUpdate({_id: req.params.id}, req.body, {
                 new: true,
                 runValidators: true
             })
-            res.redirect("/account/administrator/usuarios")
+            res.redirect("/mi-cuenta/administrador/usuarios")
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
   }
 }
 
@@ -175,13 +161,13 @@ const deleteUserById = async (req, res) => {
         const _usedID = userID.email == "eppur@gmail.com"
         if(_usedID) {
             req.flash("error_msg", "You can not delete a super admin. Try again.");
-            res.redirect("/account")
+            res.redirect("/mi-cuenta")
         } else {
             await Auth.findByIdAndDelete({_id: req.params.id})
-            res.redirect("/account/administrator/usuarios")
+            res.redirect("/mi-cuenta/administrador/usuarios")
         }
     } catch (e) {
-      res.json(e)
+      res.redirect("/")
     }
 }
 

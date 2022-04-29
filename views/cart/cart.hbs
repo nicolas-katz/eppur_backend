@@ -1,5 +1,11 @@
 <div class="cart">
-    <h1>{{#if cartProducts}}<a href="/collections/coleccion-eppur">Coleccion Eppur</a> / {{/if}}Carrito</h1>
+    {{#if cartProducts}}<a class="back-to-shop" href="/coleccion-eppur">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+        </svg>
+        Seguir Comprando
+    </a>{{/if}}
+    <h1>Carrito</h1>
     {{#if cartProducts}}
         <div class="products-cart">
             <table class="table">
@@ -7,14 +13,14 @@
                     <tr>
                         <th scope="col">Producto</th>
                         <th scope="col">Cantidad</th>
-                        <th scope="col">Subtotal</th>
+                        <th class="subtotal" scope="col">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{#each cartProducts}}
                         <tr>
                             <td>
-                                <a href="/collections/coleccion-eppur/{{this.category}}/{{this._id}}"><img src="{{this.image}}"></a>
+                                <a href="/coleccion-eppur/{{this.category}}/{{this._id}}"><img src="{{this.image}}"></a>
                                 <div class="data">
                                     <h4>{{this.title}}</h4>
                                     <h5>${{this.price}}</h5>
@@ -27,13 +33,13 @@
                             </td>
                             <td>
                                 <div class="item-count">
-                                    <a href="/cart/removeone-product/{{this._id}}">-</a>
+                                    <a href="/carrito/remover-un-producto/{{this._id}}">-</a>
                                     <span>{{this.quantity}}</span>
-                                    <a href="/cart/addone-product/{{this._id}}">+</a>
+                                    <a href="/carrito/agregar-un-producto/{{this._id}}">+</a>
                                 </div>
-                                <a href="/cart/remove-product/{{this._id}}">Quitar</a>
+                                <a href="/carrito/remover-producto/{{this._id}}">Quitar</a>
                             </td>
-                            <td>
+                            <td class="subtotal">
                                 ${{this.subtotal}}
                             </td>
                         </tr>
@@ -42,10 +48,10 @@
             </table>
             <div class="total">
                 <h2>Total: ${{cartTotal}}</h2>
-                <a href="/checkout/client/{{userID}}">Terminar Compra</a>
+                <a href="/checkout/cliente/{{userID}}">Terminar Compra</a>
             </div>
         </div>
     {{else}}
-        <p class="notfound">No has seleccionado ningún producto. <a href="/collections/coleccion-eppur">Seguir Comprando</a></p>
+        <p class="notfound">No has seleccionado ningún producto. <a href="/coleccion-eppur">Seguir Comprando</a></p>
     {{/if}}
 </div>

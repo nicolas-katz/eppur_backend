@@ -19,7 +19,7 @@ const getUserCart = async (req, res) => {
             })
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -56,7 +56,8 @@ const addProductToCart = async (req, res) => {
             }
             await cart.save()
             await product.save()
-            res.redirect("/cart")
+            req.flash("success_msg", `Se ha agregado correctamente el producto seleccionado.`)
+            res.redirect("/carrito")
         } else {
             const newCart = await new Cart({
                 userID: req.session._id,
@@ -78,10 +79,11 @@ const addProductToCart = async (req, res) => {
             product.stock -= _count
             await newCart.save()
             await product.save()
-            res.redirect("/cart")
+            req.flash("success_msg", `Se ha agregado correctamente el producto seleccionado.`)
+            res.redirect("/carrito")
         }
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -92,7 +94,7 @@ const addOneProduct = async (req, res) => {
         const item = cart.products.find(prod => prod._id == req.params.id) || null
         if(cart != null) {
             if(product != null && item != null) {
-                if(item.quantity < item.stock) {
+                if(product.stock > 0) {
                     product.stock -= 1
                     item.quantity += 1
                     item.stock -= 1
@@ -100,15 +102,16 @@ const addOneProduct = async (req, res) => {
                     cart.total += item.price
                     await product.save()
                     await cart.save()
-                    res.redirect("/cart")
+                    req.flash('success_msg', 'Se ha actualizado tu carrito.')
+                    res.redirect("/carrito")
                 } else {
                     req.flash('error_msg', 'Lo sentimos. No hay más stock.')
-                    res.redirect("/cart")
+                    res.redirect("/carrito")
                 }
             } else return;
         } else return;
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -128,19 +131,23 @@ const removeOneProduct = async (req, res) => {
                     cart.total -= item.price
                     await product.save()
                     await cart.save()
-                    res.redirect("/cart")
+                    req.flash('success_msg', 'Se ha actualizado tu carrito.')
+                    res.redirect("/carrito")
                 } else {
                     product.stock += item.quantity
                     cart.total -= item.subtotal
                     cart.products.splice(itemIndex, 1)
                     await product.save()
                     await cart.save()
-                    res.redirect("/cart")
+                    req.flash('success_msg', 'Se ha removido un producto de tu carrito.')
+                    res.redirect("/carrito")
                 }
-            } else return;
+            } else {
+                req.flash('error_msg', 'Lo sentimos. Ocurrio un error al actualizar el carrito.')
+            };
         } else return;
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 
@@ -157,11 +164,14 @@ const removeProductOfCart = async (req, res) => {
                 cart.products.splice(itemIndex, 1)
                 await product.save()
                 await cart.save()
-                res.redirect("/cart")
-            } else return;
+                req.flash('success_msg', 'Se ha removido un producto de tu carrito.')
+                res.redirect("/carrito")
+            } else {
+                req.flash('error_msg', 'Lo sentimos. Ocurrio un error al actualizar el carrito.')
+            };
         } else return;
     } catch (e) {
-        res.json(e)
+        res.redirect("/")
     }
 }
 

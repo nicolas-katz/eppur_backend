@@ -3,69 +3,45 @@
         <img src="../images/background2.jpeg.jpg" >
     </main>
     <div class="index-about">
-        <h1>Hola, Somos Eppur</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, impedit. Sapiente provident, sed voluptatem suscipit ducimus pariatur laudantium possimus tenetur!</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia sit, harum facere tempora iure ex nemo a culpa porro accusamus ab dolore doloremque obcaecati odio ipsam! Similique, saepe! Ratione ad molestias officia iure dolore debitis aspernatur quod consequatur totam est!</p>
-    </div>
-    <div class="index-products">
-        {{#if products}}
-            {{#each products}}
-                <a href="/collections/coleccion-eppur/{{this.category}}/{{this._id}}" class="product-box">
-                    <img src="../images/productos.jpg">
-                    <div class="product-box-data">
-                        <h4>{{this.title}}</h4>
-                        <h5>${{this.price}}</h5>
-                    </div>
-                </a>
-            {{/each}}
-        {{/if}}
-    </div>
-    <div class="index-outfits">
-        <h1>Outfits For You</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, impedit. Sapiente provident, sed voluptatem suscipit ducimus pariatur laudantium possimus tenetur!</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officia sit, harum facere tempora iure ex nemo a culpa porro accusamus ab dolore doloremque obcaecati odio ipsam! Similique, saepe! Ratione ad molestias officia iure dolore debitis aspernatur quod consequatur totam est!</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit in ea, nisi fugit cum ducimus debitis iste, laboriosam rem nostrum id ipsum dolore, quibusdam tempora!</p>
-        <div class="images">
-            <img src="../images/background.jpeg" >
-            <div>
-                <img src="../images/background.jpeg" >
-                <img src="../images/background.jpeg" >
-            </div>
+        <h1>Más Que Una <span>Marca</span></h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas incidunt accusamus exercitationem quo, sequi, iure dolor quos, minima molestiae sint cum dignissimos quas? Excepturi consectetur soluta cupiditate omnis iure. Quae incidunt reiciendis non maxime error a eum esse commodi! Vel illum, fugiat sed quidem nihil culpa aperiam ipsa. Enim eligendi nihil necessitatibus atque iure, recusandae quis ratione sit error suscipit!</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Temporibus optio voluptas dignissimos quam quibusdam repellendus, consequuntur minus sed excepturi labore ea accusantium velit explicabo sit! Placeat cumque illum voluptatum porro.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem beatae facilis illo laudantium iure provident excepturi eum incidunt laboriosam corrupti nam, consectetur tempora nemo voluptas praesentium optio suscipit pariatur, vel exercitationem consequuntur vero obcaecati, at hic! Illum velit consequatur ullam.</p>
+        <div class="index-about-images">
+            <img src="../images/outfits.jpg" >
+            <img src="../images/outfits.jpg" >
+            <img src="../images/outfits.jpg" >
         </div>
     </div>
-    <div class="index-footer-text">
-        <label>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum eveniet nobis nesciunt iusto itaque officiis cumque distinctio debitis. Sed tenetur expedita a aperiam quo voluptatibus!</label>
-        <a href="/collections/coleccion-eppur">Arma Tu Outfit</a>
+    <div class="index-how-buy">
+        <h2>¿Cómo Comprar?</h2>
+        <div class="box">
+            <span>1. Create una cuenta</span>
+            <p>Create tu perfil y se un #Eppurer</p>
+        </div>
+        <div class="box">
+            <span>2. Elegi Tu Outfit</span>
+            <p>Mira todos <a href="/coleccion-eppur">nuestros productos</a>. Recorda que llevando más de tres prendas tendrás un 15% de descuento en tu compra y comprando por más de $8.000 no te cobraremos envío!!</p>
+        </div>
+        <div class="box">
+            <span>3. Arma Tu Carrito Eppur</span>
+            <p>Agrega tus productos favoritos a tu carrito de compras y crea tu pedido. Para mejorar tu experiencia de compra podes <a href="/contacto">comunicarte con nosotros</a> las 24/7 y sacarte todas las dudas.</p>
+        </div>
+        <div class="box">
+            <span>4. Termina Tu Orden</span>
+            <p>Dejanos tus datos de contacto y contanos como te gustaría pagar, y cuál método de envío prefieres. Una vez realizada la orden, nos comunicaremos con vos vía WhatsApp para completar el pago.</p>
+        </div>
+        <div class="box">
+            <span>5. Espera Tu Pedido</span>
+            <p>Dejanos tus datos de contacto y contanos como te gustaría pagar, y cuál método de envío prefieres. Una vez realizada la orden, nos comunicaremos con vos vía WhatsApp para completar el pago.</p>
+        </div>
+        <div class="box">
+            <span>6. Vestite con Eppur</span>
+            <p>Disfruta tu pedido! Si quieres que publiquemos una foto en nuestra web etiquetanos utilizando el hashtag #MiOutfitEppur :)</p>
+        </div>
     </div>
     <div class="index-footer">
-        <div class="index-footer-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16">
-                <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5v-7zm1.294 7.456A1.999 1.999 0 0 1 4.732 11h5.536a2.01 2.01 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456zM12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12v4zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
-            </svg>
-            <h5>Envio Gratuito</h5>
-            <h6>Para compras mayores a $8.000</h6>
-        </div>
-        <div class="index-footer-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-            </svg>
-            <h5>Descuentos Exclusivos</h5>
-            <h6>Para compras de más de 3 productos</h6>
-        </div>
-        <div class="index-footer-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
-            </svg>
-            <h5>Devolución Gratuita</h5>
-            <h6>Dentro de los primeros 7 días</h6>
-        </div>
-        <div class="index-footer-box">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
-                <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1h8zm-7.978-1A.261.261 0 0 1 7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002a.274.274 0 0 1-.014.002H7.022zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zM6.936 9.28a5.88 5.88 0 0 0-1.23-.247A7.35 7.35 0 0 0 5 9c-4 0-5 3-5 4 0 .667.333 1 1 1h4.216A2.238 2.238 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816zM4.92 10A5.493 5.493 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275zM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0zm3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/>
-            </svg>
-            <h5>Atención De Calidad</h5>
-            <h6>Estamos conectados las 24/7</h6>
-        </div>
+        <h3> - Eppur 2022 - </h3>
+        <h4>Seeling A <span>Movement</span></h4>
     </div>
 </div>

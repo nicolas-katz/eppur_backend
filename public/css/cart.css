@@ -4,13 +4,28 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
-.cart h1 {
-    font-size: 42px;
+.cart .back-to-shop {
+    font-size: 14px;
     font-weight: 400;
     color: black;
+    position: absolute;
+    top: 20px;
+    left: 12px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: 1s;
+}
+
+.cart .back-to-shop svg {
+    margin-right: 10px;
+}
+
+.cart .back-to-shop:hover {
+    color: gray;
 }
 
 .cart h1 a {
@@ -26,7 +41,7 @@
 
 .cart .notfound {
     margin-top: 28px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
     text-align: center;
@@ -45,9 +60,9 @@
 }
 
 .cart .products-cart {
-    margin-top: 48px;
-    width: 80%;
-    padding: 0 40px 80px 40px;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 12px 40px 12px;
 }
 
 .cart .products-cart .table {
@@ -59,14 +74,14 @@ thead {
 }
 
 .cart .products-cart .table thead tr th {
-    font-size: 24px;
+    font-size: 16px;
     font-weight: 300;
     color: black;
     margin-bottom: 18px;
 }
 
 .cart .products-cart .table tbody tr td {
-    padding: 32px 0;
+    padding: 20px 0;
 }
 
 .cart .products-cart .table tbody tr td:first-child {
@@ -74,8 +89,10 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td:first-child img {
-    width: 120px;
-    margin-right: 24px;
+    width: 74px;
+    height: 124px;
+    object-fit: cover;
+    margin-right: 10px;
 }
 
 .cart .products-cart .table tbody tr td:first-child .data {
@@ -84,16 +101,16 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td:first-child .data h4 {
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 16px;
+    font-weight: 500;
     color: black;
 }
 
 .cart .products-cart .table tbody tr td:first-child .data h5 {
-    font-size: 22px;
+    font-size: 14px;
     font-weight: 400;
     color: black;
-    margin-top: -8px;
+    margin-top: -2px;
 }
 
 .cart .products-cart .table tbody tr td:first-child .data h6 {
@@ -104,7 +121,7 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td:first-child .data h6 span {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     color: gray;
     margin-top: 2px;
@@ -116,26 +133,26 @@ thead {
     border: 1px solid gainsboro;
     width: max-content;
     height: max-content;
-    padding: 0 18px;
+    padding: 0 8px;
     margin-bottom: 10px;
 }
 
 .cart .products-cart .table tbody tr td .item-count a {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     color: rgb(185, 185, 185);
     text-decoration: none;
 }
 
 .cart .products-cart .table tbody tr td .item-count a:first-child {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .cart .products-cart .table tbody tr td .item-count span {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: 400;
     color: black;
-    width: 60px;
+    width: 28px;
     height: 48px;
     text-align: center;
     outline: none;
@@ -148,36 +165,36 @@ thead {
 
 .cart .products-cart .table tbody tr td a {
     color: black;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 400;
 }
 
 .cart .products-cart .table tbody tr td:last-child {
     color: black;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 400;
 }
 
 .cart .total {
    width: 100%;
    display: flex;
+   flex-direction: column;
+   align-items: flex-end;
    justify-content: flex-end;
-   align-items: center;
-   margin-top: 60px;
+   margin-top: 40px;
 }
 
 .cart .total h2 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
-    margin-right: 20px;
 }
 
 .cart .total a {
     width: max-content;
-    padding: 0 20px;
-    height: 60px;
-    font-size: 18px;
+    padding: 0 14px;
+    height: 52px;
+    font-size: 16px;
     font-weight: 300;
     color: white;
     outline: none;
@@ -194,4 +211,145 @@ thead {
 .cart .total a:hover {
     opacity: .8;
     color: white;
+}
+
+@media only screen and (min-width: 425px) {
+    .cart .products-cart .table thead tr th {
+        font-size: 20px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child img {
+        width: 90px;
+        height: 156px;
+        margin-right: 16px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h4 {
+        font-size: 22px;
+        font-weight: 400;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h5 {
+        font-size: 18px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h6 span {
+        font-size: 16px;
+    }
+
+    .cart .products-cart .table tbody tr td .item-count a {
+        font-size: 20px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count a:first-child {
+        font-size: 26px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count span {
+        font-size: 18px;
+        width: 42px;
+    }
+
+    .cart .products-cart .table tbody tr td:last-child {
+        font-size: 22px;
+    }
+
+    .cart .total h2 {
+        font-size: 20px;
+    }
+
+    .cart .total a {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .cart .back-to-shop {
+        position: absolute;
+        top: 20px;
+        left: 24px;
+        font-size: 16px;
+    }
+
+    .cart .products-cart {
+        padding: 0 24px 40px 24px;
+    }
+
+    .cart .products-cart .table tbody tr td .item-count a {
+        font-size: 22px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count a:first-child {
+        font-size: 30px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count span {
+        font-size: 22px;
+        width: 60px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .cart .back-to-shop {
+        position: absolute;
+        top: 20px;
+        left: 64px;
+    }
+
+    .cart .products-cart {
+        padding: 0 120px 60px 120px;
+    }
+
+    .cart .products-cart .table thead tr th {
+        font-size: 24px;
+    }
+
+    .cart .products-cart .table tbody tr td {
+        padding: 32px 0;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child img {
+        width: 120px;
+        height: 160px;
+        margin-right: 32px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h4 {
+        font-size: 28px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h5 {
+        font-size: 20px;
+    }
+
+    .cart .products-cart .table tbody tr td a {
+        font-size: 18px;
+    }
+    
+    .cart .products-cart .table tbody tr td:last-child {
+        font-size: 24px;
+    }
+
+    .cart .total h2 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    
+    .cart .total a {
+        height: 64px;
+        font-size: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .cart .back-to-shop {
+        position: absolute;
+        top: 20px;
+        left: 44px;
+    }
+
+    .cart .products-cart {
+        padding: 0 240px 60px 240px;
+    }
 }

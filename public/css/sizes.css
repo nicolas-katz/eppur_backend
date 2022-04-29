@@ -1,13 +1,19 @@
 .sizes {
-    padding: 100px 40px 100px 40px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.sizes h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
+@media only screen and (min-width: 992px) {
+    .sizes {
+        padding: 60px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .sizes {
+        padding: 60px 40px;
+    }
 }

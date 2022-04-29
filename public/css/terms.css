@@ -1,23 +1,19 @@
 .terms {
-    padding: 100px 40px 100px 40px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.terms h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
+@media only screen and (min-width: 992px) {
+    .terms {
+        padding: 60px;
+    }
 }
 
-.terms p {
-    width: 60%;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 30px;
-    color: gray;
-    margin-top: 40px;
-    text-align: center;
+@media only screen and (min-width: 1190px) {
+    .terms {
+        padding: 60px 40px;
+    }
 }

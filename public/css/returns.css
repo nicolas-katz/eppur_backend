@@ -1,23 +1,19 @@
 .returns {
-    padding: 100px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.returns h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
+@media only screen and (min-width: 992px) {
+    .returns {
+        padding: 60px;
+    }
 }
 
-.returns p {
-    width: 60%;
-    font-size: 18px;
-    font-weight: 300;
-    line-height: 30px;
-    text-align: center;
-    margin-top: 40px;
-    color: grey;
+@media only screen and (min-width: 1190px) {
+    .returns {
+        padding: 60px 40px;
+    }
 }

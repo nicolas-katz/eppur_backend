@@ -1,25 +1,18 @@
 .contact {
-    padding: 100px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.contact h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
-}
-
 .contact h2 {
     margin-top: 18px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
-    line-height: 26px;
+    line-height: 24px;
     text-align: center;
     color: grey;
-    width: 76%;
 }
 
 .contact h2 a {
@@ -32,17 +25,17 @@
 }
 
 .contact form {
-    width: 70%;
+    width: 94%;
+    max-width: 600px;
     height: max-content;
-    padding: 40px;
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 28px;
 }
 
 .contact form input {
     color: black;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     background: none;
     outline: none;
@@ -72,7 +65,7 @@
 
 .contact form textarea {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: black;
     padding: 20px 20px 0 20px;
@@ -96,12 +89,53 @@
 
 .contact-icons a svg {
     color: black;
-    width: 24px !important;
-    height: 24px !important;
-    margin: 0 20px;
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 12px;
     transition: 1s;
 }
 
 .contact-icons a:hover svg {
     color: gray;
+}
+
+@media only screen and (min-width: 540px) {
+    .contact-icons a svg {
+        width: 20px !important;
+        height: 20px !important;
+        margin: 0 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .contact h2 {
+        font-size: 18px;
+        line-height: 26px;
+        width: 96%;
+    }
+    
+    .contact form input {
+        font-size: 18px;
+    }
+    
+    .contact form textarea {
+        font-size: 18px;
+    }
+
+    .contact-icons {
+        margin: 30px 0 60px 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .contact h2 {
+        width: 54%;
+        margin-bottom: 28px;
+    }
+    
+    .contact-icons a svg {
+        width: 22px !important;
+        height: 22px !important;
+        margin: 0 20px;
+    }
 }

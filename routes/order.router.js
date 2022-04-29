@@ -2,10 +2,10 @@ const express = require('express')
 const { Router } = express
 const router = Router()
 const { checkout, createNewOrder } = require('../controllers/order.controllers')
-const { isAuthenticated, verifyCart } = require('../middlewares/middlewares')
+const { isAuthenticated, verifyCart, isUser } = require('../middlewares/middlewares')
 
 router
-.get('/client/:id', [ isAuthenticated, verifyCart ], checkout)
-.post('/newOrder', [ isAuthenticated, verifyCart ], createNewOrder)
+.get('/cliente/:id', [ isAuthenticated, verifyCart, isUser ], checkout)
+.post('/nueva-orden', [ isAuthenticated, verifyCart, isUser ], createNewOrder)
 
 module.exports = router

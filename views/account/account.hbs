@@ -1,6 +1,6 @@
 <div class="my-account">
     <div class="my-account-title">
-        <a href="/account/logout">Cerrar Sesión</a>
+        <a href="/mi-cuenta/logout">Cerrar Sesión</a>
         <h1>{{#if isAdmin}}Cuenta De Administrador{{else}}Mi Cuenta{{/if}}</h1>
         <h2>Bienvenido de nuevo, {{username}}!</h2>
     </div>
@@ -8,47 +8,37 @@
         {{#if isAdmin}}
             <div class="my-account-admin">
                 <h3>Administrar Tienda</h3>
-                <ul>
-                    <li><a href="/account/administrator/usuarios">Usuarios</a></li>
-                    <li><a href="/account/administrator/productos">Colección Eppur</a></li>
-                    <li><a href="/account/administrator/ordenes">Ordenes</a></li>
-                    <li><a href="/account/administrator/galeria">Galería</a></li>
-                </ul>
+                <div class="functions">
+                    <a href="/mi-cuenta/administrador/usuarios">
+                        Usuarios
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+                        </svg>
+                    </a>
+                    <a href="/mi-cuenta/administrador/productos">
+                        Productos
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+                        </svg>
+                    </a>
+                    <a href="/mi-cuenta/administrador/ordenes">
+                        Ordenes
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+                        </svg>
+                    </a>
+                    <a href="/mi-cuenta/administrador/galeria">
+                        Galería
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14 13.5a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1 0-1h4.793L2.146 2.854a.5.5 0 1 1 .708-.708L13 12.293V7.5a.5.5 0 0 1 1 0v6z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         {{else}}
             <div class="my-account-orders">
                 <h3>Mis Pedidos</h3>        
-                {{#if orders}}
-                   <table>
-                       <thead>
-                           <tr>
-                               <th scope="col" style="grid-area: order;">Nro Orden</th>
-                               <th scope="col" style="grid-area: name;">Nombre Completo</th>
-                               <th scope="col" style="grid-area: email;">Correo</th>
-                               <th scope="col" style="grid-area: phone;">Telefono</th>
-                               <th scope="col" style="grid-area: total;">Total</th>
-                               <th scope="col" style="grid-area: payment;">Pago</th>
-                               <th scope="col" style="grid-area: shipment;">Envío</th>
-                               <th scope="col" style="grid-area: state;">Estado</th>
-                           </tr>
-                       </thead>
-                       <tbody>
-                           {{#each orders}}
-                                {{#each this}}
-                                <tr>
-                                    <td>{{this.numOrder}}</td>
-                                    <td>{{this.userData.firstname}} {{this.userData.lastname}}</td>
-                                    <td>{{this.userData.email}}</td>
-                                    <td>{{this.userData.phone}}</td>
-                                    <td>{{this.total}}</td>
-                                    <td>{{this.payment}}</td>
-                                    <td>{{this.shipment}}</td>
-                                    <td>{{this.state}}</td>
-                                </tr>
-                                {{/each}}
-                           {{/each}}
-                       </tbody>
-                   </table>
+                {{#if t}}
                 {{else}}
                     <p>No has pedido nada aún.</p>
                 {{/if}}

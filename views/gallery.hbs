@@ -3,11 +3,9 @@
     <p>Aquí compartiremos todas las fotos de nuestros clientes que suban sus fotos a Instagram usando el hashtag #RolandByYou. Entre todos aquellos que participen, sortearemos mensualmente productos de nuestra marca.</p>
     {{#if boolean}}
         <div class="gallery-box">
-          {{#each photos as |photo|}}
+          {{#each photos}}
             <a href="{{this.url}}" target="_blank"><img src="{{this.image}}"></a>
           {{/each}}  
         </div>
-    {{else}}
-        <p>No hay fotos cargadas.</p>
     {{/if}}
 </div>

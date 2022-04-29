@@ -1,15 +1,9 @@
 .faqs {
-    padding: 100px 40px;
+    padding: 60px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.faqs h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
 }
 
 .faqs .accordion {
@@ -18,9 +12,9 @@
 }
 
 .faqs .accordion .accordion-header button {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 26px;
     color: black;
     background: none;
     border: none;
@@ -52,15 +46,15 @@
 }
 
 .faqs .accordion .accordion-body {
-    font-size: 18px;
-    line-height: 26px;
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 300;
     color: gray;
 }
 
 .faqs label {
-    margin-top: 80px;
-    font-size: 18px;
+    margin-top: 40px;
+    font-size: 16px;
     font-weight: 400;
     color: gray;
     text-align: center;
@@ -73,4 +67,25 @@
 
 .faqs label a:hover {
     color: gray;
+}
+
+@media only screen and (min-width: 1190px) {
+    .faqs {
+        padding: 60px 40px;
+    }
+
+    .faqs .accordion .accordion-header button {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .faqs .accordion .accordion-body {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    
+    .faqs label {
+        font-size: 18px;
+        margin-bottom: 40px;
+    }
 }

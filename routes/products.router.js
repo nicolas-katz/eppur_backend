@@ -6,11 +6,11 @@ const { getProducts, getProductsById, getProductsByCategory, getProductsByColor,
 const { isAuthenticated, isUser } = require('../middlewares/middlewares')
 
 router
-.get('/coleccion-eppur', getProducts)
-.get('/coleccion-eppur/:category', getProductsByCategory)
-.get('/coleccion-eppur/colores/:color', getProductsByColor)
-.get('/coleccion-eppur/talles/:size', getProductsBySize)
-.get('/coleccion-eppur/:category/:id', getProductsById)
-.post('/add-product', [ isAuthenticated, isUser ], addProductToCart)
+.get('/', getProducts)
+.get('/categorias/:category', getProductsByCategory)
+.get('/colores/:color', getProductsByColor)
+.get('/talles/:size', getProductsBySize)
+.get('/:category/:id', getProductsById)
+.post('/agregar-producto', [ isAuthenticated, isUser ], addProductToCart)
 
 module.exports = router

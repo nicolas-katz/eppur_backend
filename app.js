@@ -64,15 +64,15 @@ app.use(compression())
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
-    res.locals.error = req.flash('error')
+    res.locals.order_msg = req.flash('order_msg')
     res.locals.user = req.user || null
     next()
 })
 
-app.use('/collections', productsRouter)
-app.use('/account', authRouter)
+app.use('/coleccion-eppur', productsRouter)
+app.use('/mi-cuenta', authRouter)
 app.use(indexRouter)
-app.use('/cart', cartRouter)
+app.use('/carrito', cartRouter)
 app.use('/checkout', orderRouter)
 
 app.set('views', path.join(__dirname, 'views'))
@@ -95,7 +95,7 @@ app.use((req, res) => {
 
 app.use(function (err, req, res, next) {
     console.log(err.stack);
-    res.status(500).send("We found an error 500: " + err);
+    res.status(500).send("Lo sentimos. Hubo un error de nuestro servidor. Vuelve a intentarlo más tarde.");
 });
 
 module.exports = app

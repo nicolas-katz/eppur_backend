@@ -1,74 +1,29 @@
 <div class="products">
+    <h6><a href="/">Inicio</a> / {{#if isAllProducts}}Colección Eppur{{else}}<a href="/coleccion-eppur">Colección Eppur</a> / {{title}}{{/if}}</h6>
     <h1>{{#if isColor}}Color:{{/if}}{{#if isSize}}Talle:{{/if}}{{#if isCategory}}Categoría:{{/if}} {{title}}</h1>
     {{#if boolean}}
-    {{#if isAllProducts}}
-        <div class="filters-container">
-            <div class="filters">
-                <div class="dropdown by-category">
-                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categorías
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/buzos">Buzos</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/remeras">Remeras</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/pantalones">Pantalones</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/bermudas">Bermudas</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/boinas">Boinas</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/accesorios">Accesorios</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown by-color">
-                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Colores
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/negro">Negro</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/blanco">Blanco</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/gris">Gris</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/colores/beige">Beige</a></li>
-                    </ul>
-                </div>
-                <div class="dropdown by-size">
-                    <span class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Talles
-                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
-                        </svg>
-                    </span>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/large">Large</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/medium">Medium</a></li>
-                        <li><a class="dropdown-item" href="/collections/coleccion-eppur/talles/small">Small</a></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="filters">
+            <h2 data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                Filtros
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                    <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2zm1 .5v1.308l4.372 4.858A.5.5 0 0 1 7 8.5v5.306l2-.666V8.5a.5.5 0 0 1 .128-.334L13.5 3.308V2h-11z"/>
+                </svg>
+            </h2>
         </div>
-    {{else}}
-        <div class="products-nav">
-            <span>
-                <a class="nav" href="/collections/coleccion-eppur">Colección Eppur </a>
-                <a> / {{#if isColor}}Color{{/if}}{{#if isSize}}Talle{{/if}}{{#if isCategory}}Categoría{{/if}} Del Producto / {{title}}</a>
-            </span>
-        </div>
-    {{/if}}
-    <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
+        {{> offcanvasFilters}}
+        <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
             {{#each products as |product index|}}
-                <a class="product-box" href="/collections/coleccion-eppur/{{this.category}}/{{this._id}}">
+                <a class="product-box" href="/coleccion-eppur/{{this.category}}/{{this._id}}">
                     <img src="{{this.image}}" >
                     <div class="product-content">
                         <h4>{{this.title}}</h4>
                         <h5>${{this.price}}</h5>
+                        <label>Stock Disponible: {{this.stock}}</label>
                     </div>
                 </a>     
             {{/each}}
-    </div>
+        </div>
     {{else}}
-    <p class="notfound">No hay productos cargados en la web. <a href="{{#if isAllProducts}}/{{else}}/collections/coleccion-eppur{{/if}}">Volver Atrás</a></p>
+        <p class="notfound">No hay productos cargados en la web. <a href="{{#if isAllProducts}}/{{else}}/coleccion-eppur{{/if}}">Volver Atrás</a></p>
     {{/if}}
 </div>

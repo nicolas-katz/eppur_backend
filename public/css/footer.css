@@ -1,17 +1,19 @@
 footer {
     border-top: 1px solid rgba(221, 221, 221, 0.788);
     width: 100%;
-    padding: 100px 180px 30px 180px;
+    padding: 40px 20px 30px 20px;
 }
 
 .footer-information {
     display: flex;
-    flex-direction: row;
-    margin-bottom: 120px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .footer-information .footer-links {
-    margin-right: 80px;
     display: flex;
     flex-direction: column;
 }
@@ -21,10 +23,10 @@ footer {
 }
 
 .footer-information .footer-links h5, .footer-media h5 {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 500;
     color: black;
-    margin-bottom: 12px;
+    margin: 20px 0 12px 0;
 }
 
 .footer-information .footer-links a {
@@ -32,8 +34,8 @@ footer {
     font-weight: 400;
     color: grey;
     text-decoration: none;
-    line-height: 24px;
-    margin: 4px 0;
+    line-height: 20px;
+    margin: 2px 0;
     transition: 1s;
 }
 
@@ -45,7 +47,6 @@ footer {
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
-    width: 68%;
     color: grey;
     margin-bottom: 20px;
 }
@@ -55,20 +56,21 @@ footer {
     color: gray;
 }
 
-.footer-information .footer-media svg {
+.footer-information .footer-media .icons svg {
     transition: 1s !important;
-    margin-right: 10px;
-    width: 20px !important;
-    height: 20px !important;
+    width: 16px !important;
+    height: 16px !important;
+    margin-left: 10px;
 }
 
-.footer-information .footer-media svg:hover {
+.footer-information .footer-media .icons svg:hover {
     color: black !important;
 }
 
 .footer-copyright {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -76,6 +78,7 @@ footer {
     font-size: 14px;
     font-weight: 400;
     color: black;
+    text-align: center;
 }
 
 .footer-copyright h6 a {
@@ -93,8 +96,120 @@ footer {
     color: black;
     transition: 1s;
     text-decoration: none;
+    text-align: center;
+    margin-top: 10px;
 }
 
 .footer-copyright a:hover {
     color: grey;
+}
+
+@media only screen and (min-width: 425px) {
+    .footer-information .footer-media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-information .footer-media .icons {
+        display: flex;
+        align-items: center;
+    }
+    
+    .footer-information .footer-media p {
+        width: 68%;
+        text-align: center;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .footer-information {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-information .footer-links h5, .footer-media h5 {
+        margin: 0;
+        margin-bottom: 12px;
+    }
+
+    .footer-information .footer-links a, .footer-media a {
+        margin: 4px 0;
+    }
+
+    .footer-information .footer-media {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .footer-information .footer-media p {
+        margin-bottom: 6px;
+    }
+
+    .footer-information .footer-media .icons {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-information .footer-media .icons svg {
+        margin-left: 0;
+        margin-right: 12px;
+    }
+    
+    .footer-information .footer-media p {
+        width: 68%;
+        text-align: left;
+    }
+
+    .footer-copyright {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer-copyright a {
+        margin-top: -8px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    footer {
+        padding: 80px 80px 30px 80px;
+    }
+
+    .footer-information {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: 80px;
+    }
+
+    .footer-information .footer-links {
+        margin-right: 80px;
+    }
+
+    .footer-information .footer-links h5, .footer-media h5 {
+        font-size: 18px;
+    }
+
+    .footer-information .footer-links a, .footer-information .footer-media p {
+        font-size: 17px;
+    }
+
+    .footer-copyright a, .footer-copyright h6 {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    footer {
+        padding: 80px 180px 30px 180px;
+    }
 }

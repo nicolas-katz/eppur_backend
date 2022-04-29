@@ -1,15 +1,9 @@
 .about {
-    padding: 100px 40px;
+    padding: 60px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.about h1 {
-    font-size: 54px;
-    font-weight: 400;
-    color: black;
 }
 
 .about-container {
@@ -21,60 +15,63 @@
 
 .about-us {
     display: flex;
-    align-items: center;
-    height: 600px;
+    flex-direction: column;
+    height: max-content;
     width: 100%;
 }
 
 .about-us img {
-    height: 100%;
-    width: 600px;
-    min-width: 600px;
-    margin-right: 32px;
+    height: 400px;
+    width: 100%;
     object-fit: cover;
 }
 
 .about-us h4 {
-    font-size: 20px;
-    font-weight: 400;
-    color: blank;
-    margin-right: 52px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    padding: 0 20px;
+    margin-top: 40px;
 }
 
 .about-us p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 26px;
     color: gray;
+    padding: 0 20px;
 }
 
 .behind-scenes {
     width: 100%;
-    height: 700px;
+    height: max-content;
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     justify-content: space-between;
+    margin-top: 40px;
 }
 
 .behind-scenes-firstbox {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 700px;
-    width: 55%;
+    height: max-content;
+    padding: 0 20px;
+    margin-top: 20px;
 }
 
 .behind-scenes-firstbox h4 {
-    font-size: 20px;
-    font-weight: 400;
-    color: blank;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
     margin-bottom: 40px;
     display: flex;
     align-items: center;
 }
 
 .behind-scenes-firstbox h4 p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     line-height: 26px;
     color: gray;
@@ -84,44 +81,43 @@
 }
 
 .behind-scenes-firstbox img {
-    height: 500px;
+    height: 280px;
     width: 100%;
     min-width: 100%;
     object-fit: cover;
 }
 
 .behind-scenes-secondbox {
-    height: 100%;
-    width: 40%;
-    min-width: 40%;
+    height: 400px;
+    width: 100%;
     object-fit: cover;
 }
 
 .movement {
     margin-top: 80px;
     display: grid;
-    grid-template-columns: 900px;
+    grid-template-columns: 100%;
     grid-template-rows: max-content 400px;
     place-items: center;
-    margin-left: 12%;
 }
 
 .movement h4 {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 60px;
-    font-size: 20px;
-    font-weight: 400;
-    color: blank;
+    flex-direction: column;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
     width: 100%;
+    padding: 0 20px;
 }
 
 .movement h4 p {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
     color: gray;
-    margin-left: 60px;
+    margin-top: 10px;
+    line-height: 26px;
 }
 
 .movement img {
@@ -131,33 +127,36 @@
 }
 
 .principales {
-    margin-top: 80px;
+    margin-top: 40px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
 }
 
 .principales-firstbox {
-    width: 50%;
-    min-width: 50%;
-    height: 700px;
+    height: 280px;
+    width: 100%;
     object-fit: cover;
-    margin-right: 70px;
+    padding: 0 20px;
+    margin-bottom: 40px;
 }
 
 .principales-secondbox h4 {
-    font-size: 20px;
-    font-weight: 400;
-    color: blank;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
     display: flex;
     align-items: center;
+    padding: 0 20px;
 }
 
 .principales-secondbox h4 p {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 26px;
     font-weight: 300;
     color: gray;
-    width: 80%;
+    margin-left: 18px;
+    margin-top: 10px;
 }
 
 .principales-secondbox img {
@@ -165,20 +164,267 @@
     width: 100%;
     height: 400px;
     object-fit: cover;
-    margin-top: 70px;
+    margin-top: 20px;
 }
 
 .visit-us {
-    margin-top: 80px;
+    margin-top: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 260px;
+    padding: 0 20px;
 }
 
 .visit-us p {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 26px;
     font-weight: 300;
     color: gray;
     text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .about {
+        padding: 60px 20px;
+    }  
+
+    .about-us h4 {
+        font-size: 20px;
+        padding: 0 40px;
+    }
+    
+    .about-us p {
+        font-size: 18px;
+        line-height: 28px;
+        padding: 0 40px;
+    }
+
+    .behind-scenes-firstbox {
+        padding: 0 40px;
+    }
+    
+    .behind-scenes-firstbox h4 {
+        font-size: 20px;
+    }
+    
+    .behind-scenes-firstbox h4 p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .movement h4 {
+        font-size: 20px;
+        padding: 0 40px;
+    }
+    
+    .movement h4 p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .principales-secondbox h4 {
+        font-size: 20px;
+        padding: 0 40px;
+    }
+    
+    .principales-secondbox h4 p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .visit-us {
+        padding: 0 40px;
+    }
+    
+    .visit-us p {
+        font-size: 18px;
+        line-height: 28px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .about {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .about-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 60px;
+    }
+    
+    .about-us {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: max-content;
+        width: 100%;
+    }
+    
+    .about-us img {
+        height: 600px;
+        min-width: 400px;
+    }
+    
+    .about-us h4 {
+        padding: 0 20px;
+    }
+    
+    .about-us p {
+        padding: 0;
+    }
+    
+    .behind-scenes {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 0;
+    }
+    
+    .behind-scenes-firstbox {
+        padding: 0;
+    }
+
+    .behind-scenes-firstbox h4 {
+        max-width: 400px;
+    }
+    
+    .behind-scenes-firstbox img {
+        height: 350px;
+        min-width: 400px;
+        width: 400px;
+    }
+    
+    .behind-scenes-secondbox {
+        height: 600px;
+        width: 420px;
+    }
+    
+    .movement {
+        padding: 0 80px;
+    }
+    
+    .movement h4 {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .movement h4 p {
+        margin-top: 0;
+        margin-left: 20px;
+    }
+    
+    .principales {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .principales-firstbox {
+        height: 600px;
+        padding: 0;
+    }
+
+    .principales-secondbox {
+        margin-left: 40px;
+    }
+    
+    .principales-secondbox h4 {
+        padding: 0;
+    }
+    
+    .principales-secondbox h4 p {
+        margin-left: 18px;
+        margin-top: 20px;
+    }
+    
+    .principales-secondbox img {
+        height: 300px;
+    }
+    
+    .visit-us {
+        padding: 0 80px;
+    }
+}
+
+@media only screen and (min-width: 1190px) {
+    .about {
+        padding: 60px 40px;
+    }
+
+    .about-container {
+        margin-top: 80px;
+    }
+    
+    .about-us img {
+        min-width: 600px;
+        margin-right: 40px;
+    }
+    
+    .behind-scenes {
+        margin-top: 20px;
+    }
+
+    .behind-scenes-firstbox h4 {
+        max-width: 600px;
+    }
+    
+    .behind-scenes-firstbox img {
+        height: 400px;
+        min-width: 600px;
+        width: 600px;
+    }
+    
+    .behind-scenes-secondbox {
+        height: 600px;
+        width: 600px;
+    }
+    
+    .movement {
+        padding: 0 180px;
+        margin-bottom: 40px;
+    }
+    
+    .movement h4 {
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .movement h4 p {
+        margin-top: 0;
+        margin-left: 20px;
+    }
+    
+    .principales-firstbox {
+        height: 700px;
+    }
+
+    .principales-secondbox {
+        margin-left: 80px;
+    }
+    
+    .principales-secondbox h4 p {
+        margin-left: 20px;
+    }
+    
+    .principales-secondbox img {
+        height: 400px;
+    }
+    
+    .visit-us {
+        padding: 0 280px;
+        margin-top: 20px;
+    }
 }

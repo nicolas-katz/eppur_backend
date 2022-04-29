@@ -1,5 +1,5 @@
 .my-account {
-    padding: 100px 120px;
+    padding: 60px 20px 80px 20px;
     display: flex;
     flex-direction: column;
 }
@@ -18,14 +18,12 @@
 }
 
 .my-account-title h1 {
-    font-size: 42px;
-    font-weight: 400;
-    color: black;
+    text-align: left !important;
     margin: 16px 0 10px 0;
 }
 
 .my-account-title h2 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     color: black;
 }
@@ -43,28 +41,45 @@
 .my-account-admin h3 {
     font-size: 24px;
     font-weight: 400;
+    color: black;
     border-bottom: 1px solid gainsboro;
     padding-bottom: 16px;
 }
 
-.my-account-admin ul {
-    margin-top: 20px;
+.my-account-admin .functions {
+    display: flex;
+    margin-top: 36px;
+    overflow-y: hidden;
+    overflow-x: auto;
 }
 
-.my-account-admin ul li {
-    margin: 10px 0;
-}
-
-.my-account-admin ul li a {
-    font-size: 18px;
+.my-account-admin a {
+    font-size: 16px;
     font-weight: 300;
-    color: black;
+    color: white;
     transition: 1s;
     text-decoration: none;
+    padding: 0 24px;
+    height: 54px;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: gray;
+    margin-right: 24px;
 }
 
-.my-account-admin ul li a:hover {
-    color: gray;
+.my-account-admin a:last-child {
+    margin-right: 0;
+}
+
+.my-account-admin a svg {
+    margin-left: 10px;
+}
+
+.my-account-admin a:hover {
+    opacity: .8;
+    color: white;
 }
 
 .my-account-orders {
@@ -73,6 +88,7 @@
 
 .my-account-orders h3 {
     font-size: 24px;
+    color: black;
     font-weight: 400;
     border-bottom: 1px solid gainsboro;
     padding-bottom: 16px;
@@ -85,15 +101,101 @@
     margin-top: 32px;
 }
 
-.my-account-orders table {
-    margin-top: 32px;
+@media only screen and (min-width: 992px) {
+    .my-account {
+        padding: 60px 60px 80px 60px;
+        display: flex;
+        flex-direction: column;
+    }    
 }
 
-.my-account-orders table thead tr th {
-    font-size: 20px;
-    font-weight: 400;
-    color: black;
-    padding-bottom: 10px;
+@media only screen and (min-width: 1190px) {
+    .my-account {
+        padding: 60px 120px 80px 120px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .my-account-title a {
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+        transition: 1s;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .my-account-title a:hover {
+        color: gray;
+    }
+    
+    .my-account-title h1 {
+        font-size: 42px;
+        font-weight: 400;
+        color: black;
+        margin: 16px 0 10px 0;
+    }
+    
+    .my-account-title h2 {
+        font-size: 24px;
+        font-weight: 300;
+        color: black;
+    }
+    
+    .my-account-box {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .my-account-admin {
+        width: 100%;
+    }
+    
+    .my-account-admin h3 {
+        font-size: 24px;
+        font-weight: 400;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 16px;
+    }
+    
+    .my-account-admin ul {
+        margin-top: 20px;
+    }
+    
+    .my-account-admin ul li {
+        margin: 10px 0;
+    }
+    
+    .my-account-admin ul li a {
+        font-size: 18px;
+        font-weight: 300;
+        color: black;
+        transition: 1s;
+        text-decoration: none;
+    }
+    
+    .my-account-admin ul li a:hover {
+        color: gray;
+    }
+    
+    .my-account-orders {
+        width: 100%;
+    }
+    
+    .my-account-orders h3 {
+        font-size: 24px;
+        font-weight: 400;
+        border-bottom: 1px solid gainsboro;
+        padding-bottom: 16px;
+    }
+    
+    .my-account-orders p {
+        font-size: 18px;
+        font-weight: 300;
+        color: gray;
+        margin-top: 32px;
+    }
 }
 
 /* is admin */
@@ -146,30 +248,30 @@
     color: gray;
 }
 
-.table {
+.admin .table {
     cursor: pointer;
 }
 
-.table th {
+.admin .table th {
     font-size: 18px;
     font-weight: 400;
 }
 
-.table td {
+.admin .table td {
     font-size: 16px;
     font-weight: 300;
 }
 
-.table .actions {
+.admin .table .actions {
     display: flex;
     align-items: center;
 }
 
-.table .actions a {
+.admin .table .actions a {
     margin-left: 10px;
 }
 
-.table .actions a {
+.admin .table .actions a {
     display: flex;
     align-items: center;
 }

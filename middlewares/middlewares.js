@@ -22,10 +22,11 @@ const isAdmin = async (req, res, next) => {
     if (currentUser.role == "admin") {
         return next();
       } else {
-        res.redirect("/");
+        req.flash("error_msg", "Lo sentimos. Solo administradores del sitio.")
+        res.redirect("/mi-cuenta");
       } 
     } else {
-      res.redirect("/account/login");
+      res.redirect("/mi-cuenta/login");
     }
 };
 
@@ -35,10 +36,11 @@ const isUser = async (req, res, next) => {
     if (currentUser.role == "user") {
         return next();
       } else {
-        res.redirect("/");
+        req.flash("error_msg", "Lo sentimos. Solo usuarios.")
+        res.redirect("/mi-cuenta");
       } 
     } else {
-      res.redirect("/account/login");
+      res.redirect("/mi-cuenta/login");
     }
 };
 
@@ -46,13 +48,14 @@ const isAuthenticated = (req, res, next) => {
     if (req.session.user) {
       return next();
     } else {
-      res.redirect("/account/login");
+      req.flash("error_msg", "Por favor, primero debes iniciar sesión.")
+      res.redirect("/mi-cuenta/login");
     }
 };
 
 const fadeLogs = (req, res, next) => {
   if (req.session.user) {
-    res.redirect("/account");
+    res.redirect("/mi-cuenta");
   } else {
     return next()
   }
@@ -63,7 +66,8 @@ const verifyCart = async (req, res, next) => {
   if(cart.products.length >= 1) {
     return next()
   } else {
-    res.redirect('/cart')
+    req.flash("error_msg", "Aún no tenes productos en tu carrito.")
+    res.redirect('/carrito')
   }
 }
 
