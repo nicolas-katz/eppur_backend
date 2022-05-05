@@ -80,13 +80,13 @@ nav {
 
 .offcanvas-navlinks a {
     margin: 6px 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     text-decoration: none;
     color: black;
     transition: 1s;
     border-bottom: 1px solid gainsboro;
-    padding-bottom: 12px;
+    padding-bottom: 16px;
 }
 
 .offcanvas-navlinks a:last-child {
@@ -106,7 +106,7 @@ nav {
 }
 
 .offcanvas-iconlinks label {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
     color: black;
     margin-right: 18px;
@@ -154,7 +154,7 @@ nav {
 
 @media only screen and (min-width: 992px) {
     nav {
-        padding: 14px 60px;
+        padding: 14px 44px;
     }
 
     .header-brand a img {
@@ -169,7 +169,7 @@ nav {
 
 @media only screen and (min-width: 1190px) {   
     nav {
-        padding: 14px 40px;
+        padding: 14px 44px;
     } 
 
     .header-brand a img {

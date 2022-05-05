@@ -6,7 +6,7 @@ const { showAllPhotos } = require('../controllers/gallery.controllers')
 const sendEmail = require('../email/nodemailer')
 const config = require('../config/config')
 const getSystemInformation = require('../controllers/system.controllers')
-const { isAdmin, isAuthenticated } = require('../middlewares/middlewares')
+const { isAdmin, isAuthenticated, isUser } = require('../middlewares/middlewares')
 
 router
 .get('/', showProducts_withLimit)
@@ -34,5 +34,4 @@ router
 .get('/como-comprar', (req, res) => { res.render('how-to-buy', { user: req.session.user }) })
 .get('/terminos-y-condiciones', (req, res) => { res.render('terms', { user: req.session.user }) })
 .get('/sistema', [ isAuthenticated, isAdmin ], getSystemInformation)
-
 module.exports = router

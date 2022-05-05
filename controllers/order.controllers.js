@@ -45,7 +45,7 @@ const createNewOrder = async (req, res) => {
         req.flash("success_msg", "Tu pedido se ha completado con exito. Revisa tu casilla para terminar la compra.")
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Se ha registrado una nueva orden', renderNewOrder(newOrder))
         sendEmail('nicokatz12@gmail.com', 'nicokatz12@gmail.com', 'Tu pedido ha sido un exito', renderClientOrder(newOrder))
-        res.redirect("/mi-cuenta")
+        res.redirect("https://api.whatsapp.com/send?phone=5491168760961&text=¡Hola%20Eppur!%20Quiero%20hacerte%20una%20consulta.")
     } catch (e) {
         res.redirect("/")
     }

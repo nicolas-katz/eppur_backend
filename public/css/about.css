@@ -194,8 +194,6 @@
     }
     
     .about-us p {
-        font-size: 18px;
-        line-height: 28px;
         padding: 0 40px;
     }
 
@@ -206,45 +204,25 @@
     .behind-scenes-firstbox h4 {
         font-size: 20px;
     }
-    
-    .behind-scenes-firstbox h4 p {
-        font-size: 18px;
-        line-height: 28px;
-    }
 
     .movement h4 {
         font-size: 20px;
         padding: 0 40px;
-    }
-    
-    .movement h4 p {
-        font-size: 18px;
-        line-height: 28px;
     }
 
     .principales-secondbox h4 {
         font-size: 20px;
         padding: 0 40px;
     }
-    
-    .principales-secondbox h4 p {
-        font-size: 18px;
-        line-height: 28px;
-    }
 
     .visit-us {
         padding: 0 40px;
-    }
-    
-    .visit-us p {
-        font-size: 18px;
-        line-height: 28px;
     }
 }
 
 @media only screen and (min-width: 992px) {
     .about {
-        padding: 60px;
+        padding: 60px 44px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -278,6 +256,8 @@
     
     .about-us p {
         padding: 0;
+        font-size: 18px;
+        line-height: 28px;
     }
     
     .behind-scenes {
@@ -294,6 +274,11 @@
 
     .behind-scenes-firstbox h4 {
         max-width: 400px;
+    }
+
+    .behind-scenes-firstbox h4 p {
+        font-size: 18px;
+        line-height: 28px;
     }
     
     .behind-scenes-firstbox img {
@@ -321,6 +306,8 @@
     .movement h4 p {
         margin-top: 0;
         margin-left: 20px;
+        font-size: 18px;
+        line-height: 28px;
     }
     
     .principales {
@@ -346,6 +333,8 @@
     .principales-secondbox h4 p {
         margin-left: 18px;
         margin-top: 20px;
+        font-size: 18px;
+        line-height: 28px;
     }
     
     .principales-secondbox img {
@@ -355,13 +344,14 @@
     .visit-us {
         padding: 0 80px;
     }
+
+    .visit-us p {
+        font-size: 18px;
+        line-height: 28px;
+    }
 }
 
 @media only screen and (min-width: 1190px) {
-    .about {
-        padding: 60px 40px;
-    }
-
     .about-container {
         margin-top: 80px;
     }

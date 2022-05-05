@@ -8,12 +8,6 @@
 
 @media only screen and (min-width: 992px) {
     .terms {
-        padding: 60px;
-    }
-}
-
-@media only screen and (min-width: 1190px) {
-    .terms {
-        padding: 60px 40px;
+        padding: 60px 44px;
     }
 }

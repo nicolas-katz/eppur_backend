@@ -4,13 +4,13 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Arvo', sans-serif;
 }
 
 /* h1 */
 
 h1 {
-    font-size: 32px !important;
+    font-size: 24px !important;
     font-weight: 400 !important;
     color: black !important;
     text-align: center !important;
@@ -18,13 +18,13 @@ h1 {
 
 @media only screen and (min-width: 540px) {
     h1 {
-        font-size: 42px !important;
+        font-size: 34px !important;
     }
 }
 
 @media only screen and (min-width: 992px) {
     h1 {
-        font-size: 48px !important;
+        font-size: 40px !important;
     }
 }
 
@@ -63,12 +63,17 @@ h1 {
     justify-content: center;
     z-index: 1;
     cursor: pointer;
+    transition: 1s;
 }
 
 .chat svg {
     color: white;
     width: 18px !important;
     height: 18px !important;
+}
+
+.chat:hover {
+    opacity: .8;
 }
 
 @media only screen and (min-width: 768px) {
@@ -142,16 +147,11 @@ h1 {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 60px 20px;
-}
-
-.error-page h1 {
-    font-size: 40px;
-    font-weight: 300;
+    padding: 60px 12px;
 }
 
 .error-page h2 {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     font-weight: 300;
     margin-top: 8px;
@@ -161,9 +161,9 @@ h1 {
 .error-page a {
     text-decoration: none;
     width: max-content;
-    padding: 0 24px;
+    padding: 0 20px;
     height: 54px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     color: white;
     background: black;
@@ -185,6 +185,116 @@ h1 {
 @media only screen and (min-width: 992px) {
     .error-page {
         padding: 120px;
+    }
+        
+    .error-page h2 {
+        font-size: 18px;
+    }
+
+    .error-page a {
+        padding: 0 24px;
+        font-size: 16px;
+    } 
+}
+
+/* how to buy */
+
+.how-to-buy {
+    padding: 60px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.how-to-buy h1 {
+    margin-bottom: 20px;
+}
+
+.how-to-buy p {
+    margin: 10px 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: gray;
+}
+
+.how-to-buy .images {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 40px;
+}
+
+.how-to-buy .images img {
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 16px;
+}
+
+.how-to-buy .images img:last-child {
+    margin-right: 0;
+}
+
+.how-to-buy .icons {
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.how-to-buy .icons svg {
+    margin: 0 10px;
+    color: black;
+    transition: 1s;
+    width: 18px;
+    height: 18px;
+}
+
+.how-to-buy .icons svg:hover {
+    color: gray;
+}
+
+@media only screen and (min-width: 992px) {
+    .how-to-buy {
+        padding: 60px 44px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .how-to-buy p {
+        margin: 14px 0;
+        font-size: 18px;
+        text-align: center;
+        width: 70%;
+    }
+    
+    .how-to-buy .images {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+        padding: 0 80px;
+    }
+    
+    .how-to-buy .images img {
+        width: 32%;
+        height: 420px;
+        margin-right: 0;
+    }
+
+    .how-to-buy .icons {
+        margin-top: 60px;
+    }
+    
+    .how-to-buy .icons svg {
+        margin: 0 16px;
+        width: 24px;
+        height: 24px;
     }
 }
 

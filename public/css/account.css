@@ -1,11 +1,11 @@
 .my-account {
-    padding: 60px 20px 80px 20px;
+    padding: 60px 12px 80px 12px;
     display: flex;
     flex-direction: column;
 }
 
 .my-account-title a {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     cursor: pointer;
     transition: 1s;
@@ -23,7 +23,7 @@
 }
 
 .my-account-title h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 300;
     color: black;
 }
@@ -84,6 +84,9 @@
 
 .my-account-orders {
     width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
 }
 
 .my-account-orders h3 {
@@ -92,6 +95,8 @@
     font-weight: 400;
     border-bottom: 1px solid gainsboro;
     padding-bottom: 16px;
+    position: sticky;
+    left: 0;
 }
 
 .my-account-orders p {
@@ -101,17 +106,92 @@
     margin-top: 32px;
 }
 
+.my-account-orders table {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.my-account-orders table thead tr th {
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    padding-bottom: 10px;
+    width: 240px !important;
+    min-width: 240px !important;
+}
+
+.my-account-orders table thead tr th:first-child {
+    width: 150px !important;
+    min-width: 150px !important;
+}
+
+.my-account-orders table tbody {
+    border-color: rgb(235, 235, 235) !important;
+}
+
+.my-account-orders table tbody tr td {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    border-color: gainsboro !important;
+}
+
+.my-account-orders table tbody tr td span {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.my-account-orders table tbody tr td a {
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    transition: 1s;
+}
+
+.my-account-orders table tbody tr td a:hover {
+    opacity: .8;
+}
+
+.my-account-orders table tbody tr td:last-child {
+    color: white;
+    background: gray;
+}
+
+@media only screen and (min-width: 768px) {
+    .my-account {
+        padding: 60px 24px 80px 24px;
+    }    
+}
+
 @media only screen and (min-width: 992px) {
     .my-account {
-        padding: 60px 60px 80px 60px;
+        padding: 60px 44px 80px 44px;
         display: flex;
         flex-direction: column;
-    }    
+    }   
+    
+    .my-account-orders table thead tr th {
+        font-size: 18px;
+        width: auto !important;
+        min-width: auto !important;
+    }
+    
+    .my-account-orders table thead tr th:first-child {
+        width: auto !important;
+        min-width: auto !important;
+    }
+    
+    .my-account-orders table tbody tr td {
+        font-size: 16px;
+    }
+    
+    .my-account-orders table tbody tr td a {
+        font-size: 16px;
+    }
 }
 
 @media only screen and (min-width: 1190px) {
     .my-account {
-        padding: 60px 120px 80px 120px;
         display: flex;
         flex-direction: column;
     }
@@ -201,8 +281,10 @@
 /* is admin */
 
 .admin {
-    padding: 100px 80px;
-    padding-top: 180px;
+    padding: 60px 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
 }
 
 .admin a {
@@ -212,9 +294,11 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     width: max-content;
+    position: sticky;
+    left: 0;
 }
 
 .admin a svg {
@@ -226,19 +310,18 @@
 }
 
 .admin h1 {
-    font-size: 42px;
-    font-weight: 400;
-    color: black;
     margin-bottom: 40px;
     text-transform: capitalize;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
+    left: 0;
 }
 
 .admin h1 svg {
-    width: 24px !important;
-    height: 24px !important;
+    width: 18px !important;
+    height: 18px !important;
     cursor: pointer;
     transition: 1s;
     color: black;
@@ -253,12 +336,12 @@
 }
 
 .admin .table th {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
 }
 
 .admin .table td {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
 }
 
@@ -281,7 +364,7 @@
 }
 
 .admin .modal h5 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: capitalize !important;
 }
@@ -289,7 +372,7 @@
 .admin .modal-body form input {
     width: 100%;
     height: 44px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     padding: 0 20px;
     margin: 8px 0;
@@ -309,4 +392,35 @@
 
 .admin .modal-body form input:last-child:hover {
     opacity: .8;
+}
+
+@media only screen and (min-width: 992px) {
+    .admin {
+        padding: 60px 44px;
+    }
+    
+    .admin a {
+        font-size: 16px;
+    }
+    
+    .admin h1 svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .admin .table th {
+        font-size: 18px;
+    }
+    
+    .admin .table td {
+        font-size: 16px;
+    }
+
+    .admin .modal h5 {
+        font-size: 24px;
+    }
+    
+    .admin .modal-body form input {
+        font-size: 16px;
+    }
 }

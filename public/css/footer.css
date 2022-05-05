@@ -1,7 +1,7 @@
 footer {
     border-top: 1px solid rgba(221, 221, 221, 0.788);
     width: 100%;
-    padding: 40px 20px 30px 20px;
+    padding: 40px 12px 30px 12px;
 }
 
 .footer-information {
@@ -125,6 +125,10 @@ footer {
 }
 
 @media only screen and (min-width: 768px) {
+    footer {
+        padding: 40px 24px 30px 24px;
+    }
+
     .footer-information {
         display: flex;
         flex-direction: row;
@@ -178,6 +182,10 @@ footer {
     .footer-copyright a {
         margin-top: -8px;
     }
+
+    .footer-copyright a, .footer-copyright h6 {
+        text-align: left;
+    }
 }
 
 @media only screen and (min-width: 992px) {
@@ -187,12 +195,11 @@ footer {
 
     .footer-information {
         display: flex;
-        justify-content: flex-start;
         margin-bottom: 80px;
     }
 
-    .footer-information .footer-links {
-        margin-right: 80px;
+    .footer-information .footer-media {
+        margin-left: 0;
     }
 
     .footer-information .footer-links h5, .footer-media h5 {
@@ -202,14 +209,14 @@ footer {
     .footer-information .footer-links a, .footer-information .footer-media p {
         font-size: 17px;
     }
-
-    .footer-copyright a, .footer-copyright h6 {
-        font-size: 16px;
-    }
 }
 
 @media only screen and (min-width: 1190px) {
     footer {
         padding: 80px 180px 30px 180px;
+    }
+
+    .footer-copyright a, .footer-copyright h6 {
+        font-size: 16px;
     }
 }

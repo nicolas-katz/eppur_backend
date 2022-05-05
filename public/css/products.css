@@ -67,7 +67,7 @@
 }
 
 .products .filters h2 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: grey;
     display: flex;
@@ -88,7 +88,7 @@
 }
 
 .offcanvas-filters h5 {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 400;
     color: black;
 }
@@ -112,17 +112,15 @@
 }
 
 .offcanvas-filters .filter-box h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: black;
 }
 
 .offcanvas-filters .filter-box a {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
-    text-decoration: none;
     margin: 2px 0;
-    margin-left: 12px;
     color: gray;
     transition: 1s;
 }
@@ -178,7 +176,7 @@
 } 
 
 .products-container .product-box .product-content label {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     position: absolute;
     top: 5px;
@@ -214,7 +212,7 @@
         margin-right: 40px;
         border-left: 1px solid gainsboro;
         padding-left: 40px;
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .products-container .product-box img {
@@ -278,7 +276,7 @@
 .details .details-content {
     display: flex;
     flex-direction: column;
-    padding: 0 20px;
+    padding: 0 12px;
     margin: 40px 0 60px 0;
 }
 
@@ -289,7 +287,7 @@
 
 .details-content .details-nav a {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     color: black;
     margin-bottom: 60px;
@@ -402,29 +400,25 @@
         max-width: 100%;
         margin: 0;
     }
-    
-    .details-content .details-nav a span {
-        margin: 0 4px;
+
+    .details-content .details-nav a {
+        font-size: 14px;
     }
-    
-    .details-content h1 {
-        font-size: 48px;
-    }
-    
+
     .details-content h2 {
-        font-size: 24px;
+        font-size: 22px;
     }
     
     .details-content h3 {
-        font-size: 18px;
+        font-size: 16px;
     }
     
     .details-content h4 {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .details-content p {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .details-content .add-product .item-count {
@@ -455,10 +449,34 @@
 
 @media only screen and (min-width: 992px) {
     .details {
-        padding: 60px 60px 80px 60px;
+        padding: 60px 44px 80px 44px;
         display: grid;
         grid-template-columns: repeat(2, 46%);
         gap: 8%;
+    }
+
+    .details-content .details-nav a {
+        font-size: 15px;
+    }
+
+    .details-content .details-nav a span {
+        margin: 0 4px;
+    }
+
+    .details-content h2 {
+        font-size: 24px;
+    }
+    
+    .details-content h3 {
+        font-size: 18px;
+    }
+    
+    .details-content h4 {
+        font-size: 20px;
+    }
+    
+    .details-content p {
+        font-size: 16px;
     }
 }
 

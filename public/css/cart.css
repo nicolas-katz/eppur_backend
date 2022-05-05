@@ -74,7 +74,7 @@ thead {
 }
 
 .cart .products-cart .table thead tr th {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
     color: black;
     margin-bottom: 18px;
@@ -89,10 +89,10 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td:first-child img {
-    width: 74px;
-    height: 124px;
+    width: 72px;
+    height: 130px;
     object-fit: cover;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .cart .products-cart .table tbody tr td:first-child .data {
@@ -101,7 +101,7 @@ thead {
 }
 
 .cart .products-cart .table tbody tr td:first-child .data h4 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     color: black;
 }
@@ -171,7 +171,7 @@ thead {
 
 .cart .products-cart .table tbody tr td:last-child {
     color: black;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
 }
 
@@ -213,7 +213,68 @@ thead {
     color: white;
 }
 
-@media only screen and (min-width: 425px) {
+@media only screen and (min-width: 425px) {    
+    .cart .products-cart .table thead tr th {
+        font-size: 20px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child img {
+        width: 90px;
+        height: 156px;
+        margin-right: 16px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h4 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h5 {
+        font-size: 16px;
+    }
+    
+    .cart .products-cart .table tbody tr td:first-child .data h6 span {
+        font-size: 14px;
+    }
+
+    .cart .products-cart .table tbody tr td .item-count a {
+        font-size: 18px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count a:first-child {
+        font-size: 24px;
+    }
+    
+    .cart .products-cart .table tbody tr td .item-count span {
+        font-size: 18px;
+        width: 50px;
+    }
+
+    .cart .products-cart .table tbody tr td:last-child {
+        font-size: 18px;
+    }
+
+    .cart .total h2 {
+        font-size: 18px;
+    }
+
+    .cart .total a {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .cart .back-to-shop {
+        position: absolute;
+        top: 20px;
+        left: 24px;
+        font-size: 16px;
+    }
+
+    .cart .products-cart {
+        padding: 0 24px 40px 24px;
+    }
+
     .cart .products-cart .table thead tr th {
         font-size: 20px;
     }
@@ -246,8 +307,8 @@ thead {
     }
     
     .cart .products-cart .table tbody tr td .item-count span {
-        font-size: 18px;
-        width: 42px;
+        font-size: 20px;
+        width: 60px;
     }
 
     .cart .products-cart .table tbody tr td:last-child {
@@ -259,33 +320,9 @@ thead {
     }
 
     .cart .total a {
+        padding: 0 20px;
+        height: 64px;
         font-size: 18px;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    .cart .back-to-shop {
-        position: absolute;
-        top: 20px;
-        left: 24px;
-        font-size: 16px;
-    }
-
-    .cart .products-cart {
-        padding: 0 24px 40px 24px;
-    }
-
-    .cart .products-cart .table tbody tr td .item-count a {
-        font-size: 22px;
-    }
-    
-    .cart .products-cart .table tbody tr td .item-count a:first-child {
-        font-size: 30px;
-    }
-    
-    .cart .products-cart .table tbody tr td .item-count span {
-        font-size: 22px;
-        width: 60px;
     }
 }
 
@@ -300,10 +337,6 @@ thead {
         padding: 0 120px 60px 120px;
     }
 
-    .cart .products-cart .table thead tr th {
-        font-size: 24px;
-    }
-
     .cart .products-cart .table tbody tr td {
         padding: 32px 0;
     }
@@ -312,33 +345,6 @@ thead {
         width: 120px;
         height: 160px;
         margin-right: 32px;
-    }
-    
-    .cart .products-cart .table tbody tr td:first-child .data h4 {
-        font-size: 28px;
-    }
-    
-    .cart .products-cart .table tbody tr td:first-child .data h5 {
-        font-size: 20px;
-    }
-
-    .cart .products-cart .table tbody tr td a {
-        font-size: 18px;
-    }
-    
-    .cart .products-cart .table tbody tr td:last-child {
-        font-size: 24px;
-    }
-
-    .cart .total h2 {
-        font-size: 24px;
-        margin-bottom: 12px;
-    }
-    
-    .cart .total a {
-        height: 64px;
-        font-size: 20px;
-        padding: 0 20px;
     }
 }
 

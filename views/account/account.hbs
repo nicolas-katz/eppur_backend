@@ -38,7 +38,40 @@
         {{else}}
             <div class="my-account-orders">
                 <h3>Mis Pedidos</h3>        
-                {{#if t}}
+                {{#if orders}}
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nro De Orden</th>
+                                <th scope="col">Datos Personales</th>
+                                <th scope="col">Productos Seleccionados</th>
+                                <th scope="col">Total A Pagar</th>
+                                <th scope="col">Estado Del Pedido</th>
+                            </tr>
+                        </thead>
+                        {{#each orders}}
+                            <tbody>
+                                <tr>
+                                    <td>{{this.numOrder}}</td>
+                                    <td>
+                                        <span>
+                                            {{this.userData.firstname}}
+                                            {{this.userData.lastname}}
+                                        </span>
+                                        <span>{{this.userData.email}}</span>
+                                        <span>{{this.userData.phone}}</span>
+                                    </td>
+                                    {{#each this.products}}
+                                    <td style="display: flex; flex-direction: column; border-color: transparent !important;">
+                                        <a href="/coleccion-eppur/{{this.category}}/{{this._id}}">{{this.title}}</a>
+                                    </td>
+                                    {{/each}}
+                                    <td>${{this.total}}</td>
+                                    <td>{{this.state}}</td>
+                                </tr>
+                            </tbody>
+                        {{/each}}
+                    </table>
                 {{else}}
                     <p>No has pedido nada aún.</p>
                 {{/if}}

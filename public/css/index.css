@@ -26,9 +26,9 @@
 }
 
 .index-about p {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
-    line-height: 28px;
+    line-height: 26px;
     color: gray;
     width: 90%;
     text-align: center;
@@ -103,9 +103,9 @@
     }
     
     .index-about p {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 28px;
-        width: 80%;
+        width: 70%;
         margin-top: 20px;
     }
     
@@ -132,7 +132,12 @@
     }
 }
 
-@media only screen and (min-width: 992px) {    
+@media only screen and (min-width: 992px) {  
+    .index-about p {
+        font-size: 17px;
+        width: 60%;
+    }
+
     .index-about-images {
         display: flex;
         justify-content: space-around;

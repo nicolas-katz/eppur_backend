@@ -1,5 +1,5 @@
 .account {
-    padding: 60px 20px;
+    padding: 60px 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,12 +16,14 @@
 
 .account h2 {
     font-size: 16px;
+    line-height: 26px;
     font-weight: 300;
     margin-bottom: 24px;
+    text-align: center;
 }
 
 .account form {
-    width: 96%;
+    width: 100%;
     max-width: 400px;
     height: max-content;
     display: flex;
@@ -77,7 +79,7 @@
 
 @media only screen and (min-width: 992px) {
     .account {
-        padding: 60px;
+        padding: 60px 44px;
     }
     
     .account h1 {

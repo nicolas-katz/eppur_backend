@@ -21,16 +21,10 @@
 
 @media only screen and (min-width: 992px) {
     .banner {
-        padding: 10px 60px;
+        padding: 10px 44px;
     }
 
     .banner label {
         font-size: 14px;
-    }
-}
-
-@media only screen and (min-width: 1190px) {
-    .banner {
-        padding: 10px 40px;
     }
 }

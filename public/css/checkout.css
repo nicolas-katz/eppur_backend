@@ -24,7 +24,7 @@
 }
 
 .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 400;
     color: black;
     margin-bottom: 20px;
@@ -230,7 +230,7 @@
 
 @media only screen and (min-width: 992px) {
     .checkout {
-        padding: 60px 64px;
+        padding: 60px 44px;
     }
 
     .checkout-container {
@@ -272,35 +272,7 @@
         width: 52%;
     }
 
-    .checkout-data-personal h2, .checkout-data-shipment h2, .checkout-data-payment h2 {
-        font-size: 42px;
-    }
-
     .checkout-products {
         width: 42%;
-    }
-
-    .checkout-products .padding .order-products thead tr th {
-        font-size: 22px;
-    }
-    
-    .checkout-products .padding .order-products tbody tr td h4 {
-        font-size: 24px;
-    }
-    
-    .checkout-products .padding .order-products tbody tr td h5 {
-        font-size: 16px;
-    }
-    
-    .checkout-products .padding .total-checkout h5 {
-        font-size: 24px;
-    }
-    
-    .checkout-products .padding button {
-        font-size: 20px;
-    }
-
-    .checkout-products .padding a {
-        font-size: 18px;
     }
 }
