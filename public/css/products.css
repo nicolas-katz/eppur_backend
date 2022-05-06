@@ -123,6 +123,7 @@
     margin: 2px 0;
     color: gray;
     transition: 1s;
+    text-decoration: none;
 }
 
 .offcanvas-filters .filter-box a:hover {
@@ -165,7 +166,7 @@
 
 .products-container .product-box .product-content h4 {
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 400;
     text-transform: capitalize;
 }
 
@@ -209,7 +210,7 @@
     }
     
     .products .filters h2 {
-        margin-right: 40px;
+        margin-right: 24px;
         border-left: 1px solid gainsboro;
         padding-left: 40px;
         font-size: 20px;
@@ -229,12 +230,12 @@
 
 @media only screen and (min-width: 992px) {
     .products-container {
-        padding: 0 30px;
+        padding: 0 24px;
     }
 
     .products-container .product-box {
-        width: 22%;
-        margin: 1% 1.5%;
+        width: 24%;
+        margin: 1% .5%;
     }
 
     .products-container .product-box img {
@@ -252,7 +253,7 @@
 
 @media only screen and (min-width: 1190px) {
     .products-container {
-        padding: 0 80px;
+        padding: 0 60px;
     }
 
     .products-container .product-box img {
@@ -449,9 +450,8 @@
 
 @media only screen and (min-width: 992px) {
     .details {
-        padding: 60px 44px 80px 44px;
         display: grid;
-        grid-template-columns: repeat(2, 46%);
+        grid-template-columns: 58% 36%;
         gap: 8%;
     }
 
@@ -482,6 +482,6 @@
 
 @media only screen and (min-width: 1190px) {
     .details {
-        padding: 60px 200px 80px 200px;
+        padding: 60px 140px 80px 140px;
     }
 }

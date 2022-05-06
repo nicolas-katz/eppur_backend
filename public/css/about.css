@@ -222,7 +222,6 @@
 
 @media only screen and (min-width: 992px) {
     .about {
-        padding: 60px 44px;
         display: flex;
         flex-direction: column;
         justify-content: center;

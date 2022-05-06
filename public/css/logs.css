@@ -78,10 +78,6 @@
 }
 
 @media only screen and (min-width: 992px) {
-    .account {
-        padding: 60px 44px;
-    }
-    
     .account h1 {
         font-size: 28px !important;
     }

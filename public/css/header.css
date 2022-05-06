@@ -3,13 +3,14 @@ nav {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 14px 12px;
+    padding: 26px 12px;
     width: 100%;
     background: white;
     position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
+    border-bottom: 1px solid rgb(238, 238, 238);
 }
 
 .header-brand a img {
@@ -33,12 +34,17 @@ nav {
 }
 
 .header-links .usernav svg {
-    width: 18px;
-    height: 18px;
+    width: 22px;
+    height: 22px;
     color: black;
     cursor: pointer;
     transition: 1s;
     margin-right: 16px;
+}
+
+.header-links .usernav .bi-cart3 {
+    width: 18px;
+    height: 18px;
 }
 
 .header-links .usernav .bi-list-nested {
@@ -121,7 +127,7 @@ nav {
 
 @media only screen and (min-width: 768px) {
     nav {
-        padding: 14px 24px;
+        padding: 26px 24px;
     }
 
     .header-brand a img {
@@ -133,7 +139,12 @@ nav {
         height: 22px;
     }
 
-    .header-links .usernav .bi-person-circle {
+    .header-links .usernav .bi-cart3 {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header-links .usernav .bi-person {
         margin-top: 2px;
     }
 
@@ -153,25 +164,22 @@ nav {
 }
 
 @media only screen and (min-width: 992px) {
-    nav {
-        padding: 14px 44px;
-    }
-
     .header-brand a img {
         width: 220px;
     }
 
     .header-links .usernav svg {
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
+    }
+
+    .header-links .usernav .bi-cart3 {
+        width: 22px;
+        height: 22px;
     }
 }
 
 @media only screen and (min-width: 1190px) {   
-    nav {
-        padding: 14px 44px;
-    } 
-
     .header-brand a img {
         width: 200px;
     }
@@ -184,9 +192,9 @@ nav {
     .header-links .navlinks a, .header-links .dropdown span {
         text-decoration: none;
         color: black;
-        margin: 0 14px;
-        font-size: 14px;
-        font-weight: 700;
+        margin: 0 12px;
+        font-size: 15px;
+        font-weight: 500;
         transition: 1s;
         cursor: pointer;
     }
@@ -210,12 +218,12 @@ nav {
     }
     
     .header-links .navlinks .dropdown .dropdown-menu {
-        padding: 20px 60px !important;
+        padding: 30px 60px !important;
         font-weight: 400 !important;
     }
     
     .header-links .navlinks .dropdown .dropdown-item {
-        font-weight: 500 !important;
+        font-weight: 400 !important;
     }
     
     .header-links .navlinks .dropdown .dropdown-item:hover {
@@ -224,15 +232,15 @@ nav {
     } 
     
     .header-links .usernav svg {
-        width: 20px;
-        height: 20px;
-        margin-top: 10px;
         margin-right: 0;
+        margin-top: 10px;
     }
 
-    .header-links .usernav .bi-person-circle {
-        margin-top: 10px;
+    .header-links .usernav .bi-person {
         margin-right: 16px;
+        margin-top: 10px;
+        width: 26px;
+        height: 26px;
     }
 
     .header-links .usernav .bi-list-nested {

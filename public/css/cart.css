@@ -152,7 +152,7 @@ thead {
     font-size: 15px;
     font-weight: 400;
     color: black;
-    width: 28px;
+    width: 36px;
     height: 48px;
     text-align: center;
     outline: none;
@@ -327,12 +327,6 @@ thead {
 }
 
 @media only screen and (min-width: 992px) {
-    .cart .back-to-shop {
-        position: absolute;
-        top: 20px;
-        left: 64px;
-    }
-
     .cart .products-cart {
         padding: 0 120px 60px 120px;
     }
@@ -346,15 +340,13 @@ thead {
         height: 160px;
         margin-right: 32px;
     }
+
+    .cart .products-cart .table tbody tr td .item-count {
+        padding: 0 16px;
+    }
 }
 
 @media only screen and (min-width: 1190px) {
-    .cart .back-to-shop {
-        position: absolute;
-        top: 20px;
-        left: 44px;
-    }
-
     .cart .products-cart {
         padding: 0 240px 60px 240px;
     }

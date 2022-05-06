@@ -4,14 +4,12 @@ const getProducts = async (req, res) => {
     try {
         const products = await Product.find({}).lean()
         const boolean = products.length >= 1
-        const notStock = products.map(prod => prod.stock == 0)
         return res.render('collections/products', {
             products: products,
             boolean: boolean,
             user: req.session.user,
             title: "Colección Eppur",
-            isAllProducts: true,
-            notStock: notStock
+            isAllProducts: true
         })
     } catch (e) {
         res.redirect("/")
@@ -106,7 +104,7 @@ const getProductsByColor = async (req, res) => {
             res.render('404', {
                 message: "El color",
                 path: "/coleccion-eppur",
-                button_text: "Colecciones"
+                button_text: "Productos"
             })
         }
     } catch (e) {
@@ -132,7 +130,7 @@ const getProductsBySize = async (req, res) => {
             res.render('404', {
                 message: "El talle",
                 path: "/coleccion-eppur",
-                button_text: "Colecciones"
+                button_text: "Productos"
             })
         }
     } catch (e) {
@@ -145,6 +143,7 @@ const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
         await newProduct.save()
+        req.flash("success_msg", "Se ha creado correctamente.");
         res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
         res.redirect("/")
@@ -157,6 +156,7 @@ const updateProductById = async (req, res) => {
             new: true,
             runValidators: true
         })
+        req.flash("success_msg", "Se ha modificado correctamente.");
         res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
         res.redirect("/")
@@ -166,6 +166,7 @@ const updateProductById = async (req, res) => {
 const deleteProductById = async (req, res) => {
     try {
         await Product.findByIdAndDelete({_id: req.params.id})
+        req.flash("success_msg", "Se ha eliminado correctamente.");
         res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
         res.redirect("/")

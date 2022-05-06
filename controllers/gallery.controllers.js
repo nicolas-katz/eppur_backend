@@ -31,6 +31,7 @@ const createPhoto = async (req, res) => {
         const { email, image } = req.body
         const newPhoto = await new Gallery({email, image})
         await newPhoto.save()
+        req.flash("success_msg", "Se ha creado correctamente.");
         res.redirect('/mi-cuenta/administrador/galeria')
     } catch (e) {
         res.redirect("/")
@@ -43,6 +44,7 @@ const updatePhotoById = async (req, res) => {
             new: true,
             runValidators: true
         })
+        req.flash("success_msg", "Se ha modificado correctamente.");
         res.redirect("/mi-cuenta/administrador/galeria")
     } catch (e) {
         res.redirect("/")
@@ -52,6 +54,7 @@ const updatePhotoById = async (req, res) => {
 const deletePhotoById = async (req, res) => {
     try {
         await Gallery.findByIdAndDelete({_id: req.params.id})
+        req.flash("success_msg", "Se ha eliminado correctamente.");
         res.redirect("/mi-cuenta/administrador/galeria")
     } catch (e) {
         res.redirect("/")

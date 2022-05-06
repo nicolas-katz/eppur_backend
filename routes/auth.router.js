@@ -28,7 +28,7 @@ router
 .get('/administrador/galeria', [ isAdmin, isAuthenticated ], getAllPhotos)
 .get('/administrador/galeria/remover/:id', [ isAdmin, isAuthenticated ], deletePhotoById)
 .post('/administrador/galeria', [ isAdmin, isAuthenticated ], createPhoto)
-.post('/administrador/galeria/editarar/:id', [ isAdmin, isAuthenticated ], updatePhotoById)
+.post('/administrador/galeria/editar/:id', [ isAdmin, isAuthenticated ], updatePhotoById)
 .post('/signup', signUp)
 .post('/login', logIn)
 

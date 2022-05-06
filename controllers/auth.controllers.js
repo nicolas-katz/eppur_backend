@@ -133,6 +133,7 @@ const createUser = async (req, res) => {
         const newUser = await new Auth({firstname, lastname, phone, email, password, isAdmin})
         newUser.password = await newUser.encryptPassword(password)
         await newUser.save()
+        req.flash("success_msg", "Se ha creado correctamente.");
         res.redirect('/mi-cuenta/administrador/usuarios')
     }
 }
@@ -142,13 +143,14 @@ const updateUserById = async (req, res) => {
         const userID = await Auth.findOne({_id: req.params.id})
         const _usedID = userID.email == "eppur@gmail.com"
         if(_usedID) {
-            req.flash("error_msg", "You can not edit a super admin. Try again.");
-            res.redirect("/mi-cuenta")
+            req.flash("error_msg", "No se puede modificar información de un super admin. Intenta con otro usuario.");
+            res.redirect("/mi-cuenta/administrador/usuarios")
         } else {
             await Auth.findByIdAndUpdate({_id: req.params.id}, req.body, {
                 new: true,
                 runValidators: true
             })
+            req.flash("success_msg", "Se ha modificado correctamente.");
             res.redirect("/mi-cuenta/administrador/usuarios")
         }
     } catch (e) {
@@ -161,10 +163,11 @@ const deleteUserById = async (req, res) => {
         const userID = await Auth.findOne({_id: req.params.id})
         const _usedID = userID.email == "eppur@gmail.com"
         if(_usedID) {
-            req.flash("error_msg", "You can not delete a super admin. Try again.");
-            res.redirect("/mi-cuenta")
+            req.flash("error_msg", "No se puede eliminar a un super admin. Intenta con otro usuario.");
+            res.redirect("/mi-cuenta/administrador/usuarios")
         } else {
             await Auth.findByIdAndDelete({_id: req.params.id})
+            req.flash("success_msg", "Se ha eliminado correctamente.");
             res.redirect("/mi-cuenta/administrador/usuarios")
         }
     } catch (e) {

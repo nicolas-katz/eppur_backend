@@ -1,30 +1,62 @@
 .banner {
     background: black;
-    padding: 10px 12px;
+    padding: 14px 12px;
+    transition: 1s;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.banner label {
+.banner a {
     font-size: 12px;
     font-weight: 400;
     color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.banner a:hover {
+    color: white;
+}
+
+.banner a svg {
+    transition: 1s;
+    width: 28px !important;
+    height: 28px !important;
+}
+
+.banner:hover {
+    opacity: .8;
+}
+
+.banner:hover a svg {
+    transform: translateX(5px);
 }
 
 @media only screen and (min-width: 768px) {
     .banner {
-        padding: 10px 24px;
+        padding: 14px 24px;
     }
 
-    .banner label {
+    .banner a {
         font-size: 13px;
+    }
+
+    .banner a svg {
+        margin-left: 12px;
+        transition: 1s;
+        width: 16px !important;
+        height: 16px !important;
+    }   
+    
+    .banner:hover a svg {
+        transform: translateX(10px);
     }
 }
 
 @media only screen and (min-width: 992px) {
-    .banner {
-        padding: 10px 44px;
-    }
-
-    .banner label {
+    .banner a {
         font-size: 14px;
     }
 }
