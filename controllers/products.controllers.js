@@ -142,17 +142,24 @@ const getProductsBySize = async (req, res) => {
 const createProduct = async (req, res) => {
     try {
         const newProduct = await new Product(req.body)
+        if(req.file) {
+            newProduct.image = req.file.filename
+        }
         await newProduct.save()
         req.flash("success_msg", "Se ha creado correctamente.");
         res.redirect("/mi-cuenta/administrador/productos")
     } catch (e) {
-        res.redirect("/")
+        res.redirect("/como-comprar")
     }
 }
 
 const updateProductById = async (req, res) => {
     try {
-        await Product.findByIdAndUpdate({_id: req.params.id}, req.body, {
+        const updatedProduct = req.body
+        if(req.file) {
+            updatedProduct.image = req.file.filename
+        }
+        await Product.findByIdAndUpdate({_id: req.params.id}, updatedProduct, {
             new: true,
             runValidators: true
         })

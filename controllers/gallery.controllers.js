@@ -28,8 +28,10 @@ const getAllPhotos = async (req, res) => {
 
 const createPhoto = async (req, res) => {
     try {
-        const { email, image } = req.body
-        const newPhoto = await new Gallery({email, image})
+        const newPhoto = await new Gallery(req.body)
+        if(req.file) {
+            newPhoto.image = req.file.filename
+        }
         await newPhoto.save()
         req.flash("success_msg", "Se ha creado correctamente.");
         res.redirect('/mi-cuenta/administrador/galeria')
@@ -40,7 +42,12 @@ const createPhoto = async (req, res) => {
 
 const updatePhotoById = async (req, res) => {
     try {
-        await Gallery.findByIdAndDelete({_id: req.params.id}, req.body, {
+        const updatedPhoto = req.body
+        if(req.file) {
+            updatedPhoto.image = req.file.filename
+        }
+        console.log(req.body)
+        await Gallery.findByIdAndUpdate({_id: req.params.id}, updatedPhoto, {
             new: true,
             runValidators: true
         })

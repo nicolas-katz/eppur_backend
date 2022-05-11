@@ -20,10 +20,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 100%;
 }
 
 .gallery-box a {
     width: 48%;
+    min-width: 48%;
     height: 200px;
     margin: 1%;
 }
@@ -53,6 +55,7 @@
     
     .gallery-box a {
         width: 31%;
+        min-width: 31%;
         height: 300px;
         margin: 1%;
     }
@@ -69,6 +72,7 @@
 
     .gallery-box a {
         width: 23%;
+        min-width: 23%;
         height: 320px;
         margin: 1%;
     }

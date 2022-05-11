@@ -12,9 +12,9 @@
         </div>
         {{> offcanvasFilters}}
         <div class="{{#if boolean}}products-container {{else}}products-container active {{/if}}">
-            {{#each products as |product index|}}
+            {{#each products}}
                 <a class="product-box" href="/coleccion-eppur/{{this.category}}/{{this._id}}">
-                    <img src="{{this.image}}" >
+                    <img src="../../images/{{this.image}}" >
                     <div class="product-content">
                         <h4>{{this.title}}</h4>
                         <h5>${{this.price}}</h5>

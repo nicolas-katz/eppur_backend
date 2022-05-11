@@ -25,7 +25,7 @@
               <form action="/mi-cuenta/administrador/galeria" method="post">
                 <input type="email" name="email" id="email" placeholder="Correo" required>
                 <input type="text" name="url" id="url" placeholder="Url Instagram">
-                <input type="text" name="image" id="image" placeholder="Imagen" required>
+                <input type="file" name="image" id="image" placeholder="Imagen" required>
                 <input type="submit" value="Crear Imagen">              
               </form>
             </div>
@@ -49,7 +49,7 @@
               <td><input type="text" name="_id" id="_id" value="{{this._id}}" ></td>
               <td><input type="text" name="email" id="email" value="{{this.email}}" ></td>
               <td><input type="text" name="url" id="url" value="{{this.url}}" ></td>
-              <td><input type="text" name="image" id="image" value="{{this.image}}" ></td>
+              <td><input type="file" name="image" id="image" value="{{this.image}}" ></td>
               <td class="actions">
                 <button type="submit">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

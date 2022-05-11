@@ -27,22 +27,11 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
-const storage = multer.diskStorage({
-    destination: path.join(__dirname, 'public/images'),
-    filename: (req, file, cb) => {
-        cb(null, file.originalname)
-    }
-})
-
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(express.static(path.join(__dirname, '/public')))
 app.use(morgan('dev'))
 app.use(methodOverride('_method'))
-app.use(multer({
-    storage,
-    dest: path.join(__dirname, 'public/images')
-}).single('image'))
 app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,
