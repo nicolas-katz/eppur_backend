@@ -4,9 +4,8 @@ const router = Router()
 const { showProducts_withLimit } = require('../controllers/products.controllers')
 const { showAllPhotos } = require('../controllers/gallery.controllers')
 const sendEmail = require('../email/nodemailer')
-const config = require('../config/config')
 const getSystemInformation = require('../controllers/system.controllers')
-const { isAdmin, isAuthenticated, isUser } = require('../middlewares/middlewares')
+const { isAdmin, isAuthenticated } = require('../middlewares/middlewares')
 
 router
 .get('/', showProducts_withLimit)
