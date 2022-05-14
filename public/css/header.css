@@ -13,9 +13,18 @@ nav {
     border-bottom: 1px solid rgb(238, 238, 238);
 }
 
-.header-brand a img {
-    width: 140px;
-    object-fit: cover;
+.header-brand a {
+    font-size: 36px;
+    line-height: 30px;
+    font-weight: 300;
+    color: black;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-family: 'Macondo', cursive;
+}
+
+.header-brand a:hover {
+    color: black;
 }
 
 .header-links {

@@ -26,6 +26,7 @@ const isAdmin = async (req, res, next) => {
         res.redirect("/mi-cuenta");
       } 
     } else {
+      req.flash("error_msg", "Lo sentimos. Solo administradores del sitio.")
       res.redirect("/mi-cuenta/login");
     }
 };
