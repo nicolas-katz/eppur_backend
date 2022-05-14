@@ -12,6 +12,7 @@ const flash = require('connect-flash')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const compression = require('compression')
+const mongoStore = require('connect-mongo')
 const { engine } = require('express-handlebars')
 const productsRouter = require('./routes/products.router') 
 const authRouter = require('./routes/auth.router') 
@@ -20,6 +21,7 @@ const indexRouter = require('./routes/index.router')
 const orderRouter = require('./routes/order.router') 
 const config = require('./config/config')
 
+const mongoOptions = {useNewUrlParser: true, useUnifiedTopology: true}
 const corsOptions = {
     origin: `http://localhost:${config.PORT}`,
     credentials: true,
@@ -33,6 +35,10 @@ app.use(express.static(path.join(__dirname, '/public')))
 app.use(morgan('dev'))
 app.use(methodOverride('_method'))
 app.use(session({
+    store: mongoStore.create({
+        mongoUrl: config.MONGODB_URI,
+        mongoOptions,
+    }),
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
@@ -53,7 +59,6 @@ app.use(compression())
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
     res.locals.error_msg = req.flash('error_msg')
-    res.locals.order_msg = req.flash('order_msg')
     res.locals.user = req.user || null
     next()
 })

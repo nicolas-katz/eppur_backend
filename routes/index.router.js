@@ -1,14 +1,13 @@
 const express = require('express')
 const { Router } = express
 const router = Router()
-const { showProducts_withLimit } = require('../controllers/products.controllers')
 const { showAllPhotos } = require('../controllers/gallery.controllers')
 const sendEmail = require('../email/nodemailer')
 const getSystemInformation = require('../controllers/system.controllers')
 const { isAdmin, isAuthenticated } = require('../middlewares/middlewares')
 
 router
-.get('/', showProducts_withLimit)
+.get('/', (req, res) => { res.render('index', { user: req.session.user }) })
 .get('/nosotros', (req, res) => { res.render('about', { user: req.session.user }) })
 .get('/galeria', showAllPhotos)
 .get('/preguntas-frecuentes', (req, res) => { res.render('faqs', { user: req.session.user }) })

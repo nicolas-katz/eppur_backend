@@ -28,20 +28,6 @@ const getAllProducts = async (req, res) => {
     }
 }
 
-const showProducts_withLimit = async (req, res) => {
-    try {
-         const products = await Product.find({}).sort({'createdAt': -1}).limit(8).lean()
-         const boolean = products.length >= 1
-         return res.render('index', {
-            products: products,
-            boolean: boolean,
-            user: req.session.user
-         })
-    } catch (e) {
-        res.redirect("/")
-    }
-}
-
 const getProductsById = async (req, res) => {
     try {
         const id = req.params.id
@@ -183,7 +169,6 @@ const deleteProductById = async (req, res) => {
 module.exports = {
     getProducts,
     getAllProducts,
-    showProducts_withLimit,
     getProductsById,
     getProductsByCategory,
     getProductsByColor,
